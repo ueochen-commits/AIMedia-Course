@@ -361,7 +361,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">现在开始，成为一人公司</h2>
           <p className="text-white/70 text-lg mb-10">学完能独立做产品并推广变现</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#pricing" className="btn bg-white text-[#1A1A2E] hover:bg-white/90 text-lg px-10 py-4 inline-flex">
+            <a href="#pricing" className="btn bg-white text-[#1A1A2E] hover:bg-gray-100 text-lg px-10 py-4 font-semibold" style={{ color: '#1A1A2E' }}>
               立即加入
             </a>
             <a href="#outline" className="btn border border-white/30 text-white hover:bg-white/10 text-lg px-10 py-4 inline-flex">
