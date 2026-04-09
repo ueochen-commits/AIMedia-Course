@@ -128,7 +128,7 @@ export default function Home() {
             <p className="text-[#666]">每个板块学完都能产出实际成果</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
             {/* AI板块 */}
             <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
               <div className="p-5 border-b border-[#E8E8E8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
