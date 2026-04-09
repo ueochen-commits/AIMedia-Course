@@ -3,8 +3,8 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI自媒体课程 - 从零到用AI做产品",
-  description: "体系化的AI入门与自媒体创业学习路径，帮助AI零基础用户快速上手AI工具",
+  title: "一人公司 - AI创业平台",
+  description: "从零到用AI做产品 + 自媒体推广 = 一人公司。体系化的AI入门与自媒体创业学习路径",
 };
 
 export default function RootLayout({
@@ -14,12 +14,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className="min-h-screen flex flex-col">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className="min-h-screen flex flex-col scroll-smooth">
         {/* Navigation */}
-        <nav className="sticky top-0 bg-white border-b border-[#E8E8E8] backdrop-blur-md" style={{ backdropFilter: 'blur(8px)' }}>
+        <nav className="sticky top-0 bg-white border-b border-[#E8E8E8] z-50">
           <div className="container h-16 flex items-center justify-between">
-            <Link href="/" className="text-xl font-semibold">
-              AI课程
+            <Link href="/" className="text-xl font-bold tracking-tight hover:opacity-80 transition">
+              一人公司
             </Link>
             <div className="flex items-center gap-8">
               <Link href="/courses" className="text-[#666] hover:text-[#1A1A2E] transition">

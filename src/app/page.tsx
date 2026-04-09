@@ -1,27 +1,42 @@
 import Link from "next/link";
+import { Sparkles, Rocket, TrendingUp, Users, BookOpen, ArrowRight, Zap, Target, Award } from "lucide-react";
 
 export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#1A1A2E]/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1A1A2E]/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              从零到用AI做产品
+            {/* 标签 */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#666] mb-8 animate-fade-in">
+              <Sparkles className="w-4 h-4" />
+              <span>一人公司 = AI做产品 + 自媒体推广</span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 animate-fade-in-up delay-100">
+              从零到用AI<br className="md:hidden" /> 做产品
             </h1>
-            <p className="text-xl text-[#666] mb-10">
-              体系化的AI入门与自媒体创业学习路径，帮助AI零基础用户快速上手AI工具
+            <p className="text-xl text-[#666] mb-10 animate-fade-in-up delay-200">
+              体系化的AI入门与自媒体创业学习路径，<br className="hidden md:block" />
+              学会做产品 + 学会推广 = 一人公司
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <a href="#course-cards" className="btn btn-primary">
-                立即购买
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up delay-300">
+              <a href="#course-cards" className="btn btn-primary group">
+                立即加入
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="#outline" className="btn btn-secondary">
-                查看课程大纲
+                了解课程
               </a>
             </div>
-            <p className="text-sm text-[#666]">
+            <p className="text-sm text-[#666] animate-fade-in-up delay-400">
               微信咨询：luren-ai（备注"课程"）
             </p>
           </div>
@@ -31,17 +46,23 @@ export default function Home() {
       {/* Social Proof */}
       <section className="py-12 bg-[#F7F6F3]">
         <div className="container">
-          <div className="flex flex-wrap justify-center gap-12 text-center">
-            <div>
-              <div className="text-3xl font-bold">50万+</div>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+            <div className="text-center animate-fade-in-up">
+              <div className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
+                <Users className="w-6 h-6" /> 50万+
+              </div>
               <div className="text-[#666] text-sm">全网粉丝</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold">100+</div>
+            <div className="text-center animate-fade-in-up delay-100">
+              <div className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
+                <Users className="w-6 h-6" /> 100+
+              </div>
               <div className="text-[#666] text-sm">学员</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold">2个</div>
+            <div className="text-center animate-fade-in-up delay-200">
+              <div className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
+                <Award className="w-6 h-6" /> 2个
+              </div>
               <div className="text-[#666] text-sm">板块课程</div>
             </div>
           </div>
