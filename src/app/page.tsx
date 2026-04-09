@@ -350,15 +350,21 @@ export default function Home() {
       </section>
 
       {/* ==================== 最后CTA ==================== */}
-      <section className="py-16 bg-[#1A1A2E] text-white text-center">
-        <div className="container">
-          <h2 className="text-2xl font-bold mb-4">现在开始，成为一人公司</h2>
-          <p className="text-white/70 mb-8">学完能独立做产品并推广变现</p>
+      <section className="py-20 bg-[#1A1A2E] text-white text-center relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container relative">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">现在开始，成为一人公司</h2>
+          <p className="text-white/70 text-lg mb-10">学完能独立做产品并推广变现</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#pricing" className="btn bg-white text-[#1A1A2E] text-lg px-8">
+            <a href="#pricing" className="btn bg-white text-[#1A1A2E] hover:bg-white/90 text-lg px-10 py-4 inline-flex">
               立即加入
             </a>
-            <a href="#outline" className="btn border-white text-white text-lg px-8">
+            <a href="#outline" className="btn border border-white/30 text-white hover:bg-white/10 text-lg px-10 py-4 inline-flex">
               了解更多
             </a>
           </div>
