@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, Rocket, TrendingUp, Users, BookOpen, ArrowRight, Zap, Target, Award, PlayCircle, CheckCircle } from "lucide-react";
+import { Sparkles, Rocket, TrendingUp, Users, ArrowRight, Target, Award, PlayCircle, CheckCircle, GraduationCap, Megaphone } from "lucide-react";
 
 export default function Home() {
   return (
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Course Outline - 优化版 */}
+      {/* Course Outline - 优化版 - 左右并列 */}
       <section className="py-24 bg-[#F7F6F3]" id="outline">
         <div className="container">
           <div className="text-center mb-12">
@@ -122,20 +122,17 @@ export default function Home() {
             <p className="text-[#666]">学完能做出自己的产品，这才是真正的学习</p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
-            {/* AI板块 - 带目标 */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* AI板块 */}
             <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
-              <div className="p-6 border-b border-[#E8E8E8]">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#1A1A2E] rounded-lg flex items-center justify-center">
-                      <Zap className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold">AI 板块</h3>
+              <div className="p-6 border-b border-[#E8E8E8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
+                <div className="flex items-center gap-3">
+                  <GraduationCap className="w-8 h-8 text-white" />
+                  <div>
+                    <h3 className="text-xl font-bold text-white">AI 板块</h3>
+                    <p className="text-white/70 text-sm">学完能独立开发一个完整的AI产品</p>
                   </div>
-                  <span className="text-sm text-[#666]">12节 · ¥499</span>
                 </div>
-                <p className="text-[#666] text-sm">学完能独立开发一个完整的AI产品</p>
               </div>
               <div className="divide-y divide-[#E8E8E8]">
                 {[
@@ -147,7 +144,7 @@ export default function Home() {
                   <details key={idx} className="group">
                     <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#F7F6F3] transition list-none">
                       <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-[#F7F6F3] text-xs flex items-center justify-center">{idx + 1}</span>
+                        <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">{idx + 1}</span>
                         <span className="font-medium">{item.module}</span>
                       </div>
                       <ArrowRight className="w-4 h-4 text-[#666] group-open:rotate-90 transition-transform" />
@@ -169,21 +166,26 @@ export default function Home() {
                   </details>
                 ))}
               </div>
+              <div className="p-4 border-t border-[#E8E8E8] bg-[#F7F6F3]">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold">¥499</span>
+                  <Link href="/courses/ai" className="btn btn-primary text-sm py-2">
+                    查看详情
+                  </Link>
+                </div>
+              </div>
             </div>
 
             {/* 自媒体板块 */}
             <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
-              <div className="p-6 border-b border-[#E8E8E8]">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#1A1A2E] rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold">自媒体板块</h3>
+              <div className="p-6 border-b border-[#E8E8E8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
+                <div className="flex items-center gap-3">
+                  <Megaphone className="w-8 h-8 text-white" />
+                  <div>
+                    <h3 className="text-xl font-bold text-white">自媒体板块</h3>
+                    <p className="text-white/70 text-sm">学完能独立运营自媒体并实现变现</p>
                   </div>
-                  <span className="text-sm text-[#666]">12节 · ¥499</span>
                 </div>
-                <p className="text-[#666] text-sm">学完能独立运营自媒体并实现变现</p>
               </div>
               <div className="divide-y divide-[#E8E8E8]">
                 {[
@@ -195,7 +197,7 @@ export default function Home() {
                   <details key={idx} className="group">
                     <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#F7F6F3] transition list-none">
                       <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-[#F7F6F3] text-xs flex items-center justify-center">{idx + 1}</span>
+                        <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">{idx + 1}</span>
                         <span className="font-medium">{item.module}</span>
                       </div>
                       <ArrowRight className="w-4 h-4 text-[#666] group-open:rotate-90 transition-transform" />
@@ -216,6 +218,14 @@ export default function Home() {
                     </div>
                   </details>
                 ))}
+              </div>
+              <div className="p-4 border-t border-[#E8E8E8] bg-[#F7F6F3]">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold">¥499</span>
+                  <Link href="/courses/media" className="btn btn-primary text-sm py-2">
+                    查看详情
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
