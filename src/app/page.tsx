@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, Rocket, TrendingUp, Users, BookOpen, ArrowRight, Zap, Target, Award } from "lucide-react";
+import { Sparkles, Rocket, TrendingUp, Users, BookOpen, ArrowRight, Zap, Target, Award, PlayCircle, CheckCircle } from "lucide-react";
 
 export default function Home() {
   return (
@@ -114,39 +114,110 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Course Outline */}
+      {/* Course Outline - 优化版 */}
       <section className="py-24 bg-[#F7F6F3]" id="outline">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">课程大纲</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">课程大纲</h2>
+            <p className="text-[#666]">学完能做出自己的产品，这才是真正的学习</p>
+          </div>
 
-          <div className="max-w-2xl mx-auto space-y-4">
-            {/* AI板块 */}
-            <details className="card">
-              <summary className="flex items-center justify-between cursor-pointer font-semibold list-none">
-                <span>AI 板块</span>
-                <span className="text-[#666] text-sm">12节课程</span>
-              </summary>
-              <div className="mt-4 pt-4 border-t border-[#E8E8E8] space-y-2 text-sm text-[#666]">
-                <div>模块一：入门准备（科学上网、注册账号、虚拟卡）</div>
-                <div>模块二：AI工具基础（主流大模型、提示词工程、Markdown）</div>
-                <div>模块三：AI进阶应用（知识库、图片生成、视频生成）</div>
-                <div>模块四：用AI开发产品（GitHub、Cursor开发、App开发）</div>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {/* AI板块 - 带目标 */}
+            <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+              <div className="p-6 border-b border-[#E8E8E8]">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#1A1A2E] rounded-lg flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold">AI 板块</h3>
+                  </div>
+                  <span className="text-sm text-[#666]">12节 · ¥499</span>
+                </div>
+                <p className="text-[#666] text-sm">学完能独立开发一个完整的AI产品</p>
               </div>
-            </details>
+              <div className="divide-y divide-[#E8E8E8]">
+                {[
+                  { module: "模块一：入门准备", lessons: ["科学上网搭建", "ChatGPT/Claude/Gemini账号注册", "虚拟卡开通"], goal: "解决AI工具的入门门槛" },
+                  { module: "模块二：AI工具基础", lessons: ["主流大模型对比分析", "提示词工程实战", "Markdown/JSON进阶"], goal: "掌握与AI高效对话的能力" },
+                  { module: "模块三：AI进阶应用", lessons: ["Notion知识库搭建", "AI图片生成", "AI视频制作"], goal: "能用AI提升工作效率" },
+                  { module: "模块四：用AI开发产品", lessons: ["GitHub代码管理", "Cursor开发实战", "Vibe Coding做小程序"], goal: "独立完成一个产品" },
+                ].map((item, idx) => (
+                  <details key={idx} className="group">
+                    <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#F7F6F3] transition list-none">
+                      <div className="flex items-center gap-3">
+                        <span className="w-6 h-6 rounded-full bg-[#F7F6F3] text-xs flex items-center justify-center">{idx + 1}</span>
+                        <span className="font-medium">{item.module}</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#666] group-open:rotate-90 transition-transform" />
+                    </summary>
+                    <div className="px-4 pb-4">
+                      <div className="pl-9 space-y-2">
+                        {item.lessons.map((lesson, i) => (
+                          <div key={i} className="flex items-center gap-2 text-sm text-[#666]">
+                            <PlayCircle className="w-3 h-3 text-green-500" /> {lesson}
+                          </div>
+                        ))}
+                        <div className="mt-3 pt-3 border-t border-[#E8E8E8]">
+                          <span className="text-xs text-green-600 flex items-center gap-1">
+                            <Target className="w-3 h-3" /> 学会{item.goal}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
 
             {/* 自媒体板块 */}
-            <details className="card">
-              <summary className="flex items-center justify-between cursor-pointer font-semibold list-none">
-                <span>自媒体板块</span>
-                <span className="text-[#666] text-sm">12节课程</span>
-              </summary>
-              <div className="mt-4 pt-4 border-t border-[#E8E8E8] space-y-2 text-sm text-[#666]">
-                <div>模块一：自媒体认知与定位（一人公司、内容定位、Build in Public）</div>
-                <div>模块二：内容创作方法论（爆款结构、脚本写作、封面设计）</div>
-                <div>模块三：平台运营策略（算法逻辑、多平台发布、私域运营）</div>
-                <div>模块四：变现体系搭建（变现方式、产品设计、案例复盘）</div>
+            <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+              <div className="p-6 border-b border-[#E8E8E8]">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#1A1A2E] rounded-lg flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold">自媒体板块</h3>
+                  </div>
+                  <span className="text-sm text-[#666]">12节 · ¥499</span>
+                </div>
+                <p className="text-[#666] text-sm">学完能独立运营自媒体并实现变现</p>
               </div>
-            </details>
+              <div className="divide-y divide-[#E8E8E8]">
+                {[
+                  { module: "模块一：认知与定位", lessons: ["一人公司商业模式", "内容定位方法", "Build in Public"], goal: "找到适合自己的创业方向" },
+                  { module: "模块二：内容创作", lessons: ["爆款文案结构", "脚本写作技巧", "封面设计法则"], goal: "具备持续输出能力" },
+                  { module: "模块三：平台运营", lessons: ["抖音/小红书算法", "多平台分发", "私域引流"], goal: "掌握流量获取方法" },
+                  { module: "模块四：变现体系", lessons: ["知识付费设计", "产品矩阵搭建", "真实案例复盘"], goal: "实现持续变现" },
+                ].map((item, idx) => (
+                  <details key={idx} className="group">
+                    <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#F7F6F3] transition list-none">
+                      <div className="flex items-center gap-3">
+                        <span className="w-6 h-6 rounded-full bg-[#F7F6F3] text-xs flex items-center justify-center">{idx + 1}</span>
+                        <span className="font-medium">{item.module}</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#666] group-open:rotate-90 transition-transform" />
+                    </summary>
+                    <div className="px-4 pb-4">
+                      <div className="pl-9 space-y-2">
+                        {item.lessons.map((lesson, i) => (
+                          <div key={i} className="flex items-center gap-2 text-sm text-[#666]">
+                            <PlayCircle className="w-3 h-3 text-green-500" /> {lesson}
+                          </div>
+                        ))}
+                        <div className="mt-3 pt-3 border-t border-[#E8E8E8]">
+                          <span className="text-xs text-green-600 flex items-center gap-1">
+                            <Target className="w-3 h-3" /> 学会{item.goal}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -154,7 +225,8 @@ export default function Home() {
       {/* About Section */}
       <section className="py-24">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">关于创始人</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">关于创始人</h2>
+          <p className="text-[#666] text-center mb-12">用真实结果，为结果代言</p>
           <div className="max-w-2xl mx-auto">
             <div className="card">
               <h3 className="text-xl font-semibold mb-4">路人</h3>
