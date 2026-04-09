@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Mail, Lock, ArrowRight, AlertCircle, CheckCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -11,22 +13,35 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
     setLoading(true);
 
     try {
-      // 模拟登录/注册（后续需要集成 Supabase Auth）
-      console.log("Submit:", { email, password, isLogin });
-
-      // 模拟成功
-      setTimeout(() => {
+      if (isLogin) {
+        // 登录
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        if (error) throw error;
         router.push("/user");
-      }, 1000);
-    } catch (err) {
-      setError("操作失败，请重试");
+      } else {
+        // 注册
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+        });
+        if (error) throw error;
+        setSuccess("注册成功！请查看邮箱验证，然后登录。");
+        setIsLogin(true);
+      }
+    } catch (err: any) {
+      setError(err.message || "操作失败，请重试");
     } finally {
       setLoading(false);
     }
@@ -48,38 +63,55 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2">邮箱</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 border border-[#E8E8E8] rounded-lg focus:outline-none focus:border-[#1A1A2E]"
-                placeholder="your@email.com"
-                required
-              />
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666]" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-3 pl-10 border border-[#E8E8E8] rounded-lg focus:outline-none focus:border-[#1A1A2E]"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium mb-2">密码</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-3 border border-[#E8E8E8] rounded-lg focus:outline-none focus:border-[#1A1A2E]"
-                placeholder="至少6位"
-                required
-              />
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666]" />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full p-3 pl-10 border border-[#E8E8E8] rounded-lg focus:outline-none focus:border-[#1A1A2E]"
+                  placeholder="至少6位"
+                  required
+                />
+              </div>
             </div>
 
             {error && (
-              <div className="text-red-500 text-sm">{error}</div>
+              <div className="flex items-center gap-2 text-red-500 text-sm">
+                <AlertCircle className="w-4 h-4" />
+                {error}
+              </div>
+            )}
+
+            {success && (
+              <div className="flex items-center gap-2 text-green-500 text-sm">
+                <CheckCircle className="w-4 h-4" />
+                {success}
+              </div>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="btn btn-primary w-full disabled:opacity-50"
+              className="btn btn-primary w-full disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {loading ? "处理中..." : isLogin ? "登录" : "注册"}
+              <ArrowRight className="w-4 h-4" />
             </button>
           </form>
 
@@ -106,6 +138,15 @@ export default function LoginPage() {
               </>
             )}
           </div>
+        </div>
+
+        {/* 微信咨询 */}
+        <div className="mt-6 p-4 bg-[#F7F6F3] rounded-lg text-center">
+          <p className="text-sm text-[#666] mb-2">
+            支付遇到问题？微信咨询
+          </p>
+          <p className="font-medium">luren-ai</p>
+          <p className="text-xs text-[#666]">（备注"课程"）</p>
         </div>
 
         <p className="text-center text-xs text-[#666] mt-6">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft, BookOpen, Play, CheckCircle, Clock, Users } from "lucide-react";
 
 export default function CoursesPage() {
   const aiCourses = [
@@ -75,14 +76,24 @@ export default function CoursesPage() {
     <div>
       <section className="py-16">
         <div className="container">
+          {/* 面包屑导航 */}
+          <div className="flex items-center gap-2 text-sm text-[#666] mb-6">
+            <Link href="/" className="hover:text-[#1A1A2E]">首页</Link>
+            <span>/</span>
+            <span className="text-[#1A1A2E]">课程</span>
+          </div>
+
           <h1 className="text-4xl font-bold mb-4">课程列表</h1>
           <p className="text-[#666] mb-12">选择你感兴趣的板块，开始学习</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI 板块 */}
             <div className="card">
-              <div className="flex items-center justify-between mb-6">
-                <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-[#1A1A2E] rounded-lg flex items-center justify-center">
+                  <BookOpen className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
                   <h2 className="text-2xl font-semibold">AI 板块</h2>
                   <p className="text-[#666] text-sm">12节课程</p>
                 </div>
@@ -92,8 +103,9 @@ export default function CoursesPage() {
               <div className="space-y-4">
                 {aiCourses.map((module, idx) => (
                   <details key={idx} className="border border-[#E8E8E8] rounded-lg">
-                    <summary className="p-4 cursor-pointer font-semibold list-none">
-                      {module.module}
+                    <summary className="p-4 cursor-pointer font-semibold list-none flex items-center justify-between">
+                      <span>{module.module}</span>
+                      <span className="text-sm text-[#666]">{module.lessons.length}节</span>
                     </summary>
                     <div className="px-4 pb-4 space-y-2">
                       {module.lessons.map((lesson, i) => (
@@ -101,7 +113,10 @@ export default function CoursesPage() {
                           key={i}
                           className="flex items-center justify-between py-2 border-t border-[#E8E8E8]"
                         >
-                          <span className="text-sm">{lesson.name}</span>
+                          <span className="flex items-center gap-2 text-sm">
+                            <Play className="w-3 h-3 text-green-500" />
+                            {lesson.name}
+                          </span>
                           <span className="text-xs text-[#666]">{lesson.duration}</span>
                         </div>
                       ))}
@@ -111,14 +126,19 @@ export default function CoursesPage() {
               </div>
 
               <div className="mt-6">
-                <button className="btn btn-primary w-full">立即购买</button>
+                <Link href="/courses/ai" className="btn btn-primary w-full">
+                  查看详情
+                </Link>
               </div>
             </div>
 
             {/* 自媒体板块 */}
             <div className="card">
-              <div className="flex items-center justify-between mb-6">
-                <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-[#1A1A2E] rounded-lg flex items-center justify-center">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
                   <h2 className="text-2xl font-semibold">自媒体板块</h2>
                   <p className="text-[#666] text-sm">12节课程</p>
                 </div>
@@ -128,8 +148,9 @@ export default function CoursesPage() {
               <div className="space-y-4">
                 {mediaCourses.map((module, idx) => (
                   <details key={idx} className="border border-[#E8E8E8] rounded-lg">
-                    <summary className="p-4 cursor-pointer font-semibold list-none">
-                      {module.module}
+                    <summary className="p-4 cursor-pointer font-semibold list-none flex items-center justify-between">
+                      <span>{module.module}</span>
+                      <span className="text-sm text-[#666]">{module.lessons.length}节</span>
                     </summary>
                     <div className="px-4 pb-4 space-y-2">
                       {module.lessons.map((lesson, i) => (
@@ -137,7 +158,10 @@ export default function CoursesPage() {
                           key={i}
                           className="flex items-center justify-between py-2 border-t border-[#E8E8E8]"
                         >
-                          <span className="text-sm">{lesson.name}</span>
+                          <span className="flex items-center gap-2 text-sm">
+                            <Play className="w-3 h-3 text-green-500" />
+                            {lesson.name}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -146,7 +170,9 @@ export default function CoursesPage() {
               </div>
 
               <div className="mt-6">
-                <button className="btn btn-primary w-full">立即购买</button>
+                <Link href="/courses/media" className="btn btn-primary w-full">
+                  查看详情
+                </Link>
               </div>
             </div>
           </div>

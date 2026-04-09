@@ -13,14 +13,17 @@ export default function Home() {
             <p className="text-xl text-[#666] mb-10">
               体系化的AI入门与自媒体创业学习路径，帮助AI零基础用户快速上手AI工具
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/courses" className="btn btn-primary">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <a href="#course-cards" className="btn btn-primary">
                 立即购买
-              </Link>
-              <Link href="/courses" className="btn btn-secondary">
-                查看课程
-              </Link>
+              </a>
+              <a href="#outline" className="btn btn-secondary">
+                查看课程大纲
+              </a>
             </div>
+            <p className="text-sm text-[#666]">
+              微信咨询：luren-ai（备注"课程"）
+            </p>
           </div>
         </div>
       </section>
@@ -46,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* Course Products */}
-      <section className="py-24">
+      <section className="py-24" id="course-cards">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">课程板块</h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -91,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* Course Outline */}
-      <section className="py-24 bg-[#F7F6F3]">
+      <section className="py-24 bg-[#F7F6F3]" id="outline">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">课程大纲</h2>
 

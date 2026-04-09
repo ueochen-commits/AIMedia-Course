@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useParams } from "next/navigation";
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+import { ArrowLeft, Play, Check, Lock } from "lucide-react";
 
 const courseData: Record<string, any> = {
   ai: {
@@ -108,13 +110,35 @@ export default function CourseDetailPage() {
 
   return (
     <div>
-      <section className="py-16">
+      <section className="py-8">
         <div className="container">
+          {/* 面包屑导航 */}
+          <div className="flex items-center gap-2 text-sm text-[#666] mb-6">
+            <Link href="/" className="hover:text-[#1A1A2E]">首页</Link>
+            <span>/</span>
+            <Link href="/courses" className="hover:text-[#1A1A2E]">课程</Link>
+            <span>/</span>
+            <span className="text-[#1A1A2E]">{course.name}</span>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* 课程内容 */}
             <div className="md:col-span-2">
               <h1 className="text-4xl font-bold mb-4">{course.name}</h1>
               <p className="text-[#666] mb-8">{course.description}</p>
+
+              {/* 试看提示 */}
+              <div className="bg-[#F7F6F3] rounded-lg p-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#1A1A2E] rounded-full flex items-center justify-center">
+                    <Play className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-medium">免费试看</div>
+                    <div className="text-sm text-[#666]">每个板块前2节课免费试看</div>
+                  </div>
+                </div>
+              </div>
 
               {!isFullCourse && (
                 <div className="space-y-4">
@@ -130,13 +154,17 @@ export default function CourseDetailPage() {
                         {module.lessons.map((lesson: any, i: number) => (
                           <div
                             key={i}
-                            className="flex items-center justify-between py-2 border-t border-[#E8E8E8]"
+                            className="flex items-center justify-between py-3 border-t border-[#E8E8E8]"
                           >
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-3">
                               {lesson.free || hasPurchased ? (
-                                <span className="text-green-500">✓</span>
+                                <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">
+                                  <Check className="w-3 h-3" />
+                                </span>
                               ) : (
-                                <span className="text-[#666]">🔒</span>
+                                <span className="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center">
+                                  <Lock className="w-3 h-3" />
+                                </span>
                               )}
                               <span className="text-sm">{lesson.name}</span>
                             </div>
