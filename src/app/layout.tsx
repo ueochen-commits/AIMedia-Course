@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { UserMenu } from "@/components/UserMenu";
 
 export const metadata: Metadata = {
   title: "一人公司 - AI创业平台",
-  description: "从零到用AI做产品 + 自媒体推广 = 一人公司。体系化的AI入门与自媒体创业学习路径",
+  description: "从零到用AI做AI产品 + 自媒体推广 = 一人公司。体系化的AI入门与自媒体创业学习路径",
 };
 
 export default function RootLayout({
@@ -31,9 +32,7 @@ export default function RootLayout({
               <Link href="/about" className="text-[#666] hover:text-[#1A1A2E] transition">
                 关于
               </Link>
-              <Link href="/login" className="btn btn-primary">
-                登录
-              </Link>
+              <UserMenu />
             </div>
           </div>
         </nav>
