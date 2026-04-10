@@ -284,88 +284,148 @@ export default function Home() {
       </section>
 
       {/* ==================== 学完能达到什么效果 ==================== */}
-      <section className="py-20 bg-[#FBFBFA]">
-        <div className="container">
+      <section className="py-24 bg-[#1A1A2E] relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#1A1A2E] mb-3">学完能达到什么效果</h2>
-            <p className="text-[#666]">从入门到实战，每一步都有实实在在的成果</p>
+            <h2 className="text-4xl font-bold text-white mb-4">学完能达到什么效果</h2>
+            <p className="text-white/60 text-lg">从入门到实战，每一步都看得见成长</p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
             {/* AI 板块 */}
-            <div>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 rounded-2xl bg-[#1A1A2E] text-white flex items-center justify-center font-bold text-lg">
+            <div className="relative">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-white font-bold text-2xl">
                   AI
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[#1A1A2E]">AI 板块</h3>
-                  <p className="text-[#999] text-sm">从零基础到独立开发产品</p>
+                <div className="text-left">
+                  <h3 className="text-2xl font-bold text-white">AI 板块</h3>
+                  <p className="text-white/50">从零基础到独立开发产品</p>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">1</span>
-                    <span className="font-semibold text-[#1A1A2E]">入门</span>
-                  </div>
-                  <p className="text-[#666] text-sm">科学上网、注册ChatGPT/Claude、学会基础对话</p>
-                </div>
+              {/* 时间轴 */}
+              <div className="relative pl-8">
+                {/* 竖线 */}
+                <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/30 via-white/20 to-white/10"></div>
 
-                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">2</span>
-                    <span className="font-semibold text-[#1A1A2E]">进阶</span>
+                <div className="space-y-8">
+                  {/* 阶段1 */}
+                  <div className="relative group">
+                    <div className="absolute left-[-21px] w-4 h-4 rounded-full bg-white/20 border-2 border-white/30 group-hover:bg-white/40 group-hover:border-white transition-all duration-300"></div>
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02]">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-white/10 text-white text-sm font-medium flex items-center justify-center">01</span>
+                          <span className="text-white font-semibold text-lg">入门阶段</span>
+                        </div>
+                        <span className="text-white/40 text-sm">约5节课</span>
+                      </div>
+                      <p className="text-white/70">科学上网、注册ChatGPT/Claude、学会基础对话，能够独立与AI工具进行有效沟通</p>
+                    </div>
                   </div>
-                  <p className="text-[#666] text-sm">掌握提示词工程、AI写作/图片/视频、构建个人知识库</p>
-                </div>
 
-                <div className="bg-white rounded-xl p-5 border-l-4 border-green-500">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-green-500 text-white text-xs flex items-center justify-center">3</span>
-                    <span className="font-semibold text-[#1A1A2E]">实战成果</span>
+                  {/* 阶段2 */}
+                  <div className="relative group">
+                    <div className="absolute left-[-21px] w-4 h-4 rounded-full bg-white/20 border-2 border-white/30 group-hover:bg-white/40 group-hover:border-white transition-all duration-300"></div>
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02]">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-white/10 text-white text-sm font-medium flex items-center justify-center">02</span>
+                          <span className="text-white font-semibold text-lg">进阶阶段</span>
+                        </div>
+                        <span className="text-white/40 text-sm">约6节课</span>
+                      </div>
+                      <p className="text-white/70">掌握提示词工程、AI写作/图片/视频生成、构建个人AI知识库，工作效率提升3倍</p>
+                    </div>
                   </div>
-                  <p className="text-[#666] text-sm">用Cursor开发并上线自己的网站，真正拥有可展示的AI产品</p>
+
+                  {/* 阶段3 - 最终成果 */}
+                  <div className="relative group">
+                    <div className="absolute left-[-21px] w-4 h-4 rounded-full bg-green-400 border-2 border-green-300 shadow-[0_0_20px_rgba(74,222,128,0.5)] group-hover:shadow-[0_0_30px_rgba(74,222,128,0.7)] transition-all duration-300"></div>
+                    <div className="bg-gradient-to-r from-green-500/20 to-green-400/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 hover:border-green-400/50 transition-all duration-500 hover:scale-[1.02]">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-green-500 text-white text-sm font-medium flex items-center justify-center">03</span>
+                          <span className="text-green-400 font-semibold text-lg">实战成果</span>
+                        </div>
+                        <span className="text-green-400/80 text-sm bg-green-500/20 px-3 py-1 rounded-full">最终成果</span>
+                      </div>
+                      <p className="text-white/90">用Cursor开发并上线自己的网站，真正拥有可展示的AI产品，能够独立完成产品开发全流程</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* 自媒体板块 */}
-            <div>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 rounded-2xl bg-[#1A1A2E] text-white flex items-center justify-center font-bold text-lg">
+            <div className="relative">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-white font-bold text-2xl">
                   自媒
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[#1A1A2E]">自媒体板块</h3>
-                  <p className="text-[#999] text-sm">从0到1建立变现体系</p>
+                <div className="text-left">
+                  <h3 className="text-2xl font-bold text-white">自媒体板块</h3>
+                  <p className="text-white/50">从0到1建立变现体系</p>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">1</span>
-                    <span className="font-semibold text-[#1A1A2E]">定位</span>
-                  </div>
-                  <p className="text-[#666] text-sm">一人公司思维、找到差异化定位、建立Build in Public意识</p>
-                </div>
+              {/* 时间轴 */}
+              <div className="relative pl-8">
+                {/* 竖线 */}
+                <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/30 via-white/20 to-white/10"></div>
 
-                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">2</span>
-                    <span className="font-semibold text-[#1A1A2E]">内容</span>
+                <div className="space-y-8">
+                  {/* 阶段1 */}
+                  <div className="relative group">
+                    <div className="absolute left-[-21px] w-4 h-4 rounded-full bg-white/20 border-2 border-white/30 group-hover:bg-white/40 group-hover:border-white transition-all duration-300"></div>
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02]">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-white/10 text-white text-sm font-medium flex items-center justify-center">01</span>
+                          <span className="text-white font-semibold text-lg">定位阶段</span>
+                        </div>
+                        <span className="text-white/40 text-sm">约4节课</span>
+                      </div>
+                      <p className="text-white/70">一人公司思维、找到差异化定位、建立Build in Public意识，明确账号方向和内容策略</p>
+                    </div>
                   </div>
-                  <p className="text-[#666] text-sm">掌握爆款结构、选题方法、脚本写作、AI辅助创作、封面设计</p>
-                </div>
 
-                <div className="bg-white rounded-xl p-5 border-l-4 border-green-500">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-6 h-6 rounded-full bg-green-500 text-white text-xs flex items-center justify-center">3</span>
-                    <span className="font-semibold text-[#1A1A2E]">变现成果</span>
+                  {/* 阶段2 */}
+                  <div className="relative group">
+                    <div className="absolute left-[-21px] w-4 h-4 rounded-full bg-white/20 border-2 border-white/30 group-hover:bg-white/40 group-hover:border-white transition-all duration-300"></div>
+                    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02]">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-white/10 text-white text-sm font-medium flex items-center justify-center">02</span>
+                          <span className="text-white font-semibold text-lg">内容阶段</span>
+                        </div>
+                        <span className="text-white/40 text-sm">约6节课</span>
+                      </div>
+                      <p className="text-white/70">掌握爆款结构、选题方法、脚本写作、AI辅助创作、封面设计，能够持续产出高质量内容</p>
+                    </div>
                   </div>
-                  <p className="text-[#666] text-sm">多平台运营增长、私域引流、建立自己的变现体系实现收入</p>
+
+                  {/* 阶段3 - 最终成果 */}
+                  <div className="relative group">
+                    <div className="absolute left-[-21px] w-4 h-4 rounded-full bg-green-400 border-2 border-green-300 shadow-[0_0_20px_rgba(74,222,128,0.5)] group-hover:shadow-[0_0_30px_rgba(74,222,128,0.7)] transition-all duration-300"></div>
+                    <div className="bg-gradient-to-r from-green-500/20 to-green-400/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 hover:border-green-400/50 transition-all duration-500 hover:scale-[1.02]">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-green-500 text-white text-sm font-medium flex items-center justify-center">03</span>
+                          <span className="text-green-400 font-semibold text-lg">变现成果</span>
+                        </div>
+                        <span className="text-green-400/80 text-sm bg-green-500/20 px-3 py-1 rounded-full">最终成果</span>
+                      </div>
+                      <p className="text-white/90">多平台运营增长、私域引流、建立自己的变现体系，实现自媒体稳定收入</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
