@@ -291,107 +291,81 @@ export default function Home() {
             <p className="text-[#666]">从入门到实战，每一步都有实实在在的成果</p>
           </div>
 
-          {/* AI 板块成长路径 */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1A1A2E] to-[#4A4A6A] flex items-center justify-center text-white font-bold text-xl">
-                AI
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+            {/* AI 板块 */}
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-[#1A1A2E] text-white flex items-center justify-center font-bold text-lg">
+                  AI
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#1A1A2E]">AI 板块</h3>
+                  <p className="text-[#999] text-sm">从零基础到独立开发产品</p>
+                </div>
               </div>
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-[#1A1A2E]">AI 板块 · 成长路径</h3>
-                <p className="text-[#999] text-sm">从零基础到独立开发产品</p>
-              </div>
-            </div>
 
-            <div className="relative">
-              {/* 竖线 */}
-              <div className="absolute left-8 top-0 bottom-0 w-px bg-[#E8E8E8]"></div>
-
-              <div className="space-y-8">
-                <div className="relative pl-20">
-                  <div className="absolute left-6 w-5 h-5 rounded-full bg-[#1A1A2E] border-4 border-white"></div>
-                  <div className="bg-white rounded-xl p-6 border border-[#F0EDE8]">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-[#1A1A2E]">阶段一：入门</span>
-                      <span className="text-xs text-[#999]">约5节课</span>
-                    </div>
-                    <p className="text-[#666] text-sm">科学上网、注册ChatGPT/Claude、学会基础对话</p>
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">1</span>
+                    <span className="font-semibold text-[#1A1A2E]">入门</span>
                   </div>
+                  <p className="text-[#666] text-sm">科学上网、注册ChatGPT/Claude、学会基础对话</p>
                 </div>
 
-                <div className="relative pl-20">
-                  <div className="absolute left-6 w-5 h-5 rounded-full bg-[#1A1A2E] border-4 border-white"></div>
-                  <div className="bg-white rounded-xl p-6 border border-[#F0EDE8]">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-[#1A1A2E]">阶段二：进阶</span>
-                      <span className="text-xs text-[#999]">约6节课</span>
-                    </div>
-                    <p className="text-[#666] text-sm">掌握提示词工程、AI写作/图片/视频生成、构建个人知识库</p>
+                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">2</span>
+                    <span className="font-semibold text-[#1A1A2E]">进阶</span>
                   </div>
+                  <p className="text-[#666] text-sm">掌握提示词工程、AI写作/图片/视频、构建个人知识库</p>
                 </div>
 
-                <div className="relative pl-20">
-                  <div className="absolute left-6 w-5 h-5 rounded-full bg-green-500 border-4 border-white"></div>
-                  <div className="bg-white rounded-xl p-6 border-2 border-green-200">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-[#1A1A2E]">阶段三：实战</span>
-                      <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded">最终成果</span>
-                    </div>
-                    <p className="text-[#666] text-sm">用Cursor开发并上线自己的网站，真正拥有可展示的AI产品</p>
+                <div className="bg-white rounded-xl p-5 border-l-4 border-green-500">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-6 h-6 rounded-full bg-green-500 text-white text-xs flex items-center justify-center">3</span>
+                    <span className="font-semibold text-[#1A1A2E]">实战成果</span>
                   </div>
+                  <p className="text-[#666] text-sm">用Cursor开发并上线自己的网站，真正拥有可展示的AI产品</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* 自媒体板块成长路径 */}
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1A1A2E] to-[#4A4A6A] flex items-center justify-center text-white font-bold text-xl">
-                自媒
+            {/* 自媒体板块 */}
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-[#1A1A2E] text-white flex items-center justify-center font-bold text-lg">
+                  自媒
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#1A1A2E]">自媒体板块</h3>
+                  <p className="text-[#999] text-sm">从0到1建立变现体系</p>
+                </div>
               </div>
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-[#1A1A2E]">自媒体板块 · 成长路径</h3>
-                <p className="text-[#999] text-sm">从0到1建立变现体系</p>
-              </div>
-            </div>
 
-            <div className="relative">
-              {/* 竖线 */}
-              <div className="absolute left-8 top-0 bottom-0 w-px bg-[#E8E8E8]"></div>
-
-              <div className="space-y-8">
-                <div className="relative pl-20">
-                  <div className="absolute left-6 w-5 h-5 rounded-full bg-[#1A1A2E] border-4 border-white"></div>
-                  <div className="bg-white rounded-xl p-6 border border-[#F0EDE8]">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-[#1A1A2E]">阶段一：定位</span>
-                      <span className="text-xs text-[#999]">约4节课</span>
-                    </div>
-                    <p className="text-[#666] text-sm">一人公司思维、找到差异化定位、建立Build in Public意识</p>
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">1</span>
+                    <span className="font-semibold text-[#1A1A2E]">定位</span>
                   </div>
+                  <p className="text-[#666] text-sm">一人公司思维、找到差异化定位、建立Build in Public意识</p>
                 </div>
 
-                <div className="relative pl-20">
-                  <div className="absolute left-6 w-5 h-5 rounded-full bg-[#1A1A2E] border-4 border-white"></div>
-                  <div className="bg-white rounded-xl p-6 border border-[#F0EDE8]">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-[#1A1A2E]">阶段二：内容</span>
-                      <span className="text-xs text-[#999]">约6节课</span>
-                    </div>
-                    <p className="text-[#666] text-sm">掌握爆款结构、选题方法、脚本写作、AI辅助创作、封面设计</p>
+                <div className="bg-white rounded-xl p-5 border-l-4 border-[#1A1A2E]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white text-xs flex items-center justify-center">2</span>
+                    <span className="font-semibold text-[#1A1A2E]">内容</span>
                   </div>
+                  <p className="text-[#666] text-sm">掌握爆款结构、选题方法、脚本写作、AI辅助创作、封面设计</p>
                 </div>
 
-                <div className="relative pl-20">
-                  <div className="absolute left-6 w-5 h-5 rounded-full bg-green-500 border-4 border-white"></div>
-                  <div className="bg-white rounded-xl p-6 border-2 border-green-200">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-[#1A1A2E]">阶段三：变现</span>
-                      <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded">最终成果</span>
-                    </div>
-                    <p className="text-[#666] text-sm">多平台运营增长、私域引流、建立自己的变现体系实现收入</p>
+                <div className="bg-white rounded-xl p-5 border-l-4 border-green-500">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-6 h-6 rounded-full bg-green-500 text-white text-xs flex items-center justify-center">3</span>
+                    <span className="font-semibold text-[#1A1A2E]">变现成果</span>
                   </div>
+                  <p className="text-[#666] text-sm">多平台运营增长、私域引流、建立自己的变现体系实现收入</p>
                 </div>
               </div>
             </div>
