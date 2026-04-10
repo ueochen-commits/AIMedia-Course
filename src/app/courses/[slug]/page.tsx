@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { Play, Lock } from "lucide-react";
 import { VideoPlayer } from "@/components/VideoPlayer";
+import { PaymentModal } from "@/components/PaymentModal";
+import { supabase } from "@/lib/supabase";
 
 // 测试视频 URL（可替换为真实的腾讯云点播地址）
 const TEST_VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
@@ -98,23 +100,48 @@ const courseData: Record<string, any> = {
 
 export default function CourseDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const slug = params.slug as string;
   const course = courseData[slug];
-  const [hasPurchased] = useState(false); // TODO: 从后端获取购买状态
+  const [user, setUser] = useState<{ email: string; id: string } | null>(null);
+  const [purchases, setPurchases] = useState<string[]>([]);
 
   // 视频播放状态
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [currentVideoTitle, setCurrentVideoTitle] = useState("");
   const [currentVideoUrl, setCurrentVideoUrl] = useState("");
 
+  // 支付弹窗状态
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+
   // 展开的模块
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
+
+  // 检查购买状态
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  const checkUser = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      setUser({ email: user.email || "", id: user.id });
+      // 获取购买记录
+      const { data: purchases } = await supabase
+        .from("purchases")
+        .select("course_id")
+        .eq("user_id", user.id)
+        .eq("payment_status", "completed");
+      if (purchases) setPurchases(purchases.map(p => p.course_id));
+    }
+  };
+
+  const hasPurchased = purchases.includes(slug) || purchases.includes("full");
 
   // 点击免费试看：展开第一个模块并滚动到课程列表
   const handleFreePreview = () => {
     if (!isFullCourse) {
       setExpandedModule(0);
-      // 滚动到课程列表
       setTimeout(() => {
         document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
@@ -128,6 +155,21 @@ export default function CourseDetailPage() {
       setCurrentVideoUrl(lesson.videoUrl || TEST_VIDEO_URL);
       setIsVideoOpen(true);
     }
+  };
+
+  // 点击购买
+  const handleBuy = () => {
+    if (!user) {
+      router.push("/login");
+      return;
+    }
+    setIsPaymentOpen(true);
+  };
+
+  // 支付成功回调
+  const handlePaymentSuccess = () => {
+    checkUser(); // 刷新购买状态
+    setIsPaymentOpen(false);
   };
 
   if (!course) {
@@ -251,12 +293,12 @@ export default function CourseDetailPage() {
                 </p>
 
                 {hasPurchased ? (
-                  <button className="btn btn-primary w-full mb-4">
+                  <Link href="/user" className="btn btn-primary w-full mb-4 block text-center">
                     开始学习
-                  </button>
+                  </Link>
                 ) : (
                   <>
-                    <button className="btn btn-primary w-full mb-4">
+                    <button onClick={handleBuy} className="btn btn-primary w-full mb-4">
                       立即购买
                     </button>
                     <div className="text-sm text-[#666] space-y-2">
@@ -269,10 +311,7 @@ export default function CourseDetailPage() {
 
                 <div className="mt-6 pt-6 border-t border-[#E8E8E8]">
                   <p className="text-sm text-[#666]">
-                    <span className="text-green-500">✓</span> 支持微信/支付宝支付
-                  </p>
-                  <p className="text-sm text-[#666] mt-2">
-                    <span className="text-green-500">✓</span> 3分钟试看免费
+                    <span className="text-green-500">✓</span> 支持支付宝支付
                   </p>
                 </div>
               </div>
@@ -288,6 +327,17 @@ export default function CourseDetailPage() {
         isOpen={isVideoOpen}
         onClose={() => setIsVideoOpen(false)}
       />
+
+      {/* 支付弹窗 */}
+      {course && (
+        <PaymentModal
+          isOpen={isPaymentOpen}
+          onClose={() => setIsPaymentOpen(false)}
+          course={{ id: slug, name: course.name, price: course.price }}
+          userEmail={user?.email || null}
+          onSuccess={handlePaymentSuccess}
+        />
+      )}
     </div>
   );
 }
