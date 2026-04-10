@@ -139,7 +139,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <p className="text-[#666] mb-5">从零基础到用AI开发产品，掌握主流AI工具，具备Vibe Coding能力</p>
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3">
                   {[
                     { module: "模块一：入门准备", lessons: "科学上网、谷歌账号、ChatGPT、Claude注册" },
                     { module: "模块二：AI工具基础", lessons: "主流模型对比、提示词工程、AI写作/图片/视频生成" },
@@ -156,11 +156,6 @@ export default function Home() {
                       </div>
                     </div>
                   ))}
-                </div>
-                {/* 学完能做什么 */}
-                <div className="bg-[#F7F6F3] rounded-xl p-4">
-                  <div className="text-sm font-semibold text-[#1A1A2E] mb-2">学完能做什么</div>
-                  <div className="text-sm text-[#666]">独立使用ChatGPT、Claude做产品开发，搭建个人AI知识库，用Vibe Coding开发并上线自己的网站</div>
                 </div>
               </div>
               <div className="p-4 border-t border-[#F0EDE8] bg-[#FBFBFA]">
@@ -185,7 +180,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <p className="text-[#666] mb-5">从自媒体认知到变现体系搭建，掌握内容创作方法论并建立变现体系</p>
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3">
                   {[
                     { module: "模块一：认知与定位", lessons: "一人公司认知、差异化定位、Build in Public" },
                     { module: "模块二：内容创作", lessons: "爆款结构、选题方法、脚本写作、AI辅助、封面设计" },
@@ -203,11 +198,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                {/* 学完能做什么 */}
-                <div className="bg-[#F7F6F3] rounded-xl p-4">
-                  <div className="text-sm font-semibold text-[#1A1A2E] mb-2">学完能做什么</div>
-                  <div className="text-sm text-[#666]">独立完成账号定位、内容策划、脚本写作、拍摄剪辑，建立自己的变现体系，实现自媒体收入</div>
-                </div>
               </div>
               <div className="p-4 border-t border-[#F0EDE8] bg-[#FBFBFA]">
                 <Link href="/courses/media" className="flex items-center justify-center gap-2 text-[#1A1A2E] font-medium hover:text-[#4A4A6A] transition-colors">
@@ -224,6 +214,62 @@ export default function Home() {
                 查看全套课程（含商业思维）
               </Link>
               <p className="text-sm text-[#999] mt-3">AI + 自媒体 + 商业思维 = 完整的AI一人公司能力体系</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== 学完能达到什么效果 ==================== */}
+      <section className="py-20">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1A1A2E] mb-3">学完能达到什么效果</h2>
+            <p className="text-[#666]">每个板块学完都能独立完成实际工作</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
+              <div className="w-14 h-14 rounded-2xl bg-[#1A1A2E] flex items-center justify-center mb-5">
+                <GraduationCap className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#1A1A2E] mb-3">AI 板块</h3>
+              <p className="text-[#666] mb-5">从零基础到独立开发产品</p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded bg-green-50 text-green-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-[#1A1A2E]">独立使用 ChatGPT、Claude 做产品开发</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded bg-green-50 text-green-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-[#1A1A2E]">搭建个人 AI 知识库，提升工作效率</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded bg-green-50 text-green-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-[#1A1A2E]">用 Vibe Coding 开发并上线自己的网站</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
+              <div className="w-14 h-14 rounded-2xl bg-[#1A1A2E] flex items-center justify-center mb-5">
+                <Megaphone className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#1A1A2E] mb-3">自媒体板块</h3>
+              <p className="text-[#666] mb-5">从0到1建立变现体系</p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded bg-green-50 text-green-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-[#1A1A2E]">独立完成账号定位、内容策划与脚本写作</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded bg-green-50 text-green-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-[#1A1A2E]">掌握拍摄剪辑技巧，提升内容质量</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded bg-green-50 text-green-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-[#1A1A2E]">建立私域流量，实现自媒体收入</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
