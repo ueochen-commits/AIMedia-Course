@@ -439,35 +439,68 @@ export default function Home() {
       </section>
 
       {/* ==================== 创始人背书 ==================== */}
-      <section className="py-20 bg-[#FBFBFA]">
+      <section className="py-20">
         <div className="container">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#1A1A2E] text-center mb-10">关于创始人</h2>
-            <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 8px 32px rgba(26, 26, 46, 0.06)' }}>
-              <div className="flex items-center gap-5 mb-6">
-                <div className="w-20 h-20 bg-[#F7F6F3] rounded-2xl flex items-center justify-center">
-                  <Rocket className="w-10 h-10 text-[#1A1A2E]" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-[#1A1A2E]">路人</h3>
-                  <p className="text-[#999]">一人公司创始人</p>
+            {/* eyebrow */}
+            <div className="text-center mb-6">
+              <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">关于创始人</span>
+            </div>
+
+            {/* 主标题 */}
+            <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
+              路人是谁
+            </h2>
+
+            {/* 大卡片 */}
+            <div className="bg-white border border-[rgba(0,0,0,0.1)] rounded-xl overflow-hidden">
+              {/* 顶部 header 区 */}
+              <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
+                <div className="flex items-center gap-4">
+                  {/* 左侧方形 avatar */}
+                  <div className="w-16 h-16 bg-[#f5f5f5] rounded-lg flex items-center justify-center">
+                    <svg className="w-8 h-8 text-[#6b6b6b]" fill="none" viewBox="0 0 24 24" stroke="currentClient">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  {/* 右侧姓名+身份 */}
+                  <div>
+                    <div className="text-lg font-medium text-[#1a1a1a]">路人</div>
+                    <div className="text-[13px] text-[#6b6b6b]">一人公司创始人 · Build in Public</div>
+                  </div>
                 </div>
               </div>
-              <p className="text-[#666] mb-6 leading-relaxed">
-                全网粉丝接近60万的自媒体博主，2018年开始深耕多个平台，擅长各平台从零起号。英国留学9年，通过CFA一级考试。快手一周涨粉30万，小红书单日涨粉3500，公众号「Hello我是路人」持续更新。从体制内辞职后独立开发AI产品TradeGrail，全程Build in Public公开记录。
-              </p>
-              <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-[#1A1A2E]">抖音18万+粉丝</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-[#1A1A2E]">快手30万+粉丝</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-[#1A1A2E]">2个上线产品</span>
+
+              {/* 中间 bio 区 */}
+              <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
+                <p className="text-[14px] leading-[1.8] text-[#6b6b6b] font-normal">
+                  全网粉丝接近<span className="font-medium text-[#1a1a1a]">60万</span>的自媒体博主，2018年开始深耕多个平台，擅长从零起号。英国留学9年，通过<span className="font-medium text-[#1a1a1a]">CFA</span>一级考试。快手一周涨粉30万，小红书单日涨粉3500，公众号「Hello我是路人」持续更新。从体制内辞职后独立开发AI产品<span className="font-medium text-[#1a1a1a]">TradeGrail</span>，全程Build in Public公开记录。
+                </p>
+              </div>
+
+              {/* 底部 stats 区 */}
+              <div className="p-6">
+                <div className="grid grid-cols-4 gap-0">
+                  {/* 数据1 */}
+                  <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
+                    <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>18万+</div>
+                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">抖音粉丝</div>
+                  </div>
+                  {/* 数据2 */}
+                  <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
+                    <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>30万+</div>
+                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">快手粉丝</div>
+                  </div>
+                  {/* 数据3 */}
+                  <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
+                    <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>60万+</div>
+                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">全网粉丝</div>
+                  </div>
+                  {/* 数据4 */}
+                  <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
+                    <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>2个</div>
+                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">上线产品</div>
+                  </div>
                 </div>
               </div>
             </div>
