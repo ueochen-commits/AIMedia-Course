@@ -236,9 +236,9 @@ export default function Home() {
       </section>
 
       {/* ==================== 痛点共鸣 ==================== */}
-      <section className="py-20">
+      <section className="pb-8">
         <div className="container">
-          {/* 左右两栏 + 底部深色收尾条 */}
+          {/* 左右两栏 */}
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               {/* 左栏：标题区域 */}
@@ -293,16 +293,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 轻量过渡文字 */}
-            <div className="mt-6 text-center md:text-left">
-              <span className="text-[13px] text-[#a39e98]">这正是我创建这个课程的初衷 ↓</span>
+            {/* 分隔小结文字 */}
+            <div className="mt-8 border-t border-[rgba(0,0,0,0.08)] pt-6">
+              <span className="text-[15px] font-medium text-[#18181b]">这正是我创建这个课程的初衷 ↓</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ==================== 课程大纲 ==================== */}
-      <section className="py-20 mt-20" id="outline">
+      <section className="py-20 mt-10" id="outline">
         <div className="container">
           {/* 隐藏外部 eyebrow 和标题，由容器内 header 替代 */}
 
