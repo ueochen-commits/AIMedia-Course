@@ -51,9 +51,9 @@ export default function UserPage() {
   const purchasedCourseIds = purchases.map(p => p.course_id);
 
   const courses = [
-    { id: "ai", name: "AI 板块", price: 499, lessons: 12, completed: 0, purchased: purchasedCourseIds.includes('ai') },
-    { id: "media", name: "自媒体板块", price: 499, lessons: 12, completed: 0, purchased: purchasedCourseIds.includes('media') },
-    { id: "full", name: "全套课程", price: 799, lessons: 24, completed: 0, purchased: purchasedCourseIds.includes('full') },
+    { id: "ai", name: "AI 板块", price: 0.01, lessons: 12, completed: 0, purchased: purchasedCourseIds.includes('ai') },
+    { id: "media", name: "自媒体板块", price: 0.01, lessons: 12, completed: 0, purchased: purchasedCourseIds.includes('media') },
+    { id: "full", name: "全套课程", price: 0.01, lessons: 24, completed: 0, purchased: purchasedCourseIds.includes('full') },
   ];
 
   if (loading) {
