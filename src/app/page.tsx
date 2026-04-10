@@ -96,7 +96,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { num: "01", text: "学了很多AI课程，仍不知道怎么做产品" },
+              { num: "01", text: "想学AI做产品，但不知道从哪开始" },
               { num: "02", text: "做出产品后，没有人知道、卖不出去" },
               { num: "03", text: "想自媒体引流，但不懂运营方法" },
               { num: "04", text: "想一人创业，但没有系统方法论" },
