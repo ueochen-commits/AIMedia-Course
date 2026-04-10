@@ -139,7 +139,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <p className="text-[#666] mb-5">从零基础到用AI开发产品，掌握主流AI工具，具备Vibe Coding能力</p>
-                <div className="space-y-3">
+                <div className="space-y-3 mb-6">
                   {[
                     { module: "模块一：入门准备", lessons: "科学上网、谷歌账号、ChatGPT、Claude注册" },
                     { module: "模块二：AI工具基础", lessons: "主流模型对比、提示词工程、AI写作/图片/视频生成" },
@@ -156,6 +156,11 @@ export default function Home() {
                       </div>
                     </div>
                   ))}
+                </div>
+                {/* 学完能做什么 */}
+                <div className="bg-[#F7F6F3] rounded-xl p-4">
+                  <div className="text-sm font-semibold text-[#1A1A2E] mb-2">学完能做什么</div>
+                  <div className="text-sm text-[#666]">独立使用ChatGPT、Claude做产品开发，搭建个人AI知识库，用Vibe Coding开发并上线自己的网站</div>
                 </div>
               </div>
               <div className="p-4 border-t border-[#F0EDE8] bg-[#FBFBFA]">
@@ -180,7 +185,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <p className="text-[#666] mb-5">从自媒体认知到变现体系搭建，掌握内容创作方法论并建立变现体系</p>
-                <div className="space-y-3">
+                <div className="space-y-3 mb-6">
                   {[
                     { module: "模块一：认知与定位", lessons: "一人公司认知、差异化定位、Build in Public" },
                     { module: "模块二：内容创作", lessons: "爆款结构、选题方法、脚本写作、AI辅助、封面设计" },
@@ -197,6 +202,11 @@ export default function Home() {
                       </div>
                     </div>
                   ))}
+                </div>
+                {/* 学完能做什么 */}
+                <div className="bg-[#F7F6F3] rounded-xl p-4">
+                  <div className="text-sm font-semibold text-[#1A1A2E] mb-2">学完能做什么</div>
+                  <div className="text-sm text-[#666]">独立完成账号定位、内容策划、脚本写作、拍摄剪辑，建立自己的变现体系，实现自媒体收入</div>
                 </div>
               </div>
               <div className="p-4 border-t border-[#F0EDE8] bg-[#FBFBFA]">
@@ -274,6 +284,60 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-green-500" />
               <span>进入学员群</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-500" />
+              <span>售前无忧咨询</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== 用户评价 ==================== */}
+      <section className="py-20">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-[#1A1A2E] text-center mb-4">学员评价</h2>
+          <p className="text-[#666] text-center mb-12">来自真实学员的反馈</p>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
+              <div className="flex items-center gap-1 mb-4">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span key={star} className="text-yellow-400">★</span>
+                ))}
+              </div>
+              <p className="text-[#666] mb-4 leading-relaxed">
+                "之前完全没接触过AI，学完课程后自己用Cursor做了个个人网站，真的太神奇了！老师讲解非常详细，适合零基础。"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#F7F6F3] rounded-full flex items-center justify-center text-[#1A1A2E] font-semibold">
+                  张*
+                </div>
+                <div>
+                  <div className="font-medium text-[#1A1A2E]">张同学</div>
+                  <div className="text-xs text-[#999]">AI板块学员</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
+              <div className="flex items-center gap-1 mb-4">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span key={star} className="text-yellow-400">★</span>
+                ))}
+              </div>
+              <p className="text-[#666] mb-4 leading-relaxed">
+                "自媒体板块帮我理清了做账号的思路，按照课程方法做了定位和内容规划，小红书一周涨了500粉，感谢路人老师！"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#F7F6F3] rounded-full flex items-center justify-center text-[#1A1A2E] font-semibold">
+                  李*
+                </div>
+                <div>
+                  <div className="font-medium text-[#1A1A2E]">李同学</div>
+                  <div className="text-xs text-[#999]">自媒体板块学员</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
