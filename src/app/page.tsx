@@ -7,13 +7,36 @@ export default function Home() {
       {/* ==================== HERO 首屏 ==================== */}
       <section className="py-20 md:py-28 relative overflow-hidden" style={{ backgroundColor: '#faf9f7' }}>
         {/* SVG 背景图 - 最底层 */}
-        <div className="absolute inset-0 z-0" style={{ opacity: 0.08 }}>
-          <img
-            src="/hero_bg_line_art.svg"
-            alt=""
-            className="w-full h-full object-cover"
-            style={{ backgroundColor: 'transparent' }}
-          />
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="w-full h-full" style={{ opacity: 0.08 }}>
+            <svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <g stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                {/* 咖啡杯 */}
+                <g transform="translate(80,90)">
+                  <path d="M0,20 Q0,35 18,35 Q36,35 36,20 L33,5 L3,5 Z" strokeWidth="1.8"/>
+                  <path d="M36,12 Q48,12 48,20 Q48,28 36,28" strokeWidth="1.8"/>
+                  <path d="M10,0 Q10,-8 16,-8 Q22,-8 22,0" strokeWidth="1.5"/>
+                  <ellipse cx="18" cy="38" rx="14" ry="3" strokeWidth="1.2"/>
+                </g>
+                {/* 小火箭 */}
+                <g transform="translate(180,55) rotate(-20)">
+                  <path d="M12,0 Q20,8 20,22 L12,30 L4,22 Q4,8 12,0Z" strokeWidth="1.8"/>
+                  <path d="M4,22 Q0,28 2,34 L8,28" strokeWidth="1.5"/>
+                  <path d="M20,22 Q24,28 22,34 L16,28" strokeWidth="1.5"/>
+                  <circle cx="12" cy="14" r="3.5" strokeWidth="1.5"/>
+                  <path d="M8,30 L16,30" strokeWidth="1.2"/>
+                </g>
+                {/* 灯泡 */}
+                <g transform="translate(290,75)">
+                  <path d="M14,0 Q28,0 28,14 Q28,24 20,28 L20,34 L8,34 L8,28 Q0,24 0,14 Q0,0 14,0Z" strokeWidth="1.8"/>
+                  <path d="M8,36 L20,36" strokeWidth="1.5"/>
+                  <path d="M9,39 L19,39" strokeWidth="1.5"/>
+                  <path d="M11,42 L17,42" strokeWidth="1.3"/>
+                  <path d="M10,18 Q14,14 18,18" strokeWidth="1.3"/>
+                </g>
+              </g>
+            </svg>
+          </div>
         </div>
 
         {/* 文字内容 - 上层 */}
