@@ -16,7 +16,7 @@ export default function Home() {
             {/* 信任标签 - 降低进入门槛 */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#666] mb-6">
               <Shield className="w-4 h-4 text-green-500" />
-              <span>已有 100+ 学员加入</span>
+              <span>内测用户 100+</span>
             </div>
 
             {/* 核心价值主张 - 一句话说明白 */}
@@ -77,7 +77,7 @@ export default function Home() {
               <div className="text-2xl md:text-3xl font-bold flex items-center justify-center gap-2">
                 <Star className="w-5 h-5 text-[#666]" /> 100+
               </div>
-              <div className="text-[#666] text-sm">付费学员</div>
+              <div className="text-[#666] text-sm">内测用户</div>
             </div>
             <div className="text-center">
               <div className="text-2xl md:text-3xl font-bold flex items-center justify-center gap-2">
@@ -145,7 +145,7 @@ export default function Home() {
                   { module: "一：入门准备", lessons: ["科学上网搭建", "ChatGPT/Claude注册", "虚拟卡开通"], goal: "解决入门门槛" },
                   { module: "二：AI工具基础", lessons: ["主流模型对比", "提示词工程", "Markdown进阶"], goal: "高效对话AI" },
                   { module: "三：AI进阶应用", lessons: ["Notion知识库", "AI图片生成", "AI视频制作"], goal: "提升工作效率" },
-                  { module: "四：用AI开发产品", lessons: ["GitHub代码管理", "Cursor开发", "Vibe Coding实战"], goal: "独立完成产品" },
+                  { module: "四：用AI开发产品", lessons: ["GitHub代码管理", "Claude Code开发", "Claude Code实战"], goal: "独立完成产品" },
                 ].map((item, idx) => (
                   <details key={idx} className="group">
                     <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-[#F7F6F3] transition list-none">
@@ -304,7 +304,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-[#666] mb-4">
-                全网50万+粉丝自媒体博主，独立开发者。已成功上线多个AI产品，知识付费月收入3-5万。致力于帮助更多人成为"一人公司"。
+                全网粉丝接近60万的自媒体博主，2018年开始深耕多个平台，擅长各平台从零起号。英国留学9年，通过CFA一级考试。快手一周涨粉30万，小红书单日涨粉3500，公众号「Hello我是路人」持续更新。从体制内辞职后独立开发AI产品TradeGrail，全程Build in Public公开记录。
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center gap-1">
@@ -313,7 +313,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-1">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span>公众号10万+</span>
+                  <span>快手30万+粉丝</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <CheckCircle className="w-4 h-4 text-green-500" />
@@ -335,7 +335,7 @@ export default function Home() {
               { q: "课程是视频吗？", a: "是的，视频课程，每节15-45分钟，附带PPT和练习材料。" },
               { q: "购买后可以随时看吗？", a: "是的，付费后永久可看，支持断点续播。" },
               { q: "有学员群吗？", a: "购买后自动拉进微信学员群，每周直播答疑。" },
-              { q: "可以分期付款吗？", a: "目前不支持分期，但有早鸟优惠码可使用。" },
+              { q: "有优惠吗？", a: "定价即最终价，没有优惠码。" },
             ].map((item, idx) => (
               <details key={idx} className="card">
                 <summary className="cursor-pointer font-medium list-none flex items-center justify-between">
@@ -373,7 +373,7 @@ export default function Home() {
 
       {/* ==================== 底部 ==================== */}
       <footer className="py-8 text-center text-sm text-[#666]">
-        <p>微信咨询：luren-ai（备注"课程"）</p>
+        <p>微信咨询：Timetravel_0（备注"课程"）</p>
         <p className="mt-2">© 2026 一人公司. All rights reserved.</p>
       </footer>
     </div>

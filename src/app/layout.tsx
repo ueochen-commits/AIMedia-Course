@@ -62,8 +62,8 @@ export default function RootLayout({
               <div>
                 <div className="font-semibold mb-4">联系方式</div>
                 <p className="text-[#666] text-sm">
-                  微信：luren-ai<br />
-                  公众号：路人AI
+                  微信：Timetravel_0<br />
+                  公众号：Hello我是路人
                 </p>
               </div>
             </div>

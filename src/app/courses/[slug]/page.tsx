@@ -45,8 +45,8 @@ const courseData: Record<string, any> = {
         name: "模块四：用AI开发产品",
         lessons: [
           { id: 10, name: "注册GitHub，配置代码仓库", duration: "约20分钟", free: false },
-          { id: 11, name: "用Cursor或Claude开发个人网页", duration: "约40分钟", free: false },
-          { id: 12, name: "Vibe Coding实战，用AI做一个App小程序", duration: "约45分钟", free: false },
+          { id: 11, name: "用Claude Code开发个人网页", duration: "约40分钟", free: false },
+          { id: 12, name: "Claude Code实战，用AI做一个App小程序", duration: "约45分钟", free: false },
         ],
       },
     ],

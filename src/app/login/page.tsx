@@ -195,7 +195,7 @@ export default function LoginPage() {
           <p className="text-sm text-[#666] mb-2">
             支付遇到问题？微信咨询
           </p>
-          <p className="font-medium">luren-ai</p>
+          <p className="font-medium">Timetravel_0</p>
           <p className="text-xs text-[#666]">（备注"课程"）</p>
         </div>
 
