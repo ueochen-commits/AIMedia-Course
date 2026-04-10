@@ -265,18 +265,19 @@ export default function Home() {
       {/* ==================== 课程大纲 ==================== */}
       <section className="py-20" id="outline">
         <div className="container">
-          {/* eyebrow */}
-          <div className="text-center mb-6">
-            <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">课程大纲</span>
-          </div>
-
-          {/* 主标题 */}
-          <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
-            两个板块 · 完整能力体系
-          </h2>
+          {/* 隐藏外部 eyebrow 和标题，由容器内 header 替代 */}
 
           {/* 两大列共享容器 */}
           <div className="max-w-4xl mx-auto bg-white border border-[rgba(0,0,0,0.1)] rounded-xl overflow-hidden">
+            {/* 深色 header 横条 - 横跨左右两列 */}
+            <div className="p-6 bg-[#18181b] flex items-center justify-between border-b border-[rgba(255,255,255,0.08)]">
+              <div>
+                <h3 className="text-[18px] font-medium text-white">课程大纲</h3>
+                <p className="text-[12px] text-white/45 mt-1">两个板块 · 共 38 节课程</p>
+              </div>
+              <span className="px-3 py-1 text-[11px] bg-white/10 text-white/60 rounded">每个板块学完即有成果</span>
+            </div>
+
             <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[rgba(0,0,0,0.1)]">
               {/* 左列：AI 板块 */}
               <div className="p-6">
@@ -301,44 +302,44 @@ export default function Home() {
                   {/* 模块 01 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 入门准备</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">科学上网</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">谷歌账号</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">ChatGPT</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Claude注册</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">科学上网</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">谷歌账号</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">ChatGPT</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Claude注册</span>
                     </div>
                   </div>
 
                   {/* 模块 02 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 AI工具基础</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">主流模型对比</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">提示词工程</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI写作</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI图片</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI视频</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">主流模型对比</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">提示词工程</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI写作</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI图片</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI视频</span>
                     </div>
                   </div>
 
                   {/* 模块 03 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">03 AI效率工具</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Obsidian知识库</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">NotebookLM</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI辅助决策</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Obsidian知识库</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">NotebookLM</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI辅助决策</span>
                     </div>
                   </div>
 
                   {/* 模块 04 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 Vibe Coding</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">GitHub</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Cursor</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">实战网页开发</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Vercel部署</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">GitHub</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Cursor</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">实战网页开发</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Vercel部署</span>
                     </div>
                   </div>
                 </div>
@@ -374,43 +375,43 @@ export default function Home() {
                   {/* 模块 01 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 认知与定位</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">一人公司认知</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">差异化定位</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Build in Public</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">一人公司认知</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">差异化定位</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Build in Public</span>
                     </div>
                   </div>
 
                   {/* 模块 02 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 内容创作</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">爆款结构</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">选题方法</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">脚本写作</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">封面设计</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">爆款结构</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">选题方法</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">脚本写作</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">封面设计</span>
                     </div>
                   </div>
 
                   {/* 模块 03 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">03 运营增长</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">多平台分发</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">评论区运营</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">私域引流</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">数据复盘</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">多平台分发</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">评论区运营</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">私域引流</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">数据复盘</span>
                     </div>
                   </div>
 
                   {/* 模块 04 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 变现实战</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">广告分成</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">知识付费</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">带货分销</span>
-                      <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">商业合作</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">广告分成</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">知识付费</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">带货分销</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">商业合作</span>
                     </div>
                   </div>
                 </div>
