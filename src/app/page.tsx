@@ -238,26 +238,70 @@ export default function Home() {
       {/* ==================== 痛点共鸣 ==================== */}
       <section className="py-20">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1A1A2E] mb-4">你是否也有这些困惑？</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {[
-              { num: "01", text: "想学AI做产品，但不知道从哪开始" },
-              { num: "02", text: "做出产品后，没有人知道、卖不出去" },
-              { num: "03", text: "想自媒体引流，但不懂运营方法" },
-              { num: "04", text: "想一人创业，但没有系统方法论" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 p-5 bg-white rounded-xl border border-[#F0EDE8] hover:shadow-lg hover:shadow-[#1A1A2E]/5 transition-all duration-300">
-                <span className="w-10 h-10 rounded-lg bg-[#F7F6F3] text-[#1A1A2E] flex items-center justify-center text-sm font-semibold flex-shrink-0">
-                  {item.num}
-                </span>
-                <span className="text-[#1A1A2E]">{item.text}</span>
+          {/* 左右两栏 + 底部深色收尾条 */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* 左栏：标题区域 */}
+              <div>
+                <span className="text-[11px] uppercase tracking-widest text-[#a39e98]">你的现状</span>
+                <h2 className="text-[36px] font-normal text-[#18181b] mt-4 mb-4" style={{ letterSpacing: '-0.8px', lineHeight: 1.15 }}>
+                  很多人<br />
+                  卡在这里，<br />
+                  你也是吗？
+                </h2>
+                <p className="text-[14px] text-[#615d59] leading-[1.8]">
+                  学了 AI 工具，却不知道怎么变现。做了内容，却没有人看。想创业，却不知道从哪下手。
+                </p>
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <p className="text-lg text-[#666]">这正是我创建这个课程的初衷</p>
+
+              {/* 右栏：痛点列表 */}
+              <div className="flex flex-col">
+                <div className="border-t border-b border-[rgba(0,0,0,0.07)]">
+                  {/* 痛点 01 */}
+                  <div className="flex items-start gap-4 py-4 border-b border-[rgba(0,0,0,0.07)]">
+                    <span className="text-[11px] text-[#c8c4be]">01</span>
+                    <div>
+                      <div className="text-[14px] font-medium text-[#18181b]">想学 AI 做产品</div>
+                      <div className="text-[12px] text-[#a39e98] mt-1">但不知道从哪开始</div>
+                    </div>
+                  </div>
+                  {/* 痛点 02 */}
+                  <div className="flex items-start gap-4 py-4 border-b border-[rgba(0,0,0,0.07)]">
+                    <span className="text-[11px] text-[#c8c4be]">02</span>
+                    <div>
+                      <div className="text-[14px] font-medium text-[#18181b]">做出产品后</div>
+                      <div className="text-[12px] text-[#a39e98] mt-1">但没有人知道、卖不出去</div>
+                    </div>
+                  </div>
+                  {/* 痛点 03 */}
+                  <div className="flex items-start gap-4 py-4 border-b border-[rgba(0,0,0,0.07)]">
+                    <span className="text-[11px] text-[#c8c4be]">03</span>
+                    <div>
+                      <div className="text-[14px] font-medium text-[#18181b]">想自媒体引流</div>
+                      <div className="text-[12px] text-[#a39e98] mt-1">但不懂运营方法</div>
+                    </div>
+                  </div>
+                  {/* 痛点 04 */}
+                  <div className="flex items-start gap-4 py-4">
+                    <span className="text-[11px] text-[#c8c4be]">04</span>
+                    <div>
+                      <div className="text-[14px] font-medium text-[#18181b]">想一人创业</div>
+                      <div className="text-[12px] text-[#a39e98] mt-1">但没有系统方法论</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 底部深色收尾条 */}
+            <div className="mt-8 bg-[#18181b] rounded-lg flex items-center justify-between px-7 py-5">
+              <div className="text-[13px] text-white">
+                这正是我创建这个课程的初衷 — <span className="text-white/55">把 AI 做产品 + 自媒体推广的完整方法论教给你</span>
+              </div>
+              <a href="#outline" className="text-[12px] text-white border border-white/15 px-4 py-2 rounded hover:bg-white/10 transition-colors">
+                查看课程大纲 →
+              </a>
+            </div>
           </div>
         </div>
       </section>
