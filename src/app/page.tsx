@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Rocket, TrendingUp, Users, ArrowRight, CheckCircle, GraduationCap, Megaphone, Clock, Shield, Zap, Star, Heart, Eye } from "lucide-react";
+import { Rocket, Users, ArrowRight, CheckCircle, GraduationCap, Megaphone, Clock, Shield, Zap, Star } from "lucide-react";
 
 export default function Home() {
   return (
@@ -96,15 +96,15 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: Zap, text: "学了很多AI课程，仍不知道怎么做产品" },
-              { icon: Eye, text: "做出产品后，没有人知道、卖不出去" },
-              { icon: TrendingUp, text: "想自媒体引流，但不懂运营方法" },
-              { icon: Heart, text: "想一人创业，但没有系统方法论" },
+              { num: "01", text: "学了很多AI课程，仍不知道怎么做产品" },
+              { num: "02", text: "做出产品后，没有人知道、卖不出去" },
+              { num: "03", text: "想自媒体引流，但不懂运营方法" },
+              { num: "04", text: "想一人创业，但没有系统方法论" },
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-4 p-5 bg-white rounded-xl border border-[#F0EDE8] hover:shadow-lg hover:shadow-[#1A1A2E]/5 transition-all duration-300">
-                <div className="w-10 h-10 rounded-lg bg-[#F7F6F3] flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-[#1A1A2E]" />
-                </div>
+                <span className="w-10 h-10 rounded-lg bg-[#F7F6F3] text-[#1A1A2E] flex items-center justify-center text-sm font-semibold flex-shrink-0">
+                  {item.num}
+                </span>
                 <span className="text-[#1A1A2E]">{item.text}</span>
               </div>
             ))}
