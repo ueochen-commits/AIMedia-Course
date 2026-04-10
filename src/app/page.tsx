@@ -116,105 +116,174 @@ export default function Home() {
       </section>
 
       {/* ==================== 课程大纲 ==================== */}
-      <section className="py-20 bg-[#FBFBFA]" id="outline">
+      <section className="py-20" id="outline">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1A1A2E] mb-3">课程大纲</h2>
-            <p className="text-[#666]">每个板块学完都能产出实际成果</p>
+          {/* eyebrow */}
+          <div className="text-center mb-6">
+            <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">课程大纲</span>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* AI板块 */}
-            <div className="bg-white rounded-2xl overflow-hidden border border-[#F0EDE8] transition-all duration-300 hover:shadow-xl hover:shadow-[#1A1A2E]/8" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
-              <div className="p-6 border-b border-[#F0EDE8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <GraduationCap className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">AI 板块</h3>
-                    <p className="text-white/70 text-sm">4模块 · 20节课程</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-[#666] mb-5">从零基础到用AI开发产品，掌握主流AI工具，具备Vibe Coding能力</p>
-                <div className="space-y-3">
-                  {[
-                    { module: "模块一：入门准备", lessons: "科学上网、谷歌账号、ChatGPT、Claude注册" },
-                    { module: "模块二：AI工具基础", lessons: "主流模型对比、提示词工程、AI写作/图片/视频生成" },
-                    { module: "模块三：AI效率工具", lessons: "Obsidian知识库、NotebookLM、AI辅助决策" },
-                    { module: "模块四：Vibe Coding", lessons: "GitHub、Cursor、实战网页开发、Vercel部署" },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-lg bg-[#F7F6F3] text-[#1A1A2E] flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <div>
-                        <span className="font-medium text-[#1A1A2E]">{item.module}</span>
-                        <p className="text-[#999] text-sm">{item.lessons}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="p-4 border-t border-[#F0EDE8] bg-[#FBFBFA]">
-                <Link href="/courses/ai" className="flex items-center justify-center gap-2 text-[#1A1A2E] font-medium hover:text-[#4A4A6A] transition-colors">
-                  查看详情 <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+          {/* 主标题 */}
+          <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
+            两个板块 · 完整能力体系
+          </h2>
 
-            {/* 自媒体板块 */}
-            <div className="bg-white rounded-2xl overflow-hidden border border-[#F0EDE8] transition-all duration-300 hover:shadow-xl hover:shadow-[#1A1A2E]/8" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
-              <div className="p-6 border-b border-[#F0EDE8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Megaphone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">自媒体板块</h3>
-                    <p className="text-white/70 text-sm">4模块 · 18节课程</p>
-                  </div>
-                </div>
-              </div>
+          {/* 两大列共享容器 */}
+          <div className="max-w-4xl mx-auto bg-white border border-[rgba(0,0,0,0.1)] rounded-xl overflow-hidden">
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[rgba(0,0,0,0.1)]">
+              {/* 左列：AI 板块 */}
               <div className="p-6">
-                <p className="text-[#666] mb-5">从自媒体认知到变现体系搭建，掌握内容创作方法论并建立变现体系</p>
-                <div className="space-y-3">
-                  {[
-                    { module: "模块一：认知与定位", lessons: "一人公司认知、差异化定位、Build in Public" },
-                    { module: "模块二：内容创作", lessons: "爆款结构、选题方法、脚本写作、AI辅助、封面设计" },
-                    { module: "模块三：运营增长", lessons: "多平台分发、评论区运营、私域引流、数据复盘" },
-                    { module: "模块四：变现实战", lessons: "广告分成、知识付费、带货分销、商业合作" },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-lg bg-[#F7F6F3] text-[#1A1A2E] flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <div>
-                        <span className="font-medium text-[#1A1A2E]">{item.module}</span>
-                        <p className="text-[#999] text-sm">{item.lessons}</p>
-                      </div>
+                {/* header */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="w-10 h-10 rounded-md bg-[#f5f5f5] flex items-center justify-center">
+                      <svg className="w-5 h-5 text-[#1a1a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591l-5.607 3.31a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9 12H3.75A2.25 2.25 0 011.5 9.75v-1.5a2.25 2.25 0 00-.659-1.591L1.586 4.26a2.25 2.25 0 00-.659-1.591V3.104M9 3v1.5M9 3v5.5m0 0v5.5M9 3v5.714m0 0v5.714m0 0v5.714m0 0v5.714" />
+                      </svg>
+                    </span>
+                    <h3 className="text-base font-medium text-[#1a1a1a]">AI 板块</h3>
+                  </div>
+                  <p className="text-sm text-[#6b6b6b]">4模块 · 20节课程</p>
+                </div>
+
+                {/* 简介 */}
+                <p className="text-sm text-[#6b6b6b] mb-6">从零基础到用AI开发产品，掌握主流AI工具，具备Vibe Coding能力</p>
+
+                {/* 模块列表 - 用横线分隔 */}
+                <div className="divide-y divide-[rgba(0,0,0,0.08)]">
+                  {/* 模块 01 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">01 入门准备</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">科学上网</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">谷歌账号</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">ChatGPT</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Claude注册</span>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* 模块 02 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">02 AI工具基础</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">主流模型对比</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">提示词工程</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI写作</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI图片</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI视频</span>
+                    </div>
+                  </div>
+
+                  {/* 模块 03 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">03 AI效率工具</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Obsidian知识库</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">NotebookLM</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">AI辅助决策</span>
+                    </div>
+                  </div>
+
+                  {/* 模块 04 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">04 Vibe Coding</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">GitHub</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Cursor</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">实战网页开发</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Vercel部署</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* footer */}
+                <div className="pt-6">
+                  <Link href="/courses/ai" className="text-[13px] text-[#1a1a1a] border-b border-[rgba(0,0,0,0.2)] hover:border-[rgba(0,0,0,0.4)] transition-colors">
+                    查看详情
+                  </Link>
                 </div>
               </div>
-              <div className="p-4 border-t border-[#F0EDE8] bg-[#FBFBFA]">
-                <Link href="/courses/media" className="flex items-center justify-center gap-2 text-[#1A1A2E] font-medium hover:text-[#4A4A6A] transition-colors">
-                  查看详情 <ArrowRight className="w-4 h-4" />
-                </Link>
+
+              {/* 右列：自媒体板块 */}
+              <div className="p-6">
+                {/* header */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="w-10 h-10 rounded-md bg-[#f5f5f5] flex items-center justify-center">
+                      <svg className="w-5 h-5 text-[#1a1a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.23-.463 1.532l-.728.728a1 1 0 01-.533.53m-3.563 1.096a1 1 0 01-.463-1.532c.247-.55.06-1.23-.464-1.532l-.727-.728a1 1 0 00-.533-.53M12 12.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z" />
+                      </svg>
+                    </span>
+                    <h3 className="text-base font-medium text-[#1a1a1a]">自媒体板块</h3>
+                  </div>
+                  <p className="text-sm text-[#6b6b6b]">4模块 · 18节课程</p>
+                </div>
+
+                {/* 简介 */}
+                <p className="text-sm text-[#6b6b6b] mb-6">从自媒体认知到变现体系���建��掌握内容创作方法论并建立变现体系</p>
+
+                {/* 模块列表 */}
+                <div className="divide-y divide-[rgba(0,0,0,0.08)]">
+                  {/* 模块 01 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">01 认知与定位</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">一人公司认知</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">差异化定位</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Build in Public</span>
+                    </div>
+                  </div>
+
+                  {/* 模块 02 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">02 内容创作</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">爆款结构</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">选题方法</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">脚本写作</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">封面设计</span>
+                    </div>
+                  </div>
+
+                  {/* 模块 03 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">03 运营增长</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">多平台分发</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">评论区运营</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">私域引流</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">数据复盘</span>
+                    </div>
+                  </div>
+
+                  {/* 模块 04 */}
+                  <div className="py-4">
+                    <div className="text-[11px] text-[#9e9e9e] mb-2">04 变现实战</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">广告分成</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">知识付费</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">带货分销</span>
+                      <span className="px-2 py-0.5 text-[11px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">商业合作</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* footer */}
+                <div className="pt-6">
+                  <Link href="/courses/media" className="text-[13px] text-[#1a1a1a] border-b border-[rgba(0,0,0,0.2)] hover:border-[rgba(0,0,0,0.4)] transition-colors">
+                    查看详情
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* 全套课程 - 只显示一个选项 */}
+          {/* 底部 CTA */}
           <div className="mt-12 text-center">
-            <div className="inline-block">
-              <Link href="/courses/full" className="btn btn-primary text-lg px-10 py-3">
-                查看全套课程（含商业思维）
-              </Link>
-              <p className="text-sm text-[#999] mt-3">AI + 自媒体 + 商业思维 = 完整的AI一人公司能力体系</p>
-            </div>
+            <Link href="/courses/full" className="inline-block px-6 py-3 text-[14px] text-[#1a1a1a] border border-[rgba(0,0,0,0.15)] rounded-sm hover:bg-[#f5f5f5] transition-colors">
+              查看全套课程（含商业思维）
+            </Link>
+            <p className="text-xs text-[#9e9e9e] mt-3">AI + 自媒体 + 商业思维 = 完整的AI一人公司能力体系</p>
           </div>
         </div>
       </section>
