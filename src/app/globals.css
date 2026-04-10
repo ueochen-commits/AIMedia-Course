@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1A1A2E;
+  --background: #f6f5f4;
+  --foreground: rgba(0, 0, 0, 0.95);
   --primary: #1A1A2E;
   --primary-hover: #0a0a15;
   --secondary: #F7F6F3;
   --border: #E8E8E8;
-  --muted: #666666;
+  --muted: #615d59;
   --accent: #3B82F6;
 }
 
@@ -44,9 +44,9 @@ a {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 48px;
 }
 
 /* 按钮 - 专业级样式 */
@@ -219,7 +219,8 @@ input:focus, textarea:focus {
 /* 移动端 */
 @media (max-width: 768px) {
   .container {
-    padding: 0 16px;
+    max-width: 1200px;
+    padding: 0 24px;
   }
 
   .btn {

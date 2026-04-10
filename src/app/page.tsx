@@ -13,17 +13,17 @@ export default function Home() {
 
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#666] mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#615d59] mb-6">
               <Shield className="w-4 h-4 text-green-500" />
               <span>内测用户 100+</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
-              学会AI做产品<span className="text-[#666]"> + </span>自媒体推广<br />
+              学会AI做产品<span className="text-[#615d59]"> + </span>自媒体推广<br />
               <span className="text-[#1A1A2E]">成为一人公司</span>
             </h1>
 
-            <p className="text-lg text-[#666] mb-8 max-w-xl mx-auto">
+            <p className="text-lg text-[#615d59] mb-8 max-w-xl mx-auto">
               很多人学会AI工具，却不会推广自己的产品。<br className="hidden md:block" />
               我把<span className="font-semibold">做产品</span> + <span className="font-semibold">自媒体变现</span> 的完整方法论教给你
             </p>
@@ -38,7 +38,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="flex items-center justify-center gap-4 text-sm text-[#666]">
+            <div className="flex items-center justify-center gap-4 text-sm text-[#615d59]">
               <div className="flex items-center gap-1">
                 <Shield className="w-4 h-4 text-green-500" />
                 <span>2节试看免费</span>
@@ -62,34 +62,34 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-12 md:gap-20">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Users className="w-6 h-6 text-[#999]" /> 60万+
+                <Users className="w-6 h-6 text-[#615d59]" /> 60万+
               </div>
-              <div className="text-[#999] text-sm mt-1">全网粉丝</div>
+              <div className="text-[#615d59] text-sm mt-1">全网粉丝</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Star className="w-6 h-6 text-[#999]" /> 100+
+                <Star className="w-6 h-6 text-[#615d59]" /> 100+
               </div>
-              <div className="text-[#999] text-sm mt-1">内测用户</div>
+              <div className="text-[#615d59] text-sm mt-1">内测用户</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Zap className="w-6 h-6 text-[#999]" /> 3-5万
+                <Zap className="w-6 h-6 text-[#615d59]" /> 3-5万
               </div>
-              <div className="text-[#999] text-sm mt-1">月收入</div>
+              <div className="text-[#615d59] text-sm mt-1">月收入</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Rocket className="w-6 h-6 text-[#999]" /> 2+
+                <Rocket className="w-6 h-6 text-[#615d59]" /> 2+
               </div>
-              <div className="text-[#999] text-sm mt-1">上线产品</div>
+              <div className="text-[#615d59] text-sm mt-1">上线产品</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ==================== 痛点共鸣 ==================== */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-[#1A1A2E] mb-4">你是否也有这些困惑？</h2>
@@ -110,21 +110,21 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <p className="text-lg text-[#666]">这正是我创建这个课程的初衷</p>
+            <p className="text-lg text-[#615d59]">这正是我创建这个课程的初衷</p>
           </div>
         </div>
       </section>
 
       {/* ==================== 课程大纲 ==================== */}
-      <section className="py-20" id="outline">
+      <section className="py-24" id="outline">
         <div className="container">
           {/* eyebrow */}
           <div className="text-center mb-6">
-            <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">课程大纲</span>
+            <span className="text-xs font-normal text-[#615d59] uppercase tracking-widest">课程大纲</span>
           </div>
 
           {/* 主标题 */}
-          <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
+          <h2 className="text-[36px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-1.5px' }}>
             两个板块 · 完整能力体系
           </h2>
 
@@ -143,7 +143,7 @@ export default function Home() {
                     </span>
                     <h3 className="text-base font-medium text-[#1a1a1a]">AI 板块</h3>
                   </div>
-                  <p className="text-sm text-[#6b6b6b]">4模块 · 20节课程</p>
+                  <p className="text-sm text-[#615d59]">4模块 · 20节课程</p>
                 </div>
 
                 {/* 简介 */}
@@ -153,7 +153,7 @@ export default function Home() {
                 <div className="divide-y divide-[rgba(0,0,0,0.08)]">
                   {/* 模块 01 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 入门准备</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">01 入门准备</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">科学上网</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">谷歌账号</span>
@@ -164,7 +164,7 @@ export default function Home() {
 
                   {/* 模块 02 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 AI工具基础</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">02 AI工具基础</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">主流模型对比</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">提示词工程</span>
@@ -176,7 +176,7 @@ export default function Home() {
 
                   {/* 模块 03 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">03 AI效率工具</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">03 AI效率工具</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Obsidian知识库</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">NotebookLM</span>
@@ -186,7 +186,7 @@ export default function Home() {
 
                   {/* 模块 04 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 Vibe Coding</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">04 Vibe Coding</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">GitHub</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">Cursor</span>
@@ -216,7 +216,7 @@ export default function Home() {
                     </span>
                     <h3 className="text-base font-medium text-[#1a1a1a]">自媒体板块</h3>
                   </div>
-                  <p className="text-sm text-[#6b6b6b]">4模块 · 18节课程</p>
+                  <p className="text-sm text-[#615d59]">4模块 · 18节课程</p>
                 </div>
 
                 {/* 简介 */}
@@ -226,7 +226,7 @@ export default function Home() {
                 <div className="divide-y divide-[rgba(0,0,0,0.08)]">
                   {/* 模块 01 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 认知与定位</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">01 认知与定位</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">一人公司认知</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">差异化定位</span>
@@ -236,7 +236,7 @@ export default function Home() {
 
                   {/* 模块 02 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 内容创作</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">02 内容创作</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">爆款结构</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">选题方法</span>
@@ -247,7 +247,7 @@ export default function Home() {
 
                   {/* 模块 03 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">03 运营增长</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">03 运营增长</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">多平台分发</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">评论区运营</span>
@@ -258,7 +258,7 @@ export default function Home() {
 
                   {/* 模块 04 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 变现实战</div>
+                    <div className="text-[12px] text-[#615d59] mb-2 font-medium">04 变现实战</div>
                     <div className="flex flex-wrap gap-1.5">
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">广告分成</span>
                       <span className="px-[9px] py-[3px] text-[12px] bg-[#f5f5f5] border border-[rgba(0,0,0,0.08)] rounded-[3px]">知识付费</span>
@@ -293,11 +293,11 @@ export default function Home() {
         <div className="container">
           {/* eyebrow */}
           <div className="text-center mb-6">
-            <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">定价</span>
+            <span className="text-xs font-normal text-[#615d59] uppercase tracking-widest">定价</span>
           </div>
 
           {/* 主标题 */}
-          <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
+          <h2 className="text-[36px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-1.5px' }}>
             选择一个开始
           </h2>
 
@@ -307,12 +307,12 @@ export default function Home() {
               {/* 左列：AI 板块 */}
               <div className="p-6 border-r border-[rgba(0,0,0,0.1)]">
                 <h3 className="text-base font-medium text-[#1a1a1a] mb-1">AI 板块</h3>
-                <p className="text-sm text-[#6b6b6b] mb-4">独立开发 AI 产品</p>
+                <p className="text-sm text-[#615d59] mb-4">独立开发 AI 产品</p>
                 <div className="mb-4">
                   <span className="text-[16px] text-[#1a1a1a] font-normal">¥</span>
                   <span className="text-[36px] font-normal text-[#1a1a1a]" style={{ letterSpacing: '-1px' }}>499</span>
                 </div>
-                <p className="text-sm text-[#6b6b6b] mb-6">20节课程</p>
+                <p className="text-sm text-[#615d59] mb-6">20节课程</p>
                 <Link href="/courses/ai" className="inline-block w-full py-3 text-center border border-[rgba(0,0,0,0.15)] text-[#1a1a1a] text-sm hover:bg-[#f5f5f5] transition-colors rounded-sm">
                   单独购买
                 </Link>
@@ -339,12 +339,12 @@ export default function Home() {
               {/* 右列：自媒体板块 */}
               <div className="p-6">
                 <h3 className="text-base font-medium text-[#1a1a1a] mb-1">自媒体板块</h3>
-                <p className="text-sm text-[#6b6b6b] mb-4">自媒体变现体系</p>
+                <p className="text-sm text-[#615d59] mb-4">自媒体变现体系</p>
                 <div className="mb-4">
                   <span className="text-[16px] text-[#1a1a1a] font-normal">¥</span>
                   <span className="text-[36px] font-normal text-[#1a1a1a]" style={{ letterSpacing: '-1px' }}>499</span>
                 </div>
-                <p className="text-sm text-[#6b6b6b] mb-6">18节课程</p>
+                <p className="text-sm text-[#615d59] mb-6">18节课程</p>
                 <Link href="/courses/media" className="inline-block w-full py-3 text-center border border-[rgba(0,0,0,0.15)] text-[#1a1a1a] text-sm hover:bg-[#f5f5f5] transition-colors rounded-sm">
                   单独购买
                 </Link>
@@ -356,33 +356,33 @@ export default function Home() {
           <div className="mt-12 flex flex-wrap justify-center gap-8">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span className="text-[12px] text-[#6b6b6b]">支付宝支付</span>
+              <span className="text-[12px] text-[#615d59]">支付宝支付</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span className="text-[12px] text-[#6b6b6b]">永久可看</span>
+              <span className="text-[12px] text-[#615d59]">永久可看</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span className="text-[12px] text-[#6b6b6b]">进入学员群</span>
+              <span className="text-[12px] text-[#615d59]">进入学员群</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span className="text-[12px] text-[#6b6b6b]">售前无忧咨询</span>
+              <span className="text-[12px] text-[#615d59]">售前无忧咨询</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ==================== 学完能达到什么效果 ==================== */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             {/* 主容器 */}
             <div className="bg-white border border-[rgba(0,0,0,0.1)]">
               {/* 标题区域 */}
               <div className="px-8 pt-8 pb-4">
-                <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">COURSE OUTCOMES</span>
+                <span className="text-xs font-normal text-[#615d59] uppercase tracking-widest">COURSE OUTCOMES</span>
                 <h2 className="text-[32px] text-[#1a1a1a] font-normal mt-2 tracking-tight" style={{ letterSpacing: '-0.5px' }}>
                   学完能达到什么效果
                 </h2>
@@ -394,10 +394,10 @@ export default function Home() {
                 <div className="p-8 border-r border-[rgba(0,0,0,0.1)]">
                   {/* 板块标签 */}
                   <div className="mb-6">
-                    <span className="inline-block px-3 py-1 bg-[#f0f0f0] text-[#6b6b6b] text-sm font-normal rounded-sm">
+                    <span className="inline-block px-3 py-1 bg-[#f0f0f0] text-[#615d59] text-sm font-normal rounded-sm">
                       AI 板块
                     </span>
-                    <span className="text-sm text-[#6b6b6b] ml-3">从零开发 AI 产品</span>
+                    <span className="text-sm text-[#615d59] ml-3">从零开发 AI 产品</span>
                   </div>
 
                   {/* 步骤列表 */}
@@ -405,29 +405,29 @@ export default function Home() {
                     {/* 01 入门 */}
                     <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm text-[#6b6b6b] font-normal">01</span>
+                        <span className="text-sm text-[#615d59] font-normal">01</span>
                         <span className="text-base text-[#1a1a1a] font-medium">入门</span>
                       </div>
-                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">科学上网、注册 ChatGPT/Claude、学会基础对话</p>
+                      <p className="text-sm text-[#615d59] font-normal ml-8">科学上网、注册 ChatGPT/Claude、学会基础对话</p>
                     </div>
 
                     {/* 02 进阶 */}
                     <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm text-[#6b6b6b] font-normal">02</span>
+                        <span className="text-sm text-[#615d59] font-normal">02</span>
                         <span className="text-base text-[#1a1a1a] font-medium">进阶</span>
                       </div>
-                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">提示词工程、AI 写作/图片/视频、构建个人知识库</p>
+                      <p className="text-sm text-[#615d59] font-normal ml-8">提示词工程、AI 写作/图片/视频、构建个人知识库</p>
                     </div>
 
                     {/* 03 实战成果 */}
                     <div className="py-4">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm text-[#6b6b6b] font-normal">03</span>
+                        <span className="text-sm text-[#615d59] font-normal">03</span>
                         <span className="text-base text-[#1a1a1a] font-medium">实战成果</span>
                         <span className="text-xs text-[#1a6636] bg-[#e8f5ee] px-2 py-0.5 rounded-sm">结业输出</span>
                       </div>
-                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">用 Cursor 开发并上线自己的网站</p>
+                      <p className="text-sm text-[#615d59] font-normal ml-8">用 Cursor 开发并上线自己的网站</p>
                     </div>
                   </div>
                 </div>
@@ -439,7 +439,7 @@ export default function Home() {
                     <span className="inline-block px-3 py-1 bg-[#e8f5ee] text-[#1a6636] text-sm font-normal rounded-sm">
                       自媒体板块
                     </span>
-                    <span className="text-sm text-[#6b6b6b] ml-3">从 0 到 1 变现体系</span>
+                    <span className="text-sm text-[#615d59] ml-3">从 0 到 1 变现体系</span>
                   </div>
 
                   {/* 步骤列表 */}
@@ -447,29 +447,29 @@ export default function Home() {
                     {/* 01 定位 */}
                     <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm text-[#6b6b6b] font-normal">01</span>
+                        <span className="text-sm text-[#615d59] font-normal">01</span>
                         <span className="text-base text-[#1a1a1a] font-medium">定位</span>
                       </div>
-                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">一人公司思维、差异化定位、Build in Public 意识</p>
+                      <p className="text-sm text-[#615d59] font-normal ml-8">一人公司思维、差异化定位、Build in Public 意识</p>
                     </div>
 
                     {/* 02 内容 */}
                     <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm text-[#6b6b6b] font-normal">02</span>
+                        <span className="text-sm text-[#615d59] font-normal">02</span>
                         <span className="text-base text-[#1a1a1a] font-medium">内容</span>
                       </div>
-                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">爆款结构、选题方法、脚本写作、AI 辅助创作</p>
+                      <p className="text-sm text-[#615d59] font-normal ml-8">爆款结构、选题方法、脚本写作、AI 辅助创作</p>
                     </div>
 
                     {/* 03 变现成果 */}
                     <div className="py-4">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm text-[#6b6b6b] font-normal">03</span>
+                        <span className="text-sm text-[#615d59] font-normal">03</span>
                         <span className="text-base text-[#1a1a1a] font-medium">变现成果</span>
                         <span className="text-xs text-[#1a6636] bg-[#e8f5ee] px-2 py-0.5 rounded-sm">结业输出</span>
                       </div>
-                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">多平台运营增长、私域引流、建立变现体系</p>
+                      <p className="text-sm text-[#615d59] font-normal ml-8">多平台运营增长、私域引流、建立变现体系</p>
                     </div>
                   </div>
                 </div>
@@ -480,10 +480,10 @@ export default function Home() {
       </section>
 
       {/* ==================== 用户评价 ==================== */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container">
           <h2 className="text-3xl font-bold text-[#1A1A2E] text-center mb-4">学员评价</h2>
-          <p className="text-[#666] text-center mb-12">来自真实学员的反馈</p>
+          <p className="text-[#615d59] text-center mb-12">来自真实学员的反馈</p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl p-6 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
@@ -492,7 +492,7 @@ export default function Home() {
                   <span key={star} className="text-yellow-400">★</span>
                 ))}
               </div>
-              <p className="text-[#666] mb-4 leading-relaxed">
+              <p className="text-[#615d59] mb-4 leading-relaxed">
                 "之前完全没接触过AI，学完课程后自己用Cursor做了个个人网站，真的太神奇了！老师讲解非常详细，适合零基础。"
               </p>
               <div className="flex items-center gap-3">
@@ -501,7 +501,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="font-medium text-[#1A1A2E]">张同学</div>
-                  <div className="text-xs text-[#999]">AI板块学员</div>
+                  <div className="text-xs text-[#615d59]">AI板块学员</div>
                 </div>
               </div>
             </div>
@@ -512,7 +512,7 @@ export default function Home() {
                   <span key={star} className="text-yellow-400">★</span>
                 ))}
               </div>
-              <p className="text-[#666] mb-4 leading-relaxed">
+              <p className="text-[#615d59] mb-4 leading-relaxed">
                 "自媒体板块帮我理清了做账号的思路，按照课程方法做了定位和内容规划，小红书一周涨了500粉，感谢路人老师！"
               </p>
               <div className="flex items-center gap-3">
@@ -521,7 +521,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="font-medium text-[#1A1A2E]">李同学</div>
-                  <div className="text-xs text-[#999]">自媒体板块学员</div>
+                  <div className="text-xs text-[#615d59]">自媒体板块学员</div>
                 </div>
               </div>
             </div>
@@ -530,16 +530,16 @@ export default function Home() {
       </section>
 
       {/* ==================== 创始人背书 ==================== */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container">
           <div className="max-w-2xl mx-auto">
             {/* eyebrow */}
             <div className="text-center mb-6">
-              <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">关于创始人</span>
+              <span className="text-xs font-normal text-[#615d59] uppercase tracking-widest">关于创始人</span>
             </div>
 
             {/* 主标题 */}
-            <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
+            <h2 className="text-[36px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-1.5px' }}>
               路人是谁
             </h2>
 
@@ -555,14 +555,14 @@ export default function Home() {
                   {/* 右侧姓名+身份 */}
                   <div>
                     <div className="text-lg font-medium text-[#1a1a1a]">路人</div>
-                    <div className="text-[13px] text-[#6b6b6b]">一人公司创始人 · Build in Public</div>
+                    <div className="text-[13px] text-[#615d59]">一人公司创始人 · Build in Public</div>
                   </div>
                 </div>
               </div>
 
               {/* 中间 bio 区 */}
               <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
-                <p className="text-[14px] leading-[1.8] text-[#6b6b6b] font-normal">
+                <p className="text-[14px] leading-[1.8] text-[#615d59] font-normal">
                   全网粉丝接近<span className="font-medium text-[#1a1a1a]">60万</span>的自媒体博主，2018年开始深耕多个平台，擅长从零起号。英国留学9年，通过<span className="font-medium text-[#1a1a1a]">CFA</span>一级考试。快手一周涨粉30万，小红书单日涨粉3500，公众号「Hello我是路人」持续更新。从体制内辞职后独立开发AI产品<span className="font-medium text-[#1a1a1a]">TradeGrail</span>，全程Build in Public公开记录。
                 </p>
               </div>
@@ -573,22 +573,22 @@ export default function Home() {
                   {/* 数据1 */}
                   <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
                     <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>18万+</div>
-                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">抖音粉丝</div>
+                    <div className="text-[11px] text-[#615d59] uppercase mt-1">抖音粉丝</div>
                   </div>
                   {/* 数据2 */}
                   <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
                     <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>30万+</div>
-                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">快手粉丝</div>
+                    <div className="text-[11px] text-[#615d59] uppercase mt-1">快手粉丝</div>
                   </div>
                   {/* 数据3 */}
                   <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
                     <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>60万+</div>
-                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">全网粉丝</div>
+                    <div className="text-[11px] text-[#615d59] uppercase mt-1">全网粉丝</div>
                   </div>
                   {/* 数据4 */}
                   <div className="text-center border-r border-[rgba(0,0,0,0.1)] last:border-r-0">
                     <div className="text-[18px] font-medium text-[#1a1a1a]" style={{ letterSpacing: '-0.3px' }}>2个</div>
-                    <div className="text-[11px] text-[#6b6b6b] uppercase mt-1">上线产品</div>
+                    <div className="text-[11px] text-[#615d59] uppercase mt-1">上线产品</div>
                   </div>
                 </div>
               </div>
@@ -598,7 +598,7 @@ export default function Home() {
       </section>
 
       {/* ==================== FAQ ==================== */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container">
           <h2 className="text-3xl font-bold text-[#1A1A2E] text-center mb-10">常见问题</h2>
           <div className="max-w-2xl mx-auto space-y-4">
@@ -612,10 +612,10 @@ export default function Home() {
               <details key={idx} className="bg-white rounded-xl border border-[#F0EDE8] overflow-hidden group cursor-pointer" style={{ boxShadow: '0 2px 12px rgba(26, 26, 46, 0.04)' }}>
                 <summary className="cursor-pointer list-none flex items-center justify-between p-5 font-medium text-[#1A1A2E] group-hover:bg-[#FBFBFA] transition-colors">
                   <span>{item.q}</span>
-                  <ArrowRight className="w-4 h-4 text-[#999] group-open:rotate-90 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#615d59] group-open:rotate-90 transition-transform" />
                 </summary>
                 <div className="px-5 pb-5">
-                  <p className="text-sm text-[#666]">{item.a}</p>
+                  <p className="text-sm text-[#615d59]">{item.a}</p>
                 </div>
               </details>
             ))}
@@ -644,7 +644,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-10 text-center text-sm text-[#999] bg-white border-t border-[#F0EDE8]">
+      <footer className="py-10 text-center text-sm text-[#615d59] bg-white border-t border-[#F0EDE8]">
         <p className="mb-2">微信咨询：Timetravel_0（备注"课程"）</p>
         <p>© 2026 一人公司. All rights reserved.</p>
       </footer>
