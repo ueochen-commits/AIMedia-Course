@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, Rocket, TrendingUp, Users, ArrowRight, Target, Award, PlayCircle, CheckCircle, GraduationCap, Megaphone, Clock, Shield, Zap, Star, Heart, Eye, ThumbsUp, BookOpen, Layers, BarChart3, Code, Code2 } from "lucide-react";
+import { Sparkles, Rocket, TrendingUp, Users, ArrowRight, Target, Award, PlayCircle, CheckCircle, GraduationCap, Megaphone, Clock, Shield, Zap, Star, Heart, Eye, ThumbsUp, BookOpen, Layers } from "lucide-react";
 
 export default function Home() {
   return (
@@ -121,7 +121,7 @@ export default function Home() {
             <p className="text-[#666]">每个板块学完都能产出实际成果</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* AI板块 */}
             <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="p-5 border-b border-[#E8E8E8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
@@ -129,7 +129,7 @@ export default function Home() {
                   <GraduationCap className="w-7 h-7 text-white" />
                   <div>
                     <h3 className="text-lg font-bold text-white">AI 板块</h3>
-                    <p className="text-white/70 text-xs">4模块 · 20节 · ¥499</p>
+                    <p className="text-white/70 text-xs">4模块 · 20节课程</p>
                   </div>
                 </div>
               </div>
@@ -152,9 +152,8 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="p-3 border-t border-[#E8E8E8] bg-[#F7F6F3] flex justify-between items-center">
-                <span className="font-bold">¥499</span>
-                <Link href="/courses/ai" className="text-sm text-[#1A1A2E] font-medium flex items-center gap-1">
+              <div className="p-3 border-t border-[#E8E8E8] bg-[#F7F6F3]">
+                <Link href="/courses/ai" className="text-sm text-[#1A1A2E] font-medium flex items-center justify-center gap-1">
                   查看详情 <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
@@ -167,7 +166,7 @@ export default function Home() {
                   <Megaphone className="w-7 h-7 text-white" />
                   <div>
                     <h3 className="text-lg font-bold text-white">自媒体板块</h3>
-                    <p className="text-white/70 text-xs">3模块 · 14节 · ¥499</p>
+                    <p className="text-white/70 text-xs">3模块 · 14节课程</p>
                   </div>
                 </div>
               </div>
@@ -189,53 +188,21 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="p-3 border-t border-[#E8E8E8] bg-[#F7F6F3] flex justify-between items-center">
-                <span className="font-bold">¥499</span>
-                <Link href="/courses/media" className="text-sm text-[#1A1A2E] font-medium flex items-center gap-1">
+              <div className="p-3 border-t border-[#E8E8E8] bg-[#F7F6F3]">
+                <Link href="/courses/media" className="text-sm text-[#1A1A2E] font-medium flex items-center justify-center gap-1">
                   查看详情 <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
+          </div>
 
-            {/* 商业思维板块 - 仅全套 */}
-            <div className="bg-white rounded-xl border-2 border-[#1A1A2E] overflow-hidden shadow-md relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#1A1A2E] text-white text-xs rounded-full">
-                全套专享
-              </div>
-              <div className="p-5 border-b border-[#E8E8E8] bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E]">
-                <div className="flex items-center gap-3">
-                  <BarChart3 className="w-7 h-7 text-white" />
-                  <div>
-                    <h3 className="text-lg font-bold text-white">商业思维板块</h3>
-                    <p className="text-white/70 text-xs">4模块 · 15节 · 仅全套</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-5">
-                <p className="text-sm text-[#666] mb-4">全套独有的核心差异化内容，建立商业思维，看懂变现逻辑</p>
-                <div className="space-y-2">
-                  {[
-                    { module: "模块一：商业认知", lessons: "商业模式、打工vs老板思维、最小成本验证" },
-                    { module: "模块二：产品思维", lessons: "好产品定义、MVP方法论、定价策略" },
-                    { module: "模块三：五种变现", lessons: "广告、知识付费、SaaS、服务、联盟营销" },
-                    { module: "模块四：真实复盘", lessons: "创业时间线、错误决策、定价复盘" },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <span className="font-medium">{item.module}</span>
-                        <p className="text-[#666] text-xs">{item.lessons}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="p-3 border-t border-[#E8E8E8] bg-[#F7F6F3] flex justify-between items-center">
-                <span className="font-bold">¥799</span>
-                <Link href="/courses/full" className="text-sm text-[#1A1A2E] font-medium flex items-center gap-1">
-                  查看详情 <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
+          {/* 全套课程 - 只显示一个选项 */}
+          <div className="mt-8 text-center">
+            <div className="inline-block">
+              <Link href="/courses/full" className="btn btn-primary text-lg px-10">
+                查看全套课程（含商业思维）
+              </Link>
+              <p className="text-sm text-[#666] mt-2">AI + 自媒体 + 商业思维 = 完整的AI一人公司能力体系</p>
             </div>
           </div>
         </div>
