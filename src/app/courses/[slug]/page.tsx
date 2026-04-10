@@ -15,7 +15,7 @@ const courseData: Record<string, any> = {
   ai: {
     name: "AI 板块",
     description: "从零基础到用AI开发产品",
-    price: 499,
+    price: 0.01,
     modules: [
       {
         name: "模块一：入门准备",
@@ -54,7 +54,7 @@ const courseData: Record<string, any> = {
   media: {
     name: "自媒体板块",
     description: "从自媒体认知到变现体系搭建",
-    price: 499,
+    price: 0.01,
     modules: [
       {
         name: "模块一：自媒体认知与定位",
@@ -93,7 +93,7 @@ const courseData: Record<string, any> = {
   full: {
     name: "全套课程",
     description: "AI板块 + 自媒体板块，一次买断",
-    price: 799,
+    price: 0.01,
     modules: [],
   },
 };
