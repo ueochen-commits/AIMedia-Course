@@ -457,11 +457,9 @@ export default function Home() {
               {/* 顶部 header 区 */}
               <div className="p-6 border-b border-[rgba(0,0,0,0.1)]">
                 <div className="flex items-center gap-4">
-                  {/* 左侧方形 avatar */}
-                  <div className="w-16 h-16 bg-[#f5f5f5] rounded-lg flex items-center justify-center">
-                    <svg className="w-8 h-8 text-[#6b6b6b]" fill="none" viewBox="0 0 24 24" stroke="currentClient">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+                  {/* 左侧头像 */}
+                  <div className="w-16 h-16 bg-[#f5f5f5] rounded-lg overflow-hidden flex-shrink-0">
+                    <img src="/avatar.png" alt="路人" className="w-full h-full object-cover" />
                   </div>
                   {/* 右侧姓名+身份 */}
                   <div>
