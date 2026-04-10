@@ -293,21 +293,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 底部深色收尾条 */}
-            <div className="mt-8 bg-[#18181b] rounded-lg flex items-center justify-between px-7 py-5">
-              <div className="text-[13px] text-white">
-                这正是我创建这个课程的初衷 — <span className="text-white/55">把 AI 做产品 + 自媒体推广的完整方法论教给你</span>
-              </div>
-              <a href="#outline" className="text-[12px] text-white border border-white/15 px-4 py-2 rounded hover:bg-white/10 transition-colors">
-                查看课程大纲 →
-              </a>
+            {/* 轻量过渡文字 */}
+            <div className="mt-6 text-center md:text-left">
+              <span className="text-[13px] text-[#a39e98]">这正是我创建这个课程的初衷 ↓</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ==================== 课程大纲 ==================== */}
-      <section className="py-20" id="outline">
+      <section className="py-20 mt-20" id="outline">
         <div className="container">
           {/* 隐藏外部 eyebrow 和标题，由容器内 header 替代 */}
 
