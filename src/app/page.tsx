@@ -160,9 +160,11 @@ export default function Home() {
         {/* 文字内容 - 上层 */}
         <div className="relative z-10 container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#666] mb-6">
-              <Shield className="w-4 h-4 text-green-500" />
-              <span>内测用户 100+</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', background: '#ffffff', border: '0.5px solid rgba(0,0,0,0.1)', borderRadius: '20px', padding: '5px 14px 5px 10px', marginBottom: '1.5rem' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#16a34a', flexShrink: 0 }}></span>
+              <span style={{ fontSize: '12px', color: '#615d59', fontWeight: 500 }}>内测用户</span>
+              <span style={{ fontSize: '12px', color: '#16a34a', fontWeight: 500 }}>100+</span>
+              <span style={{ fontSize: '12px', color: '#615d59', fontWeight: 500 }}>已完成学习</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
@@ -170,9 +172,12 @@ export default function Home() {
               <span className="text-[#1A1A2E]">成为一人公司</span>
             </h1>
 
-            <p className="text-lg text-[#666] mb-8 max-w-xl mx-auto">
+            <p className="text-lg text-[#666] mb-4 max-w-xl mx-auto">
               很多人学会AI工具，却不会推广自己的产品。<br className="hidden md:block" />
               我把<span className="font-semibold">做产品</span> + <span className="font-semibold">自媒体变现</span> 的完整方法论教给你
+            </p>
+            <p style={{ fontSize: '13px', color: '#a39e98', marginTop: '6px', marginBottom: '2rem' }}>
+              从零基础到独立变现，每一步都有真实成果
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
@@ -186,16 +191,16 @@ export default function Home() {
             </div>
 
             <div className="flex items-center justify-center gap-4 text-sm text-[#666]">
-              <div className="flex items-center gap-1">
-                <Shield className="w-4 h-4 text-green-500" />
+              <div className="flex items-center gap-1.5">
+                <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#16a34a', flexShrink: 0, display: 'inline-block' }}></span>
                 <span>2节试看免费</span>
               </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4 text-green-500" />
+              <div className="flex items-center gap-1.5">
+                <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#16a34a', flexShrink: 0, display: 'inline-block' }}></span>
                 <span>永久可看</span>
               </div>
-              <div className="flex items-center gap-1">
-                <Users className="w-4 h-4 text-green-500" />
+              <div className="flex items-center gap-1.5">
+                <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#16a34a', flexShrink: 0, display: 'inline-block' }}></span>
                 <span>付费后可进群</span>
               </div>
             </div>
