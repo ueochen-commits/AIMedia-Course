@@ -203,33 +203,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== 社会证明 ==================== */}
-      <section className="py-12 bg-white border-b border-[#F0EDE8]">
+      {/* ==================== 数据统计 ==================== */}
+      <section className="py-8">
         <div className="container">
-          <div className="flex flex-wrap justify-center gap-12 md:gap-20">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Users className="w-6 h-6 text-[#999]" /> 60万+
-              </div>
-              <div className="text-[#999] text-sm mt-1">全网粉丝</div>
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {/* 抖音快手小红书 */}
+            <div className="text-center md:text-left">
+              <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>60万+</div>
+              <div className="text-[13px] font-medium text-[#615d59] mt-2">全网粉丝</div>
+              <div className="text-[11px] text-[#c8c4be] mt-1">抖音 · 快手 · 小红书</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Star className="w-6 h-6 text-[#999]" /> 100+
-              </div>
-              <div className="text-[#999] text-sm mt-1">内测用户</div>
+
+            {/* 已完成课程学习 */}
+            <div className="text-center md:text-left md:border-l border-[rgba(0,0,0,0.1)]">
+              <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>100+</div>
+              <div className="text-[13px] font-medium text-[#615d59] mt-2">已完成课程学习</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Zap className="w-6 h-6 text-[#999]" /> 3-5万
-              </div>
-              <div className="text-[#999] text-sm mt-1">月收入</div>
+
+            {/* 独立产品变现 */}
+            <div className="text-center md:text-left md:border-l border-[rgba(0,0,0,0.1)]">
+              <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>3-5万</div>
+              <div className="text-[13px] font-medium text-[#615d59] mt-2">独立产品变现</div>
+              <div className="text-[11px] text-[#c8c4be] mt-1">月收入</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#1A1A2E] flex items-center justify-center gap-2">
-                <Rocket className="w-6 h-6 text-[#999]" /> 2+
-              </div>
-              <div className="text-[#999] text-sm mt-1">上线产品</div>
+
+            {/* Build in Public */}
+            <div className="text-center md:text-left md:border-l border-[rgba(0,0,0,0.1)]">
+              <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>2+</div>
+              <div className="text-[13px] font-medium text-[#615d59] mt-2">Build in Public</div>
+              <div className="text-[11px] text-[#c8c4be] mt-1">全程公开</div>
             </div>
           </div>
         </div>
