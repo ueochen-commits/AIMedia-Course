@@ -273,7 +273,7 @@ export default function CourseDetailPage() {
       <section className="py-12">
         <div className="container">
           {/* 面包屑导航 */}
-          <div className="flex items-center gap-2 text-sm text-[#999] mb-8 font-light">
+          <div className="flex items-center gap-2 text-sm text-[#999] mb-8">
             <Link href="/" className="hover:text-[#1A1A2E] transition-colors">首页</Link>
             <span className="text-[#DDD]">/</span>
             <Link href="/courses" className="hover:text-[#1A1A2E] transition-colors">课程</Link>
@@ -286,10 +286,10 @@ export default function CourseDetailPage() {
             <div className="lg:col-span-3">
               {/* 标题区域 */}
               <div className="mb-8">
-                <h1 className="text-4xl font-light mb-3 text-[#1A1A2E] tracking-tight">
+                <h1 className="text-4xl font-bold mb-3 text-[#1A1A2E]">
                   {course.name}
                 </h1>
-                <p className="text-lg text-[#666] font-light leading-relaxed">{course.description}</p>
+                <p className="text-lg text-[#666] leading-relaxed">{course.description}</p>
               </div>
 
               {/* 课程 info card */}
@@ -298,15 +298,15 @@ export default function CourseDetailPage() {
                   <div className="grid md:grid-cols-3 gap-8">
                     <div className="relative">
                       <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">目标学员</div>
-                      <div className="text-[#1A1A2E] font-light leading-relaxed">{course.target}</div>
+                      <div className="text-[#1A1A2E] leading-relaxed">{course.target}</div>
                     </div>
                     <div className="relative">
                       <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">学习成果</div>
-                      <div className="text-[#1A1A2E] font-light leading-relaxed">{course.outcome}</div>
+                      <div className="text-[#1A1A2E] leading-relaxed">{course.outcome}</div>
                     </div>
                     <div className="relative">
                       <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">总课时</div>
-                      <div className="text-[#1A1A2E] font-light">{course.totalLessons}节 · 每节15-45分钟</div>
+                      <div className="text-[#1A1A2E]">{course.totalLessons}节 · 每节15-45分钟</div>
                     </div>
                   </div>
                 </div>
@@ -321,13 +321,13 @@ export default function CourseDetailPage() {
                         <Play className="w-5 h-5 text-white ml-0.5" />
                       </div>
                       <div>
-                        <div className="text-lg font-light text-[#1A1A2E]">免费试看</div>
+                        <div className="text-lg font-semibold text-[#1A1A2E]">免费试看</div>
                         <div className="text-sm text-[#999]">每个板块前2节课免费试看</div>
                       </div>
                     </div>
                     <button
                       onClick={handleFreePreview}
-                      className="px-6 py-3 bg-[#1A1A2E] text-white rounded-full font-light text-sm hover:bg-[#2A2A3E] transition-all duration-300 hover:scale-105"
+                      className="px-6 py-3 bg-[#1A1A2E] text-white rounded-full font-medium text-sm hover:bg-[#2A2A3E] transition-all duration-300 hover:scale-105"
                     >
                       立即试看
                     </button>
@@ -352,17 +352,17 @@ export default function CourseDetailPage() {
                         onClick={() => setExpandedModule(expandedModule === idx ? null : idx)}
                       >
                         {/* 模块编号 */}
-                        <div className="w-10 h-10 rounded-lg bg-[#F7F6F3] flex items-center justify-center text-[#1A1A2E] font-light text-lg flex-shrink-0 group-hover:bg-[#1A1A2E] group-hover:text-white transition-all duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-[#F7F6F3] flex items-center justify-center text-[#1A1A2E] font-semibold text-lg flex-shrink-0 group-hover:bg-[#1A1A2E] group-hover:text-white transition-all duration-300">
                           {String(idx + 1).padStart(2, '0')}
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-light text-lg text-[#1A1A2E] mb-1 group-hover:text-[#4A4A6A] transition-colors">{module.name}</h3>
-                          <p className="text-sm text-[#999] font-light truncate">{module.description}</p>
+                          <h3 className="font-medium text-lg text-[#1A1A2E] mb-1 group-hover:text-[#4A4A6A] transition-colors">{module.name}</h3>
+                          <p className="text-sm text-[#999] truncate">{module.description}</p>
                         </div>
 
                         <div className="flex items-center gap-3">
-                          <span className="text-sm text-[#999] font-light">{module.lessons.length}节</span>
+                          <span className="text-sm text-[#999]">{module.lessons.length}节</span>
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${expandedModule === idx ? 'rotate-180 bg-[#1A1A2E] text-white' : 'bg-[#F7F6F3] text-[#999]'}`}>
                             <ChevronDown className="w-4 h-4" />
                           </div>
@@ -390,16 +390,16 @@ export default function CourseDetailPage() {
                                     </span>
                                   )}
                                   <div className="flex-1 min-w-0">
-                                    <div className="text-sm font-light text-[#1A1A2E] truncate">{lesson.name}</div>
-                                    <div className="text-xs text-[#999] font-light truncate mt-0.5">{lesson.outcome}</div>
+                                    <div className="text-sm font-medium text-[#1A1A2E] truncate">{lesson.name}</div>
+                                    <div className="text-xs text-[#999] truncate mt-0.5">{lesson.outcome}</div>
                                   </div>
                                   {lesson.free && (
-                                    <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full flex-shrink-0 font-light">
+                                    <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full flex-shrink-0">
                                       免费
                                     </span>
                                   )}
                                 </div>
-                                <span className="text-xs text-[#BBB] ml-4 flex-shrink-0 font-light whitespace-nowrap">
+                                <span className="text-xs text-[#BBB] ml-4 flex-shrink-0 whitespace-nowrap">
                                   {lesson.duration}
                                 </span>
                               </div>
@@ -415,16 +415,16 @@ export default function CourseDetailPage() {
               {/* 全套课程展示 */}
               {isFullCourse && (
                 <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]">
-                  <h3 className="text-xl font-light text-[#1A1A2E] mb-6">全套课程包含</h3>
+                  <h3 className="text-xl font-semibold text-[#1A1A2E] mb-6">全套课程包含</h3>
                   <div className="space-y-4">
                     {fullCourseData.includes.map((item, idx) => (
                       <div key={idx} className="flex items-center gap-4">
                         <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white flex items-center justify-center text-xs">✓</span>
-                        <span className="text-[#666] font-light">{item}</span>
+                        <span className="text-[#666]">{item}</span>
                       </div>
                     ))}
                   </div>
-                  <p className="mt-6 text-[#999] text-sm font-light leading-relaxed">
+                  <p className="mt-6 text-[#999] text-sm leading-relaxed">
                     商业思维板块是全套独有内容，单买AI板块或自媒体板块无法获得，让¥799有充分购买理由。
                   </p>
                 </div>
@@ -434,39 +434,39 @@ export default function CourseDetailPage() {
             {/* 购买侧边栏 */}
             <div className="lg:col-span-2 lg:sticky lg:top-24 h-fit">
               <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 8px 40px rgba(26, 26, 46, 0.08)' }}>
-                <div className="text-4xl font-light text-[#1A1A2E] mb-2">¥{course.price}</div>
-                <p className="text-sm text-[#999] font-light mb-8">
+                <div className="text-4xl font-bold text-[#1A1A2E] mb-2">¥{course.price}</div>
+                <p className="text-sm text-[#999] mb-8">
                   {"totalLessons" in course ? `${course.totalLessons}节课程` : "AI + 自媒体 + 商业思维"}
                 </p>
 
                 {hasPurchased ? (
-                  <Link href="/user" className="block w-full py-4 bg-[#1A1A2E] text-white text-center rounded-full font-light hover:bg-[#2A2A3E] transition-all duration-300">
+                  <Link href="/user" className="block w-full py-4 bg-[#1A1A2E] text-white text-center rounded-full font-medium hover:bg-[#2A2A3E] transition-all duration-300">
                     开始学习
                   </Link>
                 ) : (
                   <>
-                    <button onClick={handleBuy} className="w-full py-4 bg-[#1A1A2E] text-white rounded-full font-light text-lg hover:bg-[#2A2A3E] transition-all duration-300 hover:scale-[1.02] mb-6">
+                    <button onClick={handleBuy} className="w-full py-4 bg-[#1A1A2E] text-white rounded-full font-medium text-lg hover:bg-[#2A2A3E] transition-all duration-300 hover:scale-[1.02] mb-6">
                       立即购买
                     </button>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-sm text-[#666] font-light">永久可看</span>
+                        <span className="text-sm text-[#666]">永久可看</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-sm text-[#666] font-light">进入学员群</span>
+                        <span className="text-sm text-[#666]">进入学员群</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-sm text-[#666] font-light">每周直播答疑</span>
+                        <span className="text-sm text-[#666]">每周直播答疑</span>
                       </div>
                     </div>
                   </>
                 )}
 
                 <div className="mt-8 pt-6 border-t border-[#F0EDE8]">
-                  <p className="text-sm text-[#999] font-light">
+                  <p className="text-sm text-[#999]">
                     <span className="text-green-500 mr-1">✓</span> 支持支付宝支付
                   </p>
                 </div>
