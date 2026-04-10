@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Mail, Lock, ArrowRight, AlertCircle, CheckCircle } from "lucide-react";
+import { Mail, Lock, ArrowRight, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
@@ -14,6 +14,10 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  // 忘记密码模式
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,9 +26,19 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      if (isLogin) {
+      if (isForgotPassword) {
+        // 忘记密码 - 发送重置邮件
+        if (!email) {
+          throw new Error("请输入邮箱地址");
+        }
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/login?reset=true`,
+        });
+        if (error) throw error;
+        setSuccess("重置链接已发送到你的邮箱，请查收并点击链接重置密码");
+      } else if (isLogin) {
         // 登录
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
@@ -32,7 +46,7 @@ export default function LoginPage() {
         router.push("/user");
       } else {
         // 注册
-        const { data, error } = await supabase.auth.signUp({
+        const { error } = await supabase.auth.signUp({
           email,
           password,
         });
@@ -52,10 +66,10 @@ export default function LoginPage() {
       <div className="w-full max-w-md px-6">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-2">
-            {isLogin ? "登录" : "注册"}
+            {isForgotPassword ? "找回密码" : isLogin ? "登录" : "注册"}
           </h1>
           <p className="text-[#666]">
-            {isLogin ? "欢迎回来" : "创建你的账号"}
+            {isForgotPassword ? "输入邮箱地址找回密码" : isLogin ? "欢迎回来" : "创建你的账号"}
           </p>
         </div>
 
@@ -76,20 +90,41 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">密码</label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666]" />
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full p-3 pl-10 border border-[#E8E8E8] rounded-lg focus:outline-none focus:border-[#1A1A2E]"
-                  placeholder="至少6位"
-                  required
-                />
+            {!isForgotPassword && (
+              <div>
+                <label className="block text-sm font-medium mb-2">密码</label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666]" />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full p-3 pl-10 pr-10 border border-[#E8E8E8] rounded-lg focus:outline-none focus:border-[#1A1A2E]"
+                    placeholder="至少6位"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#666] hover:text-[#1A1A2E]"
+                  >
+                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
+
+            {isLogin && !isForgotPassword && (
+              <div className="text-right">
+                <button
+                  type="button"
+                  onClick={() => setIsForgotPassword(true)}
+                  className="text-sm text-[#666] hover:text-[#1A1A2E]"
+                >
+                  忘记密码？
+                </button>
+              </div>
+            )}
 
             {error && (
               <div className="flex items-center gap-2 text-red-500 text-sm">
@@ -110,34 +145,49 @@ export default function LoginPage() {
               disabled={loading}
               className="btn btn-primary w-full disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              {loading ? "处理中..." : isLogin ? "登录" : "注册"}
+              {loading ? "处理中..." : isForgotPassword ? "发送重置链接" : isLogin ? "登录" : "注册"}
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>
 
-          <div className="mt-6 text-center text-sm text-[#666]">
-            {isLogin ? (
-              <>
-                还没有账号？{" "}
-                <button
-                  onClick={() => setIsLogin(false)}
-                  className="text-[#1A1A2E] font-medium"
-                >
-                  立即注册
-                </button>
-              </>
-            ) : (
-              <>
-                已有账号？{" "}
-                <button
-                  onClick={() => setIsLogin(true)}
-                  className="text-[#1A1A2E] font-medium"
-                >
-                  立即登录
-                </button>
-              </>
-            )}
-          </div>
+          {isForgotPassword ? (
+            <div className="mt-6 text-center text-sm text-[#666]">
+              <button
+                onClick={() => {
+                  setIsForgotPassword(false);
+                  setError("");
+                  setSuccess("");
+                }}
+                className="text-[#1A1A2E] font-medium"
+              >
+                返回登录
+              </button>
+            </div>
+          ) : (
+            <div className="mt-6 text-center text-sm text-[#666]">
+              {isLogin ? (
+                <span>
+                  还没有账号？{" "}
+                  <button
+                    onClick={() => setIsLogin(false)}
+                    className="text-[#1A1A2E] font-medium"
+                  >
+                    立即注册
+                  </button>
+                </span>
+              ) : (
+                <span>
+                  已有账号？{" "}
+                  <button
+                    onClick={() => setIsLogin(true)}
+                    className="text-[#1A1A2E] font-medium"
+                  >
+                    立即登录
+                  </button>
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* 微信咨询 */}
@@ -149,9 +199,11 @@ export default function LoginPage() {
           <p className="text-xs text-[#666]">（备注"课程"）</p>
         </div>
 
-        <p className="text-center text-xs text-[#666] mt-6">
-          注册后系统会发送验证邮件到你的邮箱
-        </p>
+        {!isForgotPassword && (
+          <p className="text-center text-xs text-[#666] mt-6">
+            注册后系统会发送验证邮件到你的邮箱
+          </p>
+        )}
       </div>
     </div>
   );
