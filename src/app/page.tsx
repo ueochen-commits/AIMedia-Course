@@ -222,62 +222,84 @@ export default function Home() {
       {/* ==================== 定价 ==================== */}
       <section className="py-20" id="pricing">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1A1A2E] mb-3">选择一个开始</h2>
-            <p className="text-[#666]">建议全套，三个都学 = 完整的AI一人公司能力体系</p>
+          {/* eyebrow */}
+          <div className="text-center mb-6">
+            <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">定价</span>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8] hover:shadow-lg hover:shadow-[#1A1A2E]/5 transition-all duration-300">
-              <h3 className="text-xl font-semibold text-[#1A1A2E] mb-2">AI 板块</h3>
-              <p className="text-sm text-[#999] mb-4">独立开发AI产品的能力</p>
-              <div className="text-4xl font-bold text-[#1A1A2E] mb-1">¥499</div>
-              <p className="text-sm text-[#999] mb-6">20节课程</p>
-              <Link href="/courses/ai" className="btn btn-secondary w-full">
-                单独购买
-              </Link>
-            </div>
+          {/* 主标题 */}
+          <h2 className="text-[28px] font-normal text-center mb-8 text-[#1a1a1a]" style={{ letterSpacing: '-0.4px' }}>
+            选择一个开始
+          </h2>
 
-            <div className="bg-white rounded-2xl p-8 border-2 border-[#1A1A2E] relative" style={{ boxShadow: '0 8px 32px rgba(26, 26, 46, 0.1)' }}>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-[#1A1A2E] text-white text-sm font-medium rounded-full">
-                推荐
+          {/* 三列大容器 */}
+          <div className="max-w-4xl mx-auto bg-white border border-[rgba(0,0,0,0.1)] rounded-xl overflow-hidden">
+            <div className="grid grid-cols-3">
+              {/* 左列：AI 板块 */}
+              <div className="p-6 border-r border-[rgba(0,0,0,0.1)]">
+                <h3 className="text-base font-medium text-[#1a1a1a] mb-1">AI 板块</h3>
+                <p className="text-sm text-[#6b6b6b] mb-4">独立开发 AI 产品</p>
+                <div className="mb-4">
+                  <span className="text-[16px] text-[#1a1a1a] font-normal">¥</span>
+                  <span className="text-[36px] font-normal text-[#1a1a1a]" style={{ letterSpacing: '-1px' }}>499</span>
+                </div>
+                <p className="text-sm text-[#6b6b6b] mb-6">20节课程</p>
+                <Link href="/courses/ai" className="inline-block w-full py-3 text-center border border-[rgba(0,0,0,0.15)] text-[#1a1a1a] text-sm hover:bg-[#f5f5f5] transition-colors rounded-sm">
+                  单独购买
+                </Link>
               </div>
-              <h3 className="text-xl font-semibold text-[#1A1A2E] mb-2 mt-2">全套课程</h3>
-              <p className="text-sm text-[#999] mb-4">AI + 自媒体 + 商业思维</p>
-              <div className="text-4xl font-bold text-[#1A1A2E] mb-1">¥799</div>
-              <p className="text-sm text-[#999] mb-6">55节课程 · 省¥199</p>
-              <Link href="/courses/full" className="btn btn-primary w-full">
-                立即购买
-              </Link>
-            </div>
 
-            <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8] hover:shadow-lg hover:shadow-[#1A1A2E]/5 transition-all duration-300">
-              <h3 className="text-xl font-semibold text-[#1A1A2E] mb-2">自媒体板块</h3>
-              <p className="text-sm text-[#999] mb-4">自媒体变现的能力</p>
-              <div className="text-4xl font-bold text-[#1A1A2E] mb-1">¥499</div>
-              <p className="text-sm text-[#999] mb-6">18节课程</p>
-              <Link href="/courses/media" className="btn btn-secondary w-full">
-                单独购买
-              </Link>
+              {/* 中列：推荐（深色） */}
+              <div className="p-6 bg-[#18181b] border-r border-[rgba(255,255,255,0.1)]">
+                <div className="mb-2">
+                  <span className="text-[10px] text-white/45 bg-white/12 px-2 py-0.5 rounded-sm">推荐 · 最受欢迎</span>
+                </div>
+                <h3 className="text-base font-medium text-white mb-1">全套课程</h3>
+                <p className="text-sm text-white/45 mb-4">AI + 自媒体 + 商业思维</p>
+                <div className="mb-4">
+                  <span className="text-[16px] text-white font-normal">¥</span>
+                  <span className="text-[36px] font-normal text-white" style={{ letterSpacing: '-1px' }}>799</span>
+                  <span className="text-[10px] text-[#22c55e] bg-[#22c55e]/20 px-2 py-0.5 ml-2 rounded-sm">省¥199</span>
+                </div>
+                <p className="text-sm text-white/45 mb-6">55节课程</p>
+                <Link href="/courses/full" className="inline-block w-full py-3 text-center bg-white text-black text-sm hover:bg-gray-200 transition-colors rounded-sm">
+                  立即购买
+                </Link>
+              </div>
+
+              {/* 右列：自媒体板块 */}
+              <div className="p-6">
+                <h3 className="text-base font-medium text-[#1a1a1a] mb-1">自媒体板块</h3>
+                <p className="text-sm text-[#6b6b6b] mb-4">自媒体变现体系</p>
+                <div className="mb-4">
+                  <span className="text-[16px] text-[#1a1a1a] font-normal">¥</span>
+                  <span className="text-[36px] font-normal text-[#1a1a1a]" style={{ letterSpacing: '-1px' }}>499</span>
+                </div>
+                <p className="text-sm text-[#6b6b6b] mb-6">18节课程</p>
+                <Link href="/courses/media" className="inline-block w-full py-3 text-center border border-[rgba(0,0,0,0.15)] text-[#1a1a1a] text-sm hover:bg-[#f5f5f5] transition-colors rounded-sm">
+                  单独购买
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-[#666]">
+          {/* 底部信任行 */}
+          <div className="mt-12 flex flex-wrap justify-center gap-8">
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-green-500" />
-              <span>支付宝支付</span>
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="text-[12px] text-[#6b6b6b]">支付宝支付</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-green-500" />
-              <span>永久可看</span>
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="text-[12px] text-[#6b6b6b]">永久可看</span>
             </div>
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-green-500" />
-              <span>进入学员群</span>
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="text-[12px] text-[#6b6b6b]">进入学员群</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-500" />
-              <span>售前无忧咨询</span>
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="text-[12px] text-[#6b6b6b]">售前无忧咨询</span>
             </div>
           </div>
         </div>
