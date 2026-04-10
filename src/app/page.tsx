@@ -5,13 +5,19 @@ export default function Home() {
   return (
     <div>
       {/* ==================== HERO 首屏 ==================== */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-10 left-1/4 w-72 h-72 bg-[#1A1A2E]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-[#1A1A2E]/3 rounded-full blur-3xl"></div>
+      <section className="py-20 md:py-28 relative overflow-hidden" style={{ backgroundColor: '#faf9f7' }}>
+        {/* SVG 背景图 - 最底层 */}
+        <div className="absolute inset-0 z-0" style={{ opacity: 0.08 }}>
+          <img
+            src="/hero_bg_line_art.svg"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ backgroundColor: 'transparent' }}
+          />
         </div>
 
-        <div className="container">
+        {/* 文字内容 - 上层 */}
+        <div className="relative z-10 container">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#666] mb-6">
               <Shield className="w-4 h-4 text-green-500" />
