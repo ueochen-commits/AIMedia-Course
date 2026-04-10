@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, Play, Check, Lock } from "lucide-react";
+import { useParams } from "next/navigation";
+import { Play, Lock } from "lucide-react";
+import { VideoPlayer } from "@/components/VideoPlayer";
+
+// 测试视频 URL（可替换为真实的腾讯云点播地址）
+const TEST_VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
 
 const courseData: Record<string, any> = {
   ai: {
@@ -98,6 +102,20 @@ export default function CourseDetailPage() {
   const course = courseData[slug];
   const [hasPurchased] = useState(false); // TODO: 从后端获取购买状态
 
+  // 视频播放状态
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [currentVideoTitle, setCurrentVideoTitle] = useState("");
+  const [currentVideoUrl, setCurrentVideoUrl] = useState("");
+
+  // 打开视频播放器
+  const handlePlayVideo = (lesson: any) => {
+    if (lesson.free || hasPurchased) {
+      setCurrentVideoTitle(lesson.name);
+      setCurrentVideoUrl(lesson.videoUrl || TEST_VIDEO_URL);
+      setIsVideoOpen(true);
+    }
+  };
+
   if (!course) {
     return (
       <div className="container py-16">
@@ -151,28 +169,32 @@ export default function CourseDetailPage() {
                         </span>
                       </summary>
                       <div className="mt-4 pt-4 border-t border-[#E8E8E8] space-y-2">
-                        {module.lessons.map((lesson: any, i: number) => (
-                          <div
-                            key={i}
-                            className="flex items-center justify-between py-3 border-t border-[#E8E8E8]"
-                          >
-                            <div className="flex items-center gap-3">
-                              {lesson.free || hasPurchased ? (
-                                <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">
-                                  <Check className="w-3 h-3" />
-                                </span>
-                              ) : (
-                                <span className="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center">
-                                  <Lock className="w-3 h-3" />
-                                </span>
-                              )}
-                              <span className="text-sm">{lesson.name}</span>
+                        {module.lessons.map((lesson: any, i: number) => {
+                          const canPlay = lesson.free || hasPurchased;
+                          return (
+                            <div
+                              key={i}
+                              className={`flex items-center justify-between py-3 border-t border-[#E8E8E8] ${canPlay ? 'cursor-pointer hover:bg-[#F7F6F3] -mx-2 px-2 rounded' : ''}`}
+                              onClick={() => handlePlayVideo(lesson)}
+                            >
+                              <div className="flex items-center gap-3">
+                                {canPlay ? (
+                                  <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">
+                                    <Play className="w-3 h-3" />
+                                  </span>
+                                ) : (
+                                  <span className="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center">
+                                    <Lock className="w-3 h-3" />
+                                  </span>
+                                )}
+                                <span className="text-sm">{lesson.name}</span>
+                              </div>
+                              <span className="text-xs text-[#666]">
+                                {lesson.duration}
+                              </span>
                             </div>
-                            <span className="text-xs text-[#666]">
-                              {lesson.duration}
-                            </span>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </details>
                   ))}
@@ -227,6 +249,14 @@ export default function CourseDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* 视频播放器弹窗 */}
+      <VideoPlayer
+        videoUrl={currentVideoUrl}
+        title={currentVideoTitle}
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+      />
     </div>
   );
 }
