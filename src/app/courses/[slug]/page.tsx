@@ -107,6 +107,20 @@ export default function CourseDetailPage() {
   const [currentVideoTitle, setCurrentVideoTitle] = useState("");
   const [currentVideoUrl, setCurrentVideoUrl] = useState("");
 
+  // 展开的模块
+  const [expandedModule, setExpandedModule] = useState<number | null>(null);
+
+  // 点击免费试看：展开第一个模块并滚动到课程列表
+  const handleFreePreview = () => {
+    if (!isFullCourse) {
+      setExpandedModule(0);
+      // 滚动到课程列表
+      setTimeout(() => {
+        document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  };
+
   // 打开视频播放器
   const handlePlayVideo = (lesson: any) => {
     if (lesson.free || hasPurchased) {
@@ -147,21 +161,33 @@ export default function CourseDetailPage() {
 
               {/* 试看提示 */}
               <div className="bg-[#F7F6F3] rounded-lg p-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#1A1A2E] rounded-full flex items-center justify-center">
-                    <Play className="w-5 h-5 text-white" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#1A1A2E] rounded-full flex items-center justify-center">
+                      <Play className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium">免费试看</div>
+                      <div className="text-sm text-[#666]">每个板块前2节课免费试看</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-medium">免费试看</div>
-                    <div className="text-sm text-[#666]">每个板块前2节课免费试看</div>
-                  </div>
+                  <button
+                    onClick={handleFreePreview}
+                    className="btn btn-primary text-sm py-2 px-4"
+                  >
+                    立即试看
+                  </button>
                 </div>
               </div>
 
               {!isFullCourse && (
-                <div className="space-y-4">
+                <div id="course-list" className="space-y-4">
                   {course.modules.map((module: any, idx: number) => (
-                    <details key={idx} className="card">
+                    <details
+                      key={idx}
+                      className="card"
+                      open={expandedModule === idx}
+                    >
                       <summary className="flex items-center justify-between cursor-pointer font-semibold list-none">
                         <span>{module.name}</span>
                         <span className="text-sm text-[#666]">
@@ -188,6 +214,11 @@ export default function CourseDetailPage() {
                                   </span>
                                 )}
                                 <span className="text-sm">{lesson.name}</span>
+                                {lesson.free && (
+                                  <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded">
+                                    免费
+                                  </span>
+                                )}
                               </div>
                               <span className="text-xs text-[#666]">
                                 {lesson.duration}
