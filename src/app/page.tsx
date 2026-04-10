@@ -166,7 +166,7 @@ export default function Home() {
                   <Megaphone className="w-7 h-7 text-white" />
                   <div>
                     <h3 className="text-lg font-bold text-white">自媒体板块</h3>
-                    <p className="text-white/70 text-xs">3模块 · 14节课程</p>
+                    <p className="text-white/70 text-xs">4模块 · 18节课程</p>
                   </div>
                 </div>
               </div>
@@ -177,6 +177,7 @@ export default function Home() {
                     { module: "模块一：认知与定位", lessons: "一人公司认知、差异化定位、Build in Public" },
                     { module: "模块二：内容创作", lessons: "爆款结构、选题方法、脚本写作、AI辅助、封面设计" },
                     { module: "模块三：运营增长", lessons: "多平台分发、评论区运营、私域引流、数据复盘" },
+                    { module: "模块四：变现实战", lessons: "广告分成、知识付费、带货分销、商业合作" },
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-sm">
                       <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
