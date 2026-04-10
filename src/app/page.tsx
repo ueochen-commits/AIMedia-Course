@@ -5,19 +5,19 @@ export default function Home() {
   return (
     <div>
       {/* ==================== HERO 首屏 ==================== */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: '#faf9f7', minHeight: '90vh' }}>
-        {/* SVG 背景图 - 全屏覆盖 */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <section className="py-20 md:py-28 relative overflow-hidden" style={{ backgroundColor: '#faf9f7' }}>
+        {/* SVG 背景图 - 覆盖整个 Hero 区 */}
+        <div className="absolute inset-0 pointer-events-none">
           <svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
             <g stroke="#1a1a1a" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.08">
-              {/* 咖啡杯 - 左上 */}
+              {/* 咖啡杯 */}
               <g transform="translate(80,90)">
                 <path d="M0,20 Q0,35 18,35 Q36,35 36,20 L33,5 L3,5 Z" strokeWidth="1.8"/>
                 <path d="M36,12 Q48,12 48,20 Q48,28 36,28" strokeWidth="1.8"/>
                 <path d="M10,0 Q10,-8 16,-8 Q22,-8 22,0" strokeWidth="1.5"/>
                 <ellipse cx="18" cy="38" rx="14" ry="3" strokeWidth="1.2"/>
               </g>
-              {/* 小火箭 */}
+              {/* 火箭 */}
               <g transform="translate(180,55) rotate(-20)">
                 <path d="M12,0 Q20,8 20,22 L12,30 L4,22 Q4,8 12,0Z" strokeWidth="1.8"/>
                 <path d="M4,22 Q0,28 2,34 L8,28" strokeWidth="1.5"/>
@@ -45,7 +45,7 @@ export default function Home() {
                 <circle cx="22" cy="15" r="2.5" strokeWidth="1.5"/>
                 <circle cx="30" cy="15" r="2.5" strokeWidth="1.5"/>
               </g>
-              {/* 手机录视频 - 右上 */}
+              {/* 手机录视频 */}
               <g transform="translate(1100,65)">
                 <rect x="0" y="0" width="28" height="48" rx="5" strokeWidth="1.8"/>
                 <circle cx="14" cy="6" r="2" strokeWidth="1.3"/>
@@ -74,7 +74,7 @@ export default function Home() {
                 <circle cx="30" cy="28" r="2.5" strokeWidth="1.3"/>
                 <circle cx="45" cy="10" r="2.5" strokeWidth="1.3"/>
               </g>
-              {/* 笔记本电脑 - 左中 */}
+              {/* 笔记本电脑 */}
               <g transform="translate(55,220)">
                 <rect x="0" y="0" width="70" height="46" rx="4" strokeWidth="1.8"/>
                 <rect x="4" y="4" width="62" height="34" rx="2" strokeWidth="1.3"/>
@@ -91,7 +91,7 @@ export default function Home() {
                 <path d="M0,6 L12,6 L12,0 L0,0Z" strokeWidth="1.5"/>
                 <path d="M0,12 L12,12" strokeWidth="1.2"/>
               </g>
-              {/* 小狗脸 - 右中 */}
+              {/* 小狗脸 */}
               <g transform="translate(1250,230)">
                 <ellipse cx="30" cy="28" rx="26" ry="22" strokeWidth="1.8"/>
                 <ellipse cx="14" cy="10" rx="10" ry="13" strokeWidth="1.6"/>
@@ -109,12 +109,12 @@ export default function Home() {
                 <path d="M20,28 L20,32" strokeWidth="1.5"/>
                 <path d="M14,13 Q14,10 20,10 Q26,10 26,16 Q26,20 20,20 Q26,20 26,26 Q26,30 20,30 Q14,30 14,26" strokeWidth="1.5"/>
               </g>
-              {/* 播放按钮 - 底部左 */}
+              {/* 播放按钮 */}
               <g transform="translate(90,500)">
                 <circle cx="26" cy="26" r="24" strokeWidth="1.8"/>
                 <path d="M18,14 L42,26 L18,38 Z" strokeWidth="1.8"/>
               </g>
-              {/* 魔法棒 - 底部 */}
+              {/* 魔法棒 */}
               <g transform="translate(260,480) rotate(-30)">
                 <path d="M0,60 L44,16" strokeWidth="2"/>
                 <path d="M40,12 L48,4 L52,12 L44,16 Z" strokeWidth="1.6"/>
@@ -123,18 +123,17 @@ export default function Home() {
                 <path d="M8,4 L12,0 L16,4 L12,8Z" strokeWidth="1.4"/>
                 <path d="M55,30 L58,26 L61,30 L58,34Z" strokeWidth="1.3"/>
               </g>
-              {/* 对话框 - 底部右 */}
+              {/* 对话框 */}
               <g transform="translate(1100,490)">
                 <rect x="0" y="0" width="52" height="36" rx="10" strokeWidth="1.8"/>
                 <path d="M10,44 L10,36 L22,36" strokeWidth="1.5"/>
                 <path d="M12,15 L40,15" strokeWidth="1.3"/>
                 <path d="M12,23 L32,23" strokeWidth="1.3"/>
               </g>
-              {/* 小星星散落 */}
+              {/* 小星星 */}
               <g transform="translate(600,80)">
                 <path d="M6,0 L7,4 L11,4 L8,6.5 L9,10.5 L6,8.5 L3,10.5 L4,6.5 L1,4 L5,4 Z" strokeWidth="1.3"/>
               </g>
-              {/* + 符号 */}
               <g transform="translate(700,110)">
                 <path d="M5,0 L6,3.5 L9.5,3.5 L7,5.5 L8,9 L5,7 L2,9 L3,5.5 L0.5,3.5 L4,3.5 Z" strokeWidth="1.2"/>
               </g>
@@ -144,12 +143,12 @@ export default function Home() {
                 <line x1="2" y1="2" x2="10" y2="10" strokeWidth="1"/>
                 <line x1="10" y1="2" x2="2" y2="10" strokeWidth="1"/>
               </g>
-              {/* 散落小点缀 */}
+              {/* 散落点缀 */}
               <circle cx="550" cy="150" r="3" strokeWidth="1.5"/>
               <circle cx="860" cy="80" r="2.5" strokeWidth="1.3"/>
               <circle cx="980" cy="130" r="3" strokeWidth="1.5"/>
               <circle cx="1050" cy="70" r="2" strokeWidth="1.2"/>
-              {/* 底部中间装饰 */}
+              {/* 底部装饰 */}
               <g transform="translate(580,520)">
                 <circle cx="10" cy="10" r="10" strokeWidth="1.5"/>
                 <path d="M6,10 L9,13 L14,7" strokeWidth="1.5"/>
@@ -159,7 +158,7 @@ export default function Home() {
         </div>
 
         {/* 文字内容 - 上层 */}
-        <div className="relative z-10 container py-20 md:py-28">
+        <div className="relative z-10 container">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F6F3] rounded-full text-sm text-[#666] mb-6">
               <Shield className="w-4 h-4 text-green-500" />
