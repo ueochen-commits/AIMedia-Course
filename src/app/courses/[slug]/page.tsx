@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { Play, Lock, CheckCircle, BookOpen, Clock, Target, Sparkles, Code, TrendingUp, Megaphone, Rocket, Layers, BarChart3, Zap, Award, GraduationCap } from "lucide-react";
+import { Play, Lock, CheckCircle, ChevronDown } from "lucide-react";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { PaymentModal } from "@/components/PaymentModal";
 import { supabase } from "@/lib/supabase";
@@ -23,7 +23,6 @@ const aiCourseData = {
     {
       name: "模块一：入门准备",
       description: "解决入门门槛，开启AI之旅",
-      icon: Sparkles,
       lessons: [
         { id: 1, name: "科学上网：翻墙工具安装与配置", outcome: "能访问Google、ChatGPT等境外网站", duration: "约20分钟", free: true },
         { id: 2, name: "注册谷歌账号（手把手）", outcome: "拥有谷歌账号，能使用所有谷歌服务", duration: "约15分钟", free: true },
@@ -35,7 +34,6 @@ const aiCourseData = {
     {
       name: "模块二：AI工具基础使用",
       description: "掌握主流AI工具，高效完成工作",
-      icon: Target,
       lessons: [
         { id: 6, name: "主流大模型对比：Claude vs ChatGPT vs Gemini", outcome: "知道不同任务用哪个AI效率最高", duration: "约25分钟", free: false },
         { id: 7, name: "提示词工程实战：如何让AI听懂你的话", outcome: "掌握5个核心提示词技巧", duration: "约30分钟", free: false },
@@ -48,7 +46,6 @@ const aiCourseData = {
     {
       name: "模块三：AI效率工具",
       description: "构建个人AI工作流，提升效率",
-      icon: Zap,
       lessons: [
         { id: 12, name: "用Obsidian搭建AI知识库", outcome: "建立个人第二大脑，知识不再流失", duration: "约30分钟", free: false },
         { id: 13, name: "NotebookLM实战：让AI读懂你的文档", outcome: "能上传资料让AI总结和回答问题", duration: "约20分钟", free: false },
@@ -58,7 +55,6 @@ const aiCourseData = {
     {
       name: "模块四：Vibe Coding入门",
       description: "不教编程语法，教用自然语言让AI写代码",
-      icon: Code,
       lessons: [
         { id: 15, name: "GitHub注册与基础配置", outcome: "拥有GitHub账号，能上传和管理代码", duration: "约20分钟", free: false },
         { id: 16, name: "Cursor安装与基础使用", outcome: "能打开Cursor，创建第一个项目", duration: "约15分钟", free: false },
@@ -78,12 +74,11 @@ const mediaCourseData = {
   price: 0.01,
   target: "想做自媒体但不知道从哪开始，或已有账号但增长缓慢",
   outcome: "掌握内容创作方法论，能持续产出内容并建立变现体系",
-  totalLessons: 20,
+  totalLessons: 18,
   modules: [
     {
       name: "模块一：自媒体认知与定位",
       description: "建立正确认知，找到差异化定位",
-      icon: Rocket,
       lessons: [
         { id: 1, name: "什么是真正的一人公司（vs 打工人）", outcome: "建立正确创业认知，明白自己为什么做", duration: "约20分钟", free: true },
         { id: 2, name: "如何找到你的差异化定位", outcome: "完成个人定位分析，确定账号方向", duration: "约25分钟", free: true },
@@ -94,7 +89,6 @@ const mediaCourseData = {
     {
       name: "模块二：爆款内容创作方法论",
       description: "掌握万能内容公式，持续产出爆款",
-      icon: Megaphone,
       lessons: [
         { id: 5, name: "爆款视频结构拆解：钩子+内容+悬念", outcome: "掌握万能视频结构，套用任何选题", duration: "约25分钟", free: false },
         { id: 6, name: "选题方法论：如何找到有人看的话题", outcome: "建立选题库，每周不再为拍什么发愁", duration: "约25分钟", free: false },
@@ -107,12 +101,21 @@ const mediaCourseData = {
     {
       name: "模块三：运营增长策略",
       description: "获取流量，建立私域，持续增长",
-      icon: TrendingUp,
       lessons: [
         { id: 11, name: "多平台同步发布：一条内容最大化曝光", outcome: "5分钟完成多平台投放，流量翻倍", duration: "约20分钟", free: false },
         { id: 12, name: "评论区运营：让算法持续推流的秘诀", outcome: "掌握互动技巧，让算法判定你的内容有价值", duration: "约20分钟", free: false },
         { id: 13, name: "私域流量：从粉丝到真实用户的转化", outcome: "建立公众号和社群，沉淀最忠实受众", duration: "约25分钟", free: false },
         { id: 14, name: "数据复盘：用数据指导内容迭代", outcome: "掌握关键数据指标，判断什么内容值得继续做", duration: "约20分钟", free: false },
+      ]
+    },
+    {
+      name: "模块四：变现实战",
+      description: "将流量转化为收入",
+      lessons: [
+        { id: 15, name: "广告分成：平台收益的最基础形式", outcome: "了解广告收益规则，最大化内容收益", duration: "约20分钟", free: false },
+        { id: 16, name: "知识付费：把经验变成产品", outcome: "设计并上线自己的知识付费产品", duration: "约25分钟", free: false },
+        { id: 17, name: "带货分销：推荐好物获得佣金", outcome: "掌握带货技巧，通过推荐获得收入", duration: "约20分钟", free: false },
+        { id: 18, name: "商业合作：品牌方的合作机会", outcome: "掌握商务合作谈判技巧，获得品牌合作", duration: "约25分钟", free: false },
       ]
     },
   ],
@@ -129,17 +132,15 @@ const businessCourseData = {
     {
       name: "模块一：商业认知基础",
       description: "理解商业本质，建立创业者思维",
-      icon: BarChart3,
       lessons: [
         { id: 1, name: "什么是商业模式：用TradeGrail拆解真实案例", outcome: "能看懂一个产品是靠什么赚钱的", duration: "约25分钟" },
         { id: 2, name: "从打工思维到老板思维：两种人的本质差异", outcome: "识别自己的思维盲区，建立主动创造价值的视角", duration: "约25分钟" },
-        { id: 3, name: "一人公司的商业逻辑：最小成本验证想法", outcome: "掌握MVP思维，不再等\"准备好了\"才开始", duration: "约20分钟" },
+        { id: 3, name: "一人公司的商业逻辑：最小成本验证想法", outcome: "掌握MVP思维，不再等'准备好'才开始", duration: "约20分钟" },
       ]
     },
     {
       name: "模块二：产品思维",
       description: "学会从用户视角设计产品",
-      icon: Layers,
       lessons: [
         { id: 4, name: "什么是好产品：用户要的和你做的为什么不一样", outcome: "学会从用户视角思考，而不是从自己视角出发", duration: "约25分钟" },
         { id: 5, name: "MVP方法论：为什么要先做最简单的版本", outcome: "能在1周内做出可验证需求的最小产品", duration: "约20分钟" },
@@ -150,7 +151,6 @@ const businessCourseData = {
     {
       name: "模块三：五种变现模式深度拆解",
       description: "广告、知识付费、SaaS、服务、联盟营销",
-      icon: Award,
       lessons: [
         { id: 8, name: "广告变现：单条广告报价 = 粉丝量 × 0.01-0.05元", outcome: "了解广告变现的逻辑和适合条件", duration: "约25分钟" },
         { id: 9, name: "知识付费：最适合路人的变现方式", outcome: "掌握知识付费产品的设计和销售方法", duration: "约25分钟" },
@@ -162,7 +162,6 @@ const businessCourseData = {
     {
       name: "模块四：路人的真实商业复盘",
       description: "真实数据、真实错误、真实决策过程",
-      icon: Rocket,
       lessons: [
         { id: 13, name: "从离职到第一笔收入：完整时间线和数据", outcome: "看到真实的创业节奏，建立可参考的执行模板", duration: "约30分钟" },
         { id: 14, name: "我做过的错误决策和付出的代价", outcome: "避免路人踩过的坑，少走弯路", duration: "约25分钟" },
@@ -176,7 +175,7 @@ const fullCourseData = {
   name: "全套课程",
   description: "AI板块 + 自媒体板块 + 商业思维板块，一次购买，完整体系",
   price: 0.01,
-  includes: ["AI板块（20节课）", "自媒体板块（20节课）", "商业思维板块（15节课，仅全套专享）"],
+  includes: ["AI板块（20节课）", "自媒体板块（18节课）", "商业思维板块（15节课，仅全套专享）"],
 };
 
 export default function CourseDetailPage() {
@@ -184,7 +183,6 @@ export default function CourseDetailPage() {
   const router = useRouter();
   const slug = params.slug as string;
 
-  // 根据slug获取对应课程数据
   const getCourseData = () => {
     switch (slug) {
       case "ai":
@@ -204,15 +202,11 @@ export default function CourseDetailPage() {
   const [user, setUser] = useState<{ email: string; id: string } | null>(null);
   const [purchases, setPurchases] = useState<string[]>([]);
 
-  // 视频播放状态
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [currentVideoTitle, setCurrentVideoTitle] = useState("");
   const [currentVideoUrl, setCurrentVideoUrl] = useState("");
 
-  // 支付弹窗状态
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
-
-  // 展开的模块
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
 
   useEffect(() => {
@@ -234,7 +228,6 @@ export default function CourseDetailPage() {
 
   const hasPurchased = purchases.includes(slug) || purchases.includes("full");
 
-  // 点击免费试看
   const handleFreePreview = () => {
     if (course && "modules" in course) {
       setExpandedModule(0);
@@ -244,7 +237,6 @@ export default function CourseDetailPage() {
     }
   };
 
-  // 打开视频播放器
   const handlePlayVideo = (lesson: any) => {
     if (lesson.free || hasPurchased) {
       setCurrentVideoTitle(lesson.name);
@@ -253,7 +245,6 @@ export default function CourseDetailPage() {
     }
   };
 
-  // 点击购买
   const handleBuy = () => {
     if (!user) {
       router.push("/login");
@@ -279,38 +270,43 @@ export default function CourseDetailPage() {
 
   return (
     <div>
-      <section className="py-8">
+      <section className="py-12">
         <div className="container">
           {/* 面包屑导航 */}
-          <div className="flex items-center gap-2 text-sm text-[#666] mb-6">
-            <Link href="/" className="hover:text-[#1A1A2E]">首页</Link>
-            <span>/</span>
-            <Link href="/courses" className="hover:text-[#1A1A2E]">课程</Link>
-            <span>/</span>
-            <span className="text-[#1A1A2E]">{course.name}</span>
+          <div className="flex items-center gap-2 text-sm text-[#999] mb-8 font-light">
+            <Link href="/" className="hover:text-[#1A1A2E] transition-colors">首页</Link>
+            <span className="text-[#DDD]">/</span>
+            <Link href="/courses" className="hover:text-[#1A1A2E] transition-colors">课程</Link>
+            <span className="text-[#DDD]">/</span>
+            <span className="text-[#1A1A2E] font-medium">{course.name}</span>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-5 gap-10">
             {/* 课程内容 */}
-            <div className="md:col-span-2">
-              <h1 className="text-4xl font-bold mb-2">{course.name}</h1>
-              <p className="text-[#666] mb-6">{course.description}</p>
+            <div className="lg:col-span-3">
+              {/* 标题区域 */}
+              <div className="mb-8">
+                <h1 className="text-4xl font-light mb-3 text-[#1A1A2E] tracking-tight">
+                  {course.name}
+                </h1>
+                <p className="text-lg text-[#666] font-light leading-relaxed">{course.description}</p>
+              </div>
 
               {/* 课程 info card */}
               {"target" in course && (
-                <div className="bg-gradient-to-r from-[#1A1A2E] to-[#2A2A3E] rounded-xl p-6 mb-8 text-white">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div>
-                      <div className="text-sm text-white/60 mb-1">目标学员</div>
-                      <div className="font-medium">{course.target}</div>
+                <div className="bg-white rounded-2xl p-8 mb-8 shadow-sm border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
+                  <div className="grid md:grid-cols-3 gap-8">
+                    <div className="relative">
+                      <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">目标学员</div>
+                      <div className="text-[#1A1A2E] font-light leading-relaxed">{course.target}</div>
                     </div>
-                    <div>
-                      <div className="text-sm text-white/60 mb-1">学习成果</div>
-                      <div className="font-medium">{course.outcome}</div>
+                    <div className="relative">
+                      <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">学习成果</div>
+                      <div className="text-[#1A1A2E] font-light leading-relaxed">{course.outcome}</div>
                     </div>
-                    <div>
-                      <div className="text-sm text-white/60 mb-1">总课时</div>
-                      <div className="font-medium">{course.totalLessons}节 · 每节15-45分钟</div>
+                    <div className="relative">
+                      <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">总课时</div>
+                      <div className="text-[#1A1A2E] font-light">{course.totalLessons}节 · 每节15-45分钟</div>
                     </div>
                   </div>
                 </div>
@@ -318,20 +314,20 @@ export default function CourseDetailPage() {
 
               {/* 试看提示 */}
               {"modules" in course && (
-                <div className="bg-[#F7F6F3] rounded-lg p-4 mb-8">
+                <div className="bg-gradient-to-r from-[#FDFCFB] to-[#F8F6F3] rounded-2xl p-6 mb-10 border border-[#F0EDE8]">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-[#1A1A2E] rounded-full flex items-center justify-center">
-                        <Play className="w-5 h-5 text-white" />
+                    <div className="flex items-center gap-5">
+                      <div className="w-14 h-14 rounded-full bg-[#1A1A2E] flex items-center justify-center shadow-lg">
+                        <Play className="w-5 h-5 text-white ml-0.5" />
                       </div>
                       <div>
-                        <div className="font-medium">免费试看</div>
-                        <div className="text-sm text-[#666]">每个板块前2节课免费试看</div>
+                        <div className="text-lg font-light text-[#1A1A2E]">免费试看</div>
+                        <div className="text-sm text-[#999]">每个板块前2节课免费试看</div>
                       </div>
                     </div>
                     <button
                       onClick={handleFreePreview}
-                      className="btn btn-primary text-sm py-2 px-4"
+                      className="px-6 py-3 bg-[#1A1A2E] text-white rounded-full font-light text-sm hover:bg-[#2A2A3E] transition-all duration-300 hover:scale-105"
                     >
                       立即试看
                     </button>
@@ -341,56 +337,69 @@ export default function CourseDetailPage() {
 
               {/* 课程模块列表 */}
               {"modules" in course && (
-                <div id="course-list" className="space-y-6">
+                <div id="course-list" className="space-y-4">
+                  <div className="text-xs text-[#999] uppercase tracking-wider font-medium mb-6">课程目录</div>
                   {(course.modules || []).map((module: any, idx: number) => (
-                    <div key={idx} className="card overflow-hidden">
+                    <div
+                      key={idx}
+                      className="bg-white rounded-xl overflow-hidden transition-all duration-300 border border-[#F0EDE8]"
+                      style={{
+                        boxShadow: expandedModule === idx ? '0 8px 32px rgba(26, 26, 46, 0.1)' : '0 2px 12px rgba(26, 26, 46, 0.04)'
+                      }}
+                    >
                       <div
-                        className="flex items-center gap-4 p-5 cursor-pointer hover:bg-[#F7F6F3] transition"
+                        className="flex items-center gap-5 p-6 cursor-pointer group"
                         onClick={() => setExpandedModule(expandedModule === idx ? null : idx)}
                       >
-                        <div className="w-12 h-12 bg-[#1A1A2E] rounded-xl flex items-center justify-center flex-shrink-0">
-                          <module.icon className="w-6 h-6 text-white" />
+                        {/* 模块编号 */}
+                        <div className="w-10 h-10 rounded-lg bg-[#F7F6F3] flex items-center justify-center text-[#1A1A2E] font-light text-lg flex-shrink-0 group-hover:bg-[#1A1A2E] group-hover:text-white transition-all duration-300">
+                          {String(idx + 1).padStart(2, '0')}
                         </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-lg">{module.name}</h3>
-                          <p className="text-sm text-[#666]">{module.description}</p>
+
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-light text-lg text-[#1A1A2E] mb-1 group-hover:text-[#4A4A6A] transition-colors">{module.name}</h3>
+                          <p className="text-sm text-[#999] font-light truncate">{module.description}</p>
                         </div>
-                        <div className="text-sm text-[#666]">
-                          {module.lessons.length}节课程
+
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-[#999] font-light">{module.lessons.length}节</span>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${expandedModule === idx ? 'rotate-180 bg-[#1A1A2E] text-white' : 'bg-[#F7F6F3] text-[#999]'}`}>
+                            <ChevronDown className="w-4 h-4" />
+                          </div>
                         </div>
                       </div>
 
                       {expandedModule === idx && (
-                        <div className="border-t border-[#E8E8E8]">
+                        <div className="border-t border-[#F0EDE8] bg-[#FBFBFA]">
                           {module.lessons.map((lesson: any, i: number) => {
                             const canPlay = lesson.free || hasPurchased;
                             return (
                               <div
                                 key={i}
-                                className={`flex items-center justify-between p-4 border-b border-[#E8E8E8] last:border-b-0 ${canPlay ? 'cursor-pointer hover:bg-[#F7F6F3]' : ''}`}
+                                className={`flex items-center justify-between p-5 pl-[90px] border-b border-[#F0EDE8] last:border-b-0 transition-colors duration-200 ${canPlay ? 'cursor-pointer hover:bg-[#F7F6F3]' : ''}`}
                                 onClick={() => handlePlayVideo(lesson)}
                               >
-                                <div className="flex items-center gap-3 flex-1">
+                                <div className="flex items-center gap-4 flex-1 min-w-0">
                                   {canPlay ? (
-                                    <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs flex-shrink-0">
-                                      <Play className="w-3 h-3" />
+                                    <span className="w-7 h-7 rounded-full bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0">
+                                      <Play className="w-3 h-3 ml-0.5" />
                                     </span>
                                   ) : (
-                                    <span className="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center flex-shrink-0">
+                                    <span className="w-7 h-7 rounded-full bg-[#F0EDE8] text-[#CCC] flex items-center justify-center flex-shrink-0">
                                       <Lock className="w-3 h-3" />
                                     </span>
                                   )}
                                   <div className="flex-1 min-w-0">
-                                    <div className="text-sm font-medium truncate">{lesson.name}</div>
-                                    <div className="text-xs text-[#666] truncate">{lesson.outcome}</div>
+                                    <div className="text-sm font-light text-[#1A1A2E] truncate">{lesson.name}</div>
+                                    <div className="text-xs text-[#999] font-light truncate mt-0.5">{lesson.outcome}</div>
                                   </div>
                                   {lesson.free && (
-                                    <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded flex-shrink-0">
+                                    <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full flex-shrink-0 font-light">
                                       免费
                                     </span>
                                   )}
                                 </div>
-                                <span className="text-xs text-[#666] ml-4 flex-shrink-0">
+                                <span className="text-xs text-[#BBB] ml-4 flex-shrink-0 font-light whitespace-nowrap">
                                   {lesson.duration}
                                 </span>
                               </div>
@@ -405,17 +414,17 @@ export default function CourseDetailPage() {
 
               {/* 全套课程展示 */}
               {isFullCourse && (
-                <div className="card">
-                  <h3 className="text-xl font-semibold mb-4">全套课程包含</h3>
-                  <div className="space-y-3">
+                <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]">
+                  <h3 className="text-xl font-light text-[#1A1A2E] mb-6">全套课程包含</h3>
+                  <div className="space-y-4">
                     {fullCourseData.includes.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500" />
-                        <span>{item}</span>
+                      <div key={idx} className="flex items-center gap-4">
+                        <span className="w-6 h-6 rounded-full bg-[#1A1A2E] text-white flex items-center justify-center text-xs">✓</span>
+                        <span className="text-[#666] font-light">{item}</span>
                       </div>
                     ))}
                   </div>
-                  <p className="mt-4 text-[#666] text-sm">
+                  <p className="mt-6 text-[#999] text-sm font-light leading-relaxed">
                     商业思维板块是全套独有内容，单买AI板块或自媒体板块无法获得，让¥799有充分购买理由。
                   </p>
                 </div>
@@ -423,42 +432,42 @@ export default function CourseDetailPage() {
             </div>
 
             {/* 购买侧边栏 */}
-            <div>
-              <div className="card sticky top-24">
-                <div className="text-3xl font-bold mb-2">¥{course.price}</div>
-                <p className="text-sm text-[#666] mb-6">
+            <div className="lg:col-span-2 lg:sticky lg:top-24 h-fit">
+              <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 8px 40px rgba(26, 26, 46, 0.08)' }}>
+                <div className="text-4xl font-light text-[#1A1A2E] mb-2">¥{course.price}</div>
+                <p className="text-sm text-[#999] font-light mb-8">
                   {"totalLessons" in course ? `${course.totalLessons}节课程` : "AI + 自媒体 + 商业思维"}
                 </p>
 
                 {hasPurchased ? (
-                  <Link href="/user" className="btn btn-primary w-full mb-4 block text-center">
+                  <Link href="/user" className="block w-full py-4 bg-[#1A1A2E] text-white text-center rounded-full font-light hover:bg-[#2A2A3E] transition-all duration-300">
                     开始学习
                   </Link>
                 ) : (
                   <>
-                    <button onClick={handleBuy} className="btn btn-primary w-full mb-4">
+                    <button onClick={handleBuy} className="w-full py-4 bg-[#1A1A2E] text-white rounded-full font-light text-lg hover:bg-[#2A2A3E] transition-all duration-300 hover:scale-[1.02] mb-6">
                       立即购买
                     </button>
-                    <div className="text-sm text-[#666] space-y-2">
-                      <div className="flex items-center gap-2">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span>永久可看</span>
+                        <span className="text-sm text-[#666] font-light">永久可看</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span>进入学员群</span>
+                        <span className="text-sm text-[#666] font-light">进入学员群</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span>每周直播答疑</span>
+                        <span className="text-sm text-[#666] font-light">每周直播答疑</span>
                       </div>
                     </div>
                   </>
                 )}
 
-                <div className="mt-6 pt-6 border-t border-[#E8E8E8]">
-                  <p className="text-sm text-[#666]">
-                    <span className="text-green-500">✓</span> 支持支付宝支付
+                <div className="mt-8 pt-6 border-t border-[#F0EDE8]">
+                  <p className="text-sm text-[#999] font-light">
+                    <span className="text-green-500 mr-1">✓</span> 支持支付宝支付
                   </p>
                 </div>
               </div>
