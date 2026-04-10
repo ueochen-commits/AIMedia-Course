@@ -207,31 +207,35 @@ export default function Home() {
       <section className="py-8">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4">
-            {/* 抖音快手小红书 */}
-            <div className="text-center md:text-left">
+            {/* 第一组 */}
+            <div className="text-center md:text-left md:pr-8">
               <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>60万+</div>
-              <div className="text-[13px] font-medium text-[#615d59] mt-2">全网粉丝</div>
-              <div className="text-[11px] text-[#c8c4be] mt-1">抖音 · 快手 · 小红书</div>
+              <div className="text-[13px] font-medium text-[#615d59]" style={{ marginTop: '8px' }}>全网粉丝</div>
+              <div className="text-[11px] text-[#c8c4be]" style={{ marginTop: '3px' }}>抖音 · 快手 · 小红书</div>
             </div>
 
-            {/* 已完成课程学习 */}
-            <div className="text-center md:text-left md:border-l border-[rgba(0,0,0,0.1)]">
+            {/* 第二组 */}
+            <div className="text-center md:text-left md:pl-8 md:relative" style={{ paddingLeft: '2rem' }}>
+              <div className="hidden md:block absolute left-0 top-[10%] h-[80%] w-px bg-[rgba(0,0,0,0.1)]" style={{ width: '0.5px' }}></div>
               <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>100+</div>
-              <div className="text-[13px] font-medium text-[#615d59] mt-2">已完成课程学习</div>
+              <div className="text-[13px] font-medium text-[#615d59]" style={{ marginTop: '8px' }}>内测用户</div>
+              <div className="text-[11px] text-[#c8c4be]" style={{ marginTop: '3px' }}>已完成课程学习</div>
             </div>
 
-            {/* 独立产品变现 */}
-            <div className="text-center md:text-left md:border-l border-[rgba(0,0,0,0.1)]">
+            {/* 第三组 */}
+            <div className="text-center md:text-left md:pl-8 md:relative" style={{ paddingLeft: '2rem' }}>
+              <div className="hidden md:block absolute left-0 top-[10%] h-[80%] w-px bg-[rgba(0,0,0,0.1)]" style={{ width: '0.5px' }}></div>
               <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>3-5万</div>
-              <div className="text-[13px] font-medium text-[#615d59] mt-2">独立产品变现</div>
-              <div className="text-[11px] text-[#c8c4be] mt-1">月收入</div>
+              <div className="text-[13px] font-medium text-[#615d59]" style={{ marginTop: '8px' }}>月收入</div>
+              <div className="text-[11px] text-[#c8c4be]" style={{ marginTop: '3px' }}>独立产品变现</div>
             </div>
 
-            {/* Build in Public */}
-            <div className="text-center md:text-left md:border-l border-[rgba(0,0,0,0.1)]">
+            {/* 第四组 */}
+            <div className="text-center md:text-left md:pl-8 md:relative" style={{ paddingLeft: '2rem' }}>
+              <div className="hidden md:block absolute left-0 top-[10%] h-[80%] w-px bg-[rgba(0,0,0,0.1)]" style={{ width: '0.5px' }}></div>
               <div className="text-[44px] font-medium text-[#18181b]" style={{ letterSpacing: '-2px', lineHeight: 1 }}>2+</div>
-              <div className="text-[13px] font-medium text-[#615d59] mt-2">Build in Public</div>
-              <div className="text-[11px] text-[#c8c4be] mt-1">全程公开</div>
+              <div className="text-[13px] font-medium text-[#615d59]" style={{ marginTop: '8px' }}>上线产品</div>
+              <div className="text-[11px] text-[#c8c4be]" style={{ marginTop: '3px' }}>Build in Public 全程公开</div>
             </div>
           </div>
         </div>
