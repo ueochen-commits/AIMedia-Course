@@ -284,88 +284,101 @@ export default function Home() {
       </section>
 
       {/* ==================== 学完能达到什么效果 ==================== */}
-      <section className="py-20 bg-[#FBFBFA]">
+      <section className="py-20">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1A1A2E] mb-3">学完能达到什么效果</h2>
-            <p className="text-[#666]">从入门到实战，每一步都有实实在在的成果</p>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* AI 板块 */}
-              <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#1A1A2E] flex items-center justify-center">
-                    <span className="text-white font-bold">AI</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-[#1A1A2E]">AI 板块</h3>
-                    <p className="text-[#999] text-sm">从零基础到独立开发产品</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-4 bg-[#F7F6F3] rounded-xl">
-                    <span className="w-8 h-8 rounded-lg bg-[#1A1A2E] text-white text-sm font-medium flex items-center justify-center flex-shrink-0">1</span>
-                    <div>
-                      <span className="font-medium text-[#1A1A2E]">入门</span>
-                      <p className="text-[#666] text-sm mt-1">科学上网、注册ChatGPT/Claude、学会基础对话</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 p-4 bg-[#F7F6F3] rounded-xl">
-                    <span className="w-8 h-8 rounded-lg bg-[#1A1A2E] text-white text-sm font-medium flex items-center justify-center flex-shrink-0">2</span>
-                    <div>
-                      <span className="font-medium text-[#1A1A2E]">进阶</span>
-                      <p className="text-[#666] text-sm mt-1">掌握提示词工程、AI写作/图片/视频、构建个人知识库</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl border border-green-200">
-                    <span className="w-8 h-8 rounded-lg bg-green-500 text-white text-sm font-medium flex items-center justify-center flex-shrink-0">3</span>
-                    <div>
-                      <span className="font-medium text-[#1A1A2E]">实战成果</span>
-                      <p className="text-[#666] text-sm mt-1">用Cursor开发并上线自己的网站，真正拥有可展示的AI产品</p>
-                    </div>
-                  </div>
-                </div>
+          <div className="max-w-4xl mx-auto">
+            {/* 主容器 */}
+            <div className="bg-white border border-[rgba(0,0,0,0.1)]">
+              {/* 标题区域 */}
+              <div className="px-8 pt-8 pb-4">
+                <span className="text-xs font-normal text-[#6b6b6b] uppercase tracking-widest">COURSE OUTCOMES</span>
+                <h2 className="text-[32px] text-[#1a1a1a] font-normal mt-2 tracking-tight" style={{ letterSpacing: '-0.5px' }}>
+                  学完能达到什么效果
+                </h2>
               </div>
 
-              {/* 自媒体板块 */}
-              <div className="bg-white rounded-2xl p-8 border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#1A1A2E] flex items-center justify-center">
-                    <span className="text-white font-bold">自媒</span>
+              {/* 内容区域 - 左右两列 */}
+              <div className="grid grid-cols-2">
+                {/* 左列：AI 板块 */}
+                <div className="p-8 border-r border-[rgba(0,0,0,0.1)]">
+                  {/* 板块标签 */}
+                  <div className="mb-6">
+                    <span className="inline-block px-3 py-1 bg-[#f0f0f0] text-[#6b6b6b] text-sm font-normal rounded-sm">
+                      AI 板块
+                    </span>
+                    <span className="text-sm text-[#6b6b6b] ml-3">从零开发 AI 产品</span>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-[#1A1A2E]">自媒体板块</h3>
-                    <p className="text-[#999] text-sm">从0到1建立变现体系</p>
+
+                  {/* 步骤列表 */}
+                  <div className="space-y-0">
+                    {/* 01 入门 */}
+                    <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm text-[#6b6b6b] font-normal">01</span>
+                        <span className="text-base text-[#1a1a1a] font-medium">入门</span>
+                      </div>
+                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">科学上网、注册 ChatGPT/Claude、学会基础对话</p>
+                    </div>
+
+                    {/* 02 进阶 */}
+                    <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm text-[#6b6b6b] font-normal">02</span>
+                        <span className="text-base text-[#1a1a1a] font-medium">进阶</span>
+                      </div>
+                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">提示词工程、AI 写作/图片/视频、构建个人知识库</p>
+                    </div>
+
+                    {/* 03 实战成果 */}
+                    <div className="py-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm text-[#6b6b6b] font-normal">03</span>
+                        <span className="text-base text-[#1a1a1a] font-medium">实战成果</span>
+                        <span className="text-xs text-[#1a6636] bg-[#e8f5ee] px-2 py-0.5 rounded-sm">结业输出</span>
+                      </div>
+                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">用 Cursor 开发并上线自己的网站</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-4 bg-[#F7F6F3] rounded-xl">
-                    <span className="w-8 h-8 rounded-lg bg-[#1A1A2E] text-white text-sm font-medium flex items-center justify-center flex-shrink-0">1</span>
-                    <div>
-                      <span className="font-medium text-[#1A1A2E]">定位</span>
-                      <p className="text-[#666] text-sm mt-1">一人公司思维、找到差异化定位、建立Build in Public意识</p>
-                    </div>
+                {/* 右列：自媒体板块 */}
+                <div className="p-8">
+                  {/* 板块标签 */}
+                  <div className="mb-6">
+                    <span className="inline-block px-3 py-1 bg-[#e8f5ee] text-[#1a6636] text-sm font-normal rounded-sm">
+                      自媒体板块
+                    </span>
+                    <span className="text-sm text-[#6b6b6b] ml-3">从 0 到 1 变现体系</span>
                   </div>
 
-                  <div className="flex items-start gap-3 p-4 bg-[#F7F6F3] rounded-xl">
-                    <span className="w-8 h-8 rounded-lg bg-[#1A1A2E] text-white text-sm font-medium flex items-center justify-center flex-shrink-0">2</span>
-                    <div>
-                      <span className="font-medium text-[#1A1A2E]">内容</span>
-                      <p className="text-[#666] text-sm mt-1">掌握爆款结构、选题方法、脚本写作、AI辅助创作、封面设计</p>
+                  {/* 步骤列表 */}
+                  <div className="space-y-0">
+                    {/* 01 定位 */}
+                    <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm text-[#6b6b6b] font-normal">01</span>
+                        <span className="text-base text-[#1a1a1a] font-medium">定位</span>
+                      </div>
+                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">一人公司思维、差异化定位、Build in Public 意识</p>
                     </div>
-                  </div>
 
-                  <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl border border-green-200">
-                    <span className="w-8 h-8 rounded-lg bg-green-500 text-white text-sm font-medium flex items-center justify-center flex-shrink-0">3</span>
-                    <div>
-                      <span className="font-medium text-[#1A1A2E]">变现成果</span>
-                      <p className="text-[#666] text-sm mt-1">多平台运营增长、私域引流、建立自己的变现体系实现收入</p>
+                    {/* 02 内容 */}
+                    <div className="py-4 border-b border-[rgba(0,0,0,0.1)]">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm text-[#6b6b6b] font-normal">02</span>
+                        <span className="text-base text-[#1a1a1a] font-medium">内容</span>
+                      </div>
+                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">爆款结构、选题方法、脚本写作、AI 辅助创作</p>
+                    </div>
+
+                    {/* 03 变现成果 */}
+                    <div className="py-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm text-[#6b6b6b] font-normal">03</span>
+                        <span className="text-base text-[#1a1a1a] font-medium">变现成果</span>
+                        <span className="text-xs text-[#1a6636] bg-[#e8f5ee] px-2 py-0.5 rounded-sm">结业输出</span>
+                      </div>
+                      <p className="text-sm text-[#6b6b6b] font-normal ml-8">多平台运营增长、私域引流、建立变现体系</p>
                     </div>
                   </div>
                 </div>
