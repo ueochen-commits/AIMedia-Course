@@ -236,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* ==================== 痛点共鸣 ==================== */}
-      <section className="pb-8">
+      <section className="pb-6">
         <div className="container">
           {/* 左右两栏 */}
           <div className="max-w-4xl mx-auto">
@@ -294,7 +294,7 @@ export default function Home() {
             </div>
 
             {/* 分隔小结文字 */}
-            <div className="mt-8 border-t border-[rgba(0,0,0,0.08)] pt-6">
+            <div className="mt-8">
               <span className="text-[15px] font-medium text-[#18181b]">这正是我创建这个课程的初衷 ↓</span>
             </div>
           </div>
@@ -302,7 +302,7 @@ export default function Home() {
       </section>
 
       {/* ==================== 课程大纲 ==================== */}
-      <section className="py-20 mt-10" id="outline">
+      <section className="py-20 mt-6" id="outline">
         <div className="container">
           {/* 隐藏外部 eyebrow 和标题，由容器内 header 替代 */}
 
