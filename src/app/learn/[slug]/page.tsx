@@ -13,6 +13,7 @@ const aiCourseData = {
     {
       name: "模块一：入门准备",
       lessons: [
+        { id: 0, name: "如何部署Minimax大模型（测试视频）", duration: "约22分钟", free: true, lessonId: "959f4268-e5e4-44c3-826f-747b53cd342d" },
         { id: 1, name: "科学上网：翻墙工具安装与配置", duration: "约20分钟", free: true },
         { id: 2, name: "注册谷歌账号（手把手）", duration: "约15分钟", free: true },
         { id: 3, name: "注册ChatGPT账号与基础使用", duration: "约15分钟", free: false },
