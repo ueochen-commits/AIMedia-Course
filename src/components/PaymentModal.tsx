@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { CheckCircle, Loader, X } from "lucide-react";
+import { CheckCircle, Loader } from "lucide-react";
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -23,7 +23,7 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
   const [expireTime, setExpireTime] = useState(0);
 
   const generateOrderId = () => {
-    return `order_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    return `order_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
   };
 
   useEffect(() => {
