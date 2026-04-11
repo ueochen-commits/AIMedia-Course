@@ -250,23 +250,18 @@ export default function UserPage() {
                 </div>
                 <span style={{ background: "#f0efed", color: "#a39e98", fontSize: "11px", padding: "3px 8px", borderRadius: "3px" }}>购买后解锁</span>
               </div>
-              <div style={{ padding: "1.25rem 1.5rem", display: "flex", alignItems: "center", gap: "1.25rem" }}>
-                <div style={{ width: "72px", height: "72px", border: "0.5px solid rgba(0,0,0,0.1)", borderRadius: "7px", background: "#f6f5f4", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <rect x="2" y="2" width="10" height="10" rx="1.5" stroke="#c8c4be" strokeWidth="1.2"/>
-                    <rect x="4.5" y="4.5" width="5" height="5" rx="0.5" fill="#c8c4be"/>
-                    <rect x="16" y="2" width="10" height="10" rx="1.5" stroke="#c8c4be" strokeWidth="1.2"/>
-                    <rect x="18.5" y="4.5" width="5" height="5" rx="0.5" fill="#c8c4be"/>
-                    <rect x="2" y="16" width="10" height="10" rx="1.5" stroke="#c8c4be" strokeWidth="1.2"/>
-                    <rect x="4.5" y="18.5" width="5" height="5" rx="0.5" fill="#c8c4be"/>
-                    <path d="M16 16h3v3h-3zM22 16h4v3h-4zM16 22h3v4h-3zM22 22h4v4h-4z" fill="#c8c4be"/>
-                  </svg>
-                </div>
+              <div style={{ padding: "1.25rem 1.5rem", display: "flex", alignItems: "flex-start", gap: "1.25rem" }}>
+                <img
+                  src="/wechat-qr.png"
+                  alt="客服微信二维码"
+                  style={{ width: "90px", height: "90px", borderRadius: "7px", border: "0.5px solid rgba(0,0,0,0.1)", flexShrink: 0, objectFit: "cover" }}
+                />
                 <div>
-                  <div style={{ fontSize: "13px", fontWeight: 500, color: "#18181b", marginBottom: "6px" }}>加入学员专属社群</div>
-                  <div style={{ fontSize: "12px", color: "#a39e98", lineHeight: 1.6 }}>
-                    购买课程后自动解锁二维码<br />
-                    群内有直播通知、答疑和学员交流
+                  <div style={{ fontSize: "13px", fontWeight: 500, color: "#18181b", marginBottom: "8px" }}>添加客服微信，加入学员群</div>
+                  <div style={{ fontSize: "12px", color: "#a39e98", lineHeight: 1.8 }}>
+                    · 添加后会将你拉入学员专属社群<br />
+                    · 社群用于直播答疑和学员交流<br />
+                    · 微信号：<span style={{ color: "#615d59", fontWeight: 500 }}>Timetravel_0</span>
                   </div>
                 </div>
               </div>
