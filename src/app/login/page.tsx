@@ -43,6 +43,18 @@ export default function LoginPage() {
           password,
         });
         if (error) throw error;
+
+        // 确保用户在自定义 users 表中存在
+        const { data: existingUser } = await supabase
+          .from("users")
+          .select("id")
+          .eq("email", email)
+          .single();
+
+        if (!existingUser) {
+          await supabase.from("users").insert({ email });
+        }
+
         router.push("/user");
       } else {
         // 注册
@@ -51,6 +63,10 @@ export default function LoginPage() {
           password,
         });
         if (error) throw error;
+
+        // 添加到自定义 users 表
+        await supabase.from("users").insert({ email });
+
         setSuccess("注册成功！请查看邮箱验证，然后登录。");
         setIsLogin(true);
       }

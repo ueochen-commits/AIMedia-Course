@@ -37,14 +37,27 @@ export async function POST(request: NextRequest) {
 
     // 解析订单附加信息
     let courseId = "";
-    let userId = "";
+    let userEmail = "";
     if (more) {
       try {
         const moreData = JSON.parse(more);
         courseId = moreData.courseId || "";
-        userId = moreData.userId || "";
+        userEmail = moreData.userId || "";
       } catch (e) {
         console.error("Failed to parse more:", e);
+      }
+    }
+
+    // 根据 email 查找用户 ID
+    let userId = null;
+    if (userEmail && userEmail !== "guest") {
+      const { data: userData } = await supabase
+        .from("users")
+        .select("id")
+        .eq("email", userEmail)
+        .single();
+      if (userData) {
+        userId = userData.id;
       }
     }
 
