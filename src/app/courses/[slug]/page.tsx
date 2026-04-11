@@ -440,7 +440,7 @@ export default function CourseDetailPage() {
                 </p>
 
                 {hasPurchased ? (
-                  <Link href={`/learn/${slug}`} className="block w-full py-4 bg-[#1A1A2E] text-white text-center rounded-full font-medium hover:bg-[#2A2A3E] transition-all duration-300">
+                  <Link href={`/learn/${slug}`} className="block w-full py-4 bg-[#1A1A2E] text-center rounded-full font-medium hover:bg-[#2A2A3E] transition-all duration-300" style={{ color: "#ffffff" }}>
                     开始学习
                   </Link>
                 ) : (
