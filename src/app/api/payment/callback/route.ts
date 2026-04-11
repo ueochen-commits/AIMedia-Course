@@ -54,14 +54,14 @@ export async function POST(request: NextRequest) {
     // 根据 email 查找或创建用户
     let userId = null;
     if (userEmail && userEmail !== "guest") {
-      // 先尝试查找
+      // 先尝试通过 email 查找（兼容旧数据）
       let { data: userData } = await supabase
         .from("users")
         .select("id")
         .eq("email", userEmail)
         .single();
 
-      // 如果不存在，则创建
+      // 如果不存在，则创建新用户
       if (!userData) {
         const { data: newUser, error: createError } = await supabase
           .from("users")

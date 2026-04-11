@@ -38,34 +38,36 @@ export default function LoginPage() {
         setSuccess("重置链接已发送到你的邮箱，请查收并点击链接重置密码");
       } else if (isLogin) {
         // 登录
-        const { error } = await supabase.auth.signInWithPassword({
+        const { data: { user: authUser }, error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         if (error) throw error;
 
-        // 确保用户在自定义 users 表中存在
+        // 确保用户在自定义 users 表中存在（使用 Supabase Auth 的 UUID）
         const { data: existingUser } = await supabase
           .from("users")
           .select("id")
-          .eq("email", email)
+          .eq("id", authUser?.id)
           .single();
 
         if (!existingUser) {
-          await supabase.from("users").insert({ email });
+          await supabase.from("users").insert({ id: authUser?.id, email });
         }
 
         router.push("/user");
       } else {
         // 注册
-        const { error } = await supabase.auth.signUp({
+        const { data: { user: authUser }, error } = await supabase.auth.signUp({
           email,
           password,
         });
         if (error) throw error;
 
-        // 添加到自定义 users 表
-        await supabase.from("users").insert({ email });
+        // 添加到自定义 users 表，使用 Supabase Auth 的 UUID
+        if (authUser) {
+          await supabase.from("users").insert({ id: authUser.id, email });
+        }
 
         setSuccess("注册成功！请查看邮箱验证，然后登录。");
         setIsLogin(true);
