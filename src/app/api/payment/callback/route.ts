@@ -1,10 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import md5 from "md5";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 const APP_SECRET = "10b1cec33b32449288251576760ce52c";
 
-// 验证回调签名
+// 使用 service role key 的服务端 client，绕过 RLS
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  { auth: { autoRefreshToken: false, persistSession: false } }
+);
+
 function verifySign(params: {
   aoid: string;
   order_id: string;
@@ -18,7 +24,6 @@ function verifySign(params: {
   return expectedSign === params.sign;
 }
 
-// 支付回调
 export async function POST(request: NextRequest) {
   try {
     const body = await request.formData();
@@ -51,48 +56,47 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 根据 email 查找或创建用户
-    let userId = null;
+    // 通过 Auth Admin API 查找用户真实的 auth.uid()
+    let userId: string | null = null;
     if (userEmail && userEmail !== "guest") {
-      // 先尝试通过 email 查找（兼容旧数据）
-      let { data: userData } = await supabase
-        .from("users")
-        .select("id")
-        .eq("email", userEmail)
-        .single();
+      // 用 Admin API 按 email 查找 Supabase Auth 用户，获取真实 auth.uid()
+      const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers({ perPage: 1000 });
+      if (listError) {
+        console.error("Failed to list auth users:", listError);
+      } else {
+        const authUser = users.find((u) => u.email === userEmail);
+        if (authUser) {
+          userId = authUser.id;
+          console.log("Found auth user:", userId);
 
-      // 如果不存在，则创建新用户
-      if (!userData) {
-        const { data: newUser, error: createError } = await supabase
-          .from("users")
-          .insert({ email: userEmail })
-          .select("id")
-          .single();
+          // 确保 users 表中有对应记录（用 auth.uid() 作为 id）
+          const { data: existingUser } = await supabaseAdmin
+            .from("users")
+            .select("id")
+            .eq("id", userId)
+            .single();
 
-        if (createError) {
-          console.error("Failed to create user:", createError);
+          if (!existingUser) {
+            await supabaseAdmin.from("users").insert({ id: userId, email: userEmail });
+            console.log("Created users table record for:", userId);
+          }
         } else {
-          userData = newUser;
+          console.error("No auth user found for email:", userEmail);
         }
-      }
-
-      if (userData) {
-        userId = userData.id;
-        console.log("Found/created user:", userId);
       }
     }
 
-    // 保存购买记录到数据库
+    // 保存购买记录
     if (userId && courseId) {
-      // 检查是否已存在购买记录
-      const { data: existing } = await supabase
+      // 防重复
+      const { data: existing } = await supabaseAdmin
         .from("purchases")
-        .select("*")
+        .select("id")
         .eq("order_id", order_id)
         .single();
 
       if (!existing) {
-        const { error: insertError } = await supabase.from("purchases").insert({
+        const { error: insertError } = await supabaseAdmin.from("purchases").insert({
           user_id: userId,
           course_id: courseId,
           amount: parseFloat(pay_price),
@@ -105,10 +109,10 @@ export async function POST(request: NextRequest) {
         if (insertError) {
           console.error("Failed to insert purchase:", insertError);
         } else {
-          console.log("Purchase record created successfully");
+          console.log("Purchase record created successfully for user:", userId);
         }
       } else {
-        console.log("Purchase already exists");
+        console.log("Purchase already exists for order:", order_id);
       }
     } else {
       console.error("Missing userId or courseId:", { userId, courseId, userEmail });
