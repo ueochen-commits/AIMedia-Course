@@ -251,17 +251,34 @@ export default function UserPage() {
                 <span style={{ background: "#f0efed", color: "#a39e98", fontSize: "11px", padding: "3px 8px", borderRadius: "3px" }}>购买后解锁</span>
               </div>
               <div style={{ padding: "1.25rem 1.5rem", display: "flex", alignItems: "flex-start", gap: "1.25rem" }}>
-                <img
-                  src="/wechat-qr.png"
-                  alt="客服微信二维码"
-                  style={{ width: "90px", height: "90px", borderRadius: "7px", border: "0.5px solid rgba(0,0,0,0.1)", flexShrink: 0, objectFit: "cover" }}
-                />
+                {isPaidUser ? (
+                  <img
+                    src="/wechat-qr.png"
+                    alt="客服微信二维码"
+                    style={{ width: "90px", height: "90px", borderRadius: "7px", border: "0.5px solid rgba(0,0,0,0.1)", flexShrink: 0, objectFit: "cover" }}
+                  />
+                ) : (
+                  <div style={{ width: "90px", height: "90px", borderRadius: "7px", border: "0.5px solid rgba(0,0,0,0.1)", background: "#f6f5f4", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="8" width="14" height="10" rx="2" stroke="#c8c4be" strokeWidth="1.2"/><path d="M7 8V6a3 3 0 016 0v2" stroke="#c8c4be" strokeWidth="1.2" strokeLinecap="round"/></svg>
+                  </div>
+                )}
                 <div>
-                  <div style={{ fontSize: "13px", fontWeight: 500, color: "#18181b", marginBottom: "8px" }}>添加客服微信，加入学员群</div>
+                  <div style={{ fontSize: "13px", fontWeight: 500, color: "#18181b", marginBottom: "8px" }}>
+                    {isPaidUser ? "添加客服微信，加入学员群" : "购买课程后解锁学员群"}
+                  </div>
                   <div style={{ fontSize: "12px", color: "#a39e98", lineHeight: 1.8 }}>
-                    · 添加后会将你拉入学员专属社群<br />
-                    · 社群用于直播答疑和学员交流<br />
-                    · 微信号：<span style={{ color: "#615d59", fontWeight: 500 }}>Timetravel_0</span>
+                    {isPaidUser ? (
+                      <>
+                        · 添加后会将你拉入学员专属社群<br />
+                        · 社群用于直播答疑和学员交流<br />
+                        · 微信号：<span style={{ color: "#615d59", fontWeight: 500 }}>RoadPro88</span>
+                      </>
+                    ) : (
+                      <>
+                        · 购买任意课程后自动解锁二维码<br />
+                        · 群内有直播通知、答疑和学员交流
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
