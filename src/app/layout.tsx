@@ -17,8 +17,8 @@ export default function RootLayout({
     <html lang="zh-CN">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://vod-tool.vod-qcloud.com/dist/static/js/tcplayer.v4.9.1.min.js" async></script>
-        <link href="https://vod-tool.vod-qcloud.com/dist/static/css/tcplayer.min.css" rel="stylesheet" />
+        <link href="https://cloudcache.tencent-cloud.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet" />
+        <script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/tcplayer/tcplayer.v4.min.js"></script>
       </head>
       <body className="min-h-screen flex flex-col scroll-smooth">
         {/* Navigation */}

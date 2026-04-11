@@ -251,29 +251,45 @@ export default function LearnPage() {
   useEffect(() => {
     if (!videoInfo || !playerContainerRef.current) return;
 
-    // 销毁旧播放器
-    if (playerRef.current) {
-      try { playerRef.current.dispose(); } catch {}
-      playerRef.current = null;
-    }
+    // 等 TCPlayer 脚本加载完再初始化
+    const init = () => {
+      const win = window as any;
+      if (!win.TCPlayer) return;
+
+      // 销毁旧播放器
+      if (playerRef.current) {
+        try { playerRef.current.dispose(); } catch {}
+        playerRef.current = null;
+      }
+
+      playerContainerRef.current!.replaceChildren();
+      const videoEl = document.createElement("video");
+      videoEl.id = `tcplayer-${Date.now()}`;
+      videoEl.style.width = "100%";
+      videoEl.style.height = "100%";
+      playerContainerRef.current!.appendChild(videoEl);
+
+      playerRef.current = win.TCPlayer(videoEl.id, {
+        fileID: videoInfo.fileId,
+        appID: videoInfo.appId,
+        psign: videoInfo.psign,
+        autoplay: false,
+      });
+    };
 
     const win = window as any;
-    if (!win.TCPlayer) return;
-
-    // 用 DOM API 创建 video 元素，避免 innerHTML
-    playerContainerRef.current.replaceChildren();
-    const videoEl = document.createElement("video");
-    videoEl.id = "tcplayer-video";
-    videoEl.style.width = "100%";
-    videoEl.style.height = "100%";
-    playerContainerRef.current.appendChild(videoEl);
-
-    playerRef.current = win.TCPlayer("tcplayer-video", {
-      fileID: videoInfo.fileId,
-      appID: videoInfo.appId,
-      psign: videoInfo.psign,
-      autoplay: true,
-    });
+    if (win.TCPlayer) {
+      init();
+    } else {
+      // 脚本还没加载完，等待
+      const timer = setInterval(() => {
+        if ((window as any).TCPlayer) {
+          clearInterval(timer);
+          init();
+        }
+      }, 200);
+      return () => clearInterval(timer);
+    }
   }, [videoInfo]);
 
   const handleSelectLesson = (lesson: Lesson, moduleIdx: number) => {
