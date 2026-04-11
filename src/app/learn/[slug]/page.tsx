@@ -205,6 +205,7 @@ export default function LearnPage() {
     const courseIds = purchases?.map((p) => p.course_id) || [];
     const purchased = courseIds.includes(slug) || courseIds.includes("full");
     setHasPurchased(purchased);
+    setLoading(false); // 页面加载完成，无论视频是否有签名
 
     // 默认播放第一节可播放的课
     if (course) {
@@ -215,13 +216,9 @@ export default function LearnPage() {
         if (firstLesson.lessonId) {
           fetchVideoSign(firstLesson.lessonId);
         } else {
-          setLoading(false);
+          setVideoLoading(false);
         }
-      } else {
-        setLoading(false);
       }
-    } else {
-      setLoading(false);
     }
   };
 
