@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, CheckCircle, Loader, QrCode } from "lucide-react";
+import { CheckCircle, Loader, X } from "lucide-react";
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -22,19 +22,16 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
   const [errorMsg, setErrorMsg] = useState("");
   const [expireTime, setExpireTime] = useState(0);
 
-  // 生成唯一订单号
   const generateOrderId = () => {
     return `order_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   };
 
-  // 创建支付订单
   useEffect(() => {
     if (isOpen && course) {
       createPayment();
     }
   }, [isOpen, course]);
 
-  // 轮询订单状态
   useEffect(() => {
     if (status === "waiting" && orderId) {
       const interval = setInterval(async () => {
@@ -54,7 +51,6 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
     }
   }, [status, orderId]);
 
-  // 倒计时
   useEffect(() => {
     if (status === "waiting" && expireTime > 0) {
       const timer = setInterval(() => {
@@ -107,6 +103,12 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
     }
   };
 
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${String(secs).padStart(2, "0")}`;
+  };
+
   const handleRefresh = () => {
     createPayment();
   };
@@ -114,87 +116,224 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/60" onClick={onClose} />
-      <div className="relative w-full max-w-md mx-4 bg-white rounded-lg overflow-hidden">
-        {/* 标题 */}
-        <div className="flex items-center justify-between px-6 py-4 border-b">
-          <h3 className="text-lg font-semibold">支付订单</h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-            <X className="w-5 h-5" />
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 50,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "rgba(0,0,0,0.35)",
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: "#ffffff",
+          border: "0.5px solid rgba(0,0,0,0.1)",
+          borderRadius: "12px",
+          maxWidth: "380px",
+          width: "100%",
+          overflow: "hidden",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "16px 20px",
+            borderBottom: "0.5px solid rgba(0,0,0,0.1)",
+          }}
+        >
+          <span style={{ fontSize: "14px", fontWeight: 500, color: "#18181b" }}>支付订单</span>
+          <button
+            onClick={onClose}
+            style={{
+              width: "24px",
+              height: "24px",
+              border: "0.5px solid rgba(0,0,0,0.1)",
+              borderRadius: "5px",
+              background: "transparent",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 2.5L9.5 9.5M2.5 9.5L9.5 2.5" stroke="#a39e98" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
 
-        {/* 内容 */}
-        <div className="p-6">
-          {status === "loading" && (
-            <div className="text-center py-8">
-              <Loader className="w-8 h-8 mx-auto mb-4 text-gray-400 animate-spin" />
-              <p className="text-gray-500">正在创建支付订单...</p>
-            </div>
-          )}
+        {/* Loading State */}
+        {status === "loading" && (
+          <div style={{ padding: "40px 20px", textAlign: "center" }}>
+            <Loader style={{ width: "24px", height: "24px", color: "#a39e98", animation: "spin 1s linear infinite" }} />
+            <p style={{ fontSize: "13px", color: "#615d59", marginTop: "16px" }}>正在创建支付订单...</p>
+          </div>
+        )}
 
-          {status === "waiting" && (
-            <div>
-              <div className="text-center mb-4">
-                <p className="text-2xl font-bold text-[#1A1A2E]">¥{course.price}</p>
-                <p className="text-sm text-gray-500">请用支付宝扫码支付</p>
-                {expireTime > 0 && (
-                  <p className="text-xs text-orange-500 mt-1">
-                    订单有效期: {Math.floor(expireTime / 60)}:{String(expireTime % 60).padStart(2, "0")}
-                  </p>
-                )}
+        {/* Waiting State */}
+        {status === "waiting" && (
+          <div style={{ padding: "24px 20px" }}>
+            {/* 金额区 */}
+            <div style={{ textAlign: "center", marginBottom: "24px" }}>
+              <p style={{ fontSize: "11px", color: "#a39e98", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "8px" }}>
+                应付金额
+              </p>
+              <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "2px" }}>
+                <span style={{ fontSize: "20px", color: "#615d59" }}>¥</span>
+                <span style={{ fontSize: "40px", fontWeight: 500, color: "#18181b", letterSpacing: "-1.5px" }}>{course.price}</span>
               </div>
+              {expireTime > 0 && (
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    background: "#f6f5f4",
+                    borderRadius: "4px",
+                    padding: "3px 10px",
+                    marginTop: "12px",
+                  }}
+                >
+                  <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#16a34a" }}></span>
+                  <span style={{ fontSize: "11px", color: "#615d59", fontWeight: 500 }}>
+                    订单有效期 {formatTime(expireTime)}
+                  </span>
+                </div>
+              )}
+            </div>
 
-              <div className="flex justify-center mb-4">
+            {/* 二维码区 */}
+            <div style={{ textAlign: "center" }}>
+              <div
+                style={{
+                  display: "inline-block",
+                  border: "0.5px solid rgba(0,0,0,0.1)",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  marginBottom: "12px",
+                }}
+              >
                 {qrCode && (
                   <img
                     src={`https://xorpay.com/qr?data=${encodeURIComponent(qrCode)}`}
                     alt="支付二维码"
-                    className="w-48 h-48"
+                    width="160"
+                    height="160"
+                    style={{ display: "block" }}
                   />
                 )}
               </div>
-
-              <div className="text-center">
-                <p className="text-sm text-gray-500">支付完成后，请等待页面自动更新</p>
-                <button
-                  onClick={handleRefresh}
-                  className="mt-4 text-sm text-blue-500 hover:text-blue-600"
-                >
-                  重新发起支付
-                </button>
-              </div>
+              <p style={{ fontSize: "13px", color: "#615d59" }}>
+                请用<span style={{ fontWeight: 500, color: "#18181b" }}>支付宝</span>扫码完成支付
+              </p>
+              <p style={{ fontSize: "12px", color: "#a39e98", marginTop: "6px" }}>支付完成后页面将自动更新</p>
             </div>
-          )}
+          </div>
+        )}
 
-          {status === "success" && (
-            <div className="text-center py-8">
-              <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-500" />
-              <p className="text-lg font-semibold text-green-600">支付成功！</p>
-              <p className="text-sm text-gray-500 mt-2">你可以开始学习课程了</p>
-              <button
-                onClick={() => {
-                  onSuccess?.();
-                  onClose();
-                }}
-                className="btn btn-primary mt-6"
-              >
-                前往学习
-              </button>
-            </div>
-          )}
+        {/* Success State */}
+        {status === "success" && (
+          <div style={{ padding: "40px 20px", textAlign: "center" }}>
+            <CheckCircle style={{ width: "48px", height: "48px", color: "#16a34a", margin: "0 auto" }} />
+            <p style={{ fontSize: "16px", fontWeight: 500, color: "#16a34a", marginTop: "16px" }}>支付成功</p>
+            <p style={{ fontSize: "13px", color: "#615d59", marginTop: "4px" }}>你可以开始学习课程了</p>
+            <button
+              onClick={() => {
+                onSuccess?.();
+                onClose();
+              }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                padding: "14px 28px",
+                fontSize: "15px",
+                fontWeight: 600,
+                color: "white",
+                background: "#18181b",
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+                marginTop: "24px",
+              }}
+            >
+              前往学习
+            </button>
+          </div>
+        )}
 
-          {status === "error" && (
-            <div className="text-center py-8">
-              <p className="text-red-500 mb-4">{errorMsg}</p>
-              <button onClick={handleRefresh} className="btn btn-primary">
-                重试
-              </button>
-            </div>
-          )}
-        </div>
+        {/* Error State */}
+        {status === "error" && (
+          <div style={{ padding: "40px 20px", textAlign: "center" }}>
+            <p style={{ fontSize: "14px", color: "#dc2626", marginBottom: "16px" }}>{errorMsg}</p>
+            <button
+              onClick={handleRefresh}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                padding: "14px 28px",
+                fontSize: "15px",
+                fontWeight: 600,
+                color: "white",
+                background: "#18181b",
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+              }}
+            >
+              重试
+            </button>
+          </div>
+        )}
+
+        {/* Footer - Only show in waiting state */}
+        {status === "waiting" && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "12px 20px",
+              borderTop: "0.5px solid rgba(0,0,0,0.1)",
+            }}
+          >
+            <span style={{ fontSize: "12px", color: "#a39e98" }}>遇到问题？</span>
+            <button
+              onClick={handleRefresh}
+              style={{
+                border: "0.5px solid rgba(0,0,0,0.15)",
+                background: "transparent",
+                borderRadius: "5px",
+                padding: "5px 12px",
+                fontSize: "12px",
+                fontWeight: 500,
+                color: "#18181b",
+                cursor: "pointer",
+              }}
+            >
+              重新发起支付
+            </button>
+          </div>
+        )}
       </div>
+
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   );
 }
