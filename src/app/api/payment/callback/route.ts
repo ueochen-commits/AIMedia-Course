@@ -4,12 +4,14 @@ import { createClient } from "@supabase/supabase-js";
 
 const APP_SECRET = "10b1cec33b32449288251576760ce52c";
 
-// 使用 service role key 的服务端 client，绕过 RLS
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  { auth: { autoRefreshToken: false, persistSession: false } }
-);
+// 使用 service role key 的服务端 client，绕过 RLS（懒初始化，避免构建时报错）
+function getSupabaseAdmin() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  );
+}
 
 function verifySign(params: {
   aoid: string;
@@ -25,6 +27,7 @@ function verifySign(params: {
 }
 
 export async function POST(request: NextRequest) {
+  const supabaseAdmin = getSupabaseAdmin();
   try {
     const body = await request.formData();
     const aoid = body.get("aoid") as string;
