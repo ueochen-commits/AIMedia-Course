@@ -834,7 +834,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold mb-5">现在开始，成为一人公司</h2>
           <p className="text-white/70 text-lg mb-12">学完能独立做产品并推广变现</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#pricing" className="px-10 py-4 bg-white text-[#1A1A2E] rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105">
+            <a href="#pricing" className="px-10 py-4 bg-white rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105" style={{ color: "#18181b" }}>
               立即加入
             </a>
             <a href="#outline" className="px-10 py-4 border border-white/30 text-white rounded-full hover:bg-white/10 transition-all duration-300">
