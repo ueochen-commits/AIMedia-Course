@@ -15,7 +15,7 @@ export function UserMenu() {
     checkUser();
 
     // 监听 Supabase auth 状态变化
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, _session) => {
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
         checkUser();
       }
