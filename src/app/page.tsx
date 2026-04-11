@@ -185,7 +185,7 @@ export default function Home() {
                 立即加入
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#outline" className="btn btn-secondary text-lg px-8">
+              <a href="#outline" className="btn btn-secondary text-lg px-8" style={{ color: "#18181b" }}>
                 查看课程大纲
               </a>
             </div>
