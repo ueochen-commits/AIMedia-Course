@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { CheckCircle, Loader } from "lucide-react";
 
 interface PaymentModalProps {
@@ -16,6 +17,7 @@ interface PaymentModalProps {
 }
 
 export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: PaymentModalProps) {
+  const router = useRouter();
   const [orderId, setOrderId] = useState("");
   const [qrCode, setQrCode] = useState("");
   const [status, setStatus] = useState<"loading" | "waiting" | "success" | "error">("loading");
@@ -249,6 +251,7 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
               onClick={() => {
                 onSuccess?.();
                 onClose();
+                router.push(`/learn/${course.id}`);
               }}
               style={{
                 display: "inline-flex",
@@ -267,7 +270,6 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
               }}
             >
               前往学习
-            </button>
           </div>
         )}
 

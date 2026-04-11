@@ -185,7 +185,7 @@ export default function UserPage() {
                           ></div>
                         </div>
                         <Link
-                          href={`/courses/${course.id}`}
+                          href={`/learn/${course.id}`}
                           className="btn btn-secondary text-sm flex items-center gap-2"
                         >
                           <Play className="w-4 h-4" /> 开始学习
