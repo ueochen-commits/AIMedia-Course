@@ -15,36 +15,39 @@ function getSupabaseAdmin() {
   );
 }
 
-// 生成腾讯云点播 psign 播放签名
-// 官方文档：https://cloud.tencent.com/document/product/266/42436
+// 播放密钥（来自腾讯云点播控制台 → 分发播放设置 → 默认分发配置）
+const VOD_PLAY_KEY = process.env.TENCENT_VOD_PLAY_KEY || "Slz2ha4ehmXPCmjd0VrB";
+
+// 生成腾讯云点播 psign 播放签名（标准 JWT 格式）
+// 文档：https://cloud.tencent.com/document/product/266/42436
 function generatePsign(fileId: string): string {
   const currentTime = Math.floor(Date.now() / 1000);
   const expireTime = currentTime + 86400;
 
-  const params: Record<string, string | number> = {
+  // Header
+  const header = { alg: "HS256", typ: "JWT" };
+  const headerB64 = Buffer.from(JSON.stringify(header)).toString("base64url");
+
+  // Payload — contentInfo 必填，使用 Original 播放原始视频
+  const payload = {
     appId: Number(VOD_APP_ID),
     fileId: fileId,
+    contentInfo: {
+      audioVideoType: "Original",
+    },
     currentTimeStamp: currentTime,
     expireTimeStamp: expireTime,
   };
+  const payloadB64 = Buffer.from(JSON.stringify(payload)).toString("base64url");
 
-  // 1. 按字母序排列参数，拼成 query string
-  const queryString = Object.keys(params)
-    .sort()
-    .map((k) => `${k}=${params[k]}`)
-    .join("&");
+  // Signature = HMACSHA256(header.payload, 播放密钥)
+  const signInput = `${headerB64}.${payloadB64}`;
+  const signature = crypto
+    .createHmac("sha256", VOD_PLAY_KEY)
+    .update(signInput)
+    .digest("base64url");
 
-  // 2. 签名原文 = queryString + SecretKey
-  const signStr = queryString + VOD_SECRET_KEY;
-
-  // 3. HMAC-SHA256，key 也是 SecretKey
-  const hmac = crypto.createHmac("sha256", VOD_SECRET_KEY);
-  hmac.update(signStr);
-  const signature = hmac.digest("hex");
-
-  // 4. payload = base64url(JSON)，psign = payload + . + signature
-  const payload = Buffer.from(JSON.stringify(params)).toString("base64url");
-  return `${payload}.${signature}`;
+  return `${headerB64}.${payloadB64}.${signature}`;
 }
 
 export async function GET(request: NextRequest) {
