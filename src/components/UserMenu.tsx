@@ -14,6 +14,13 @@ export function UserMenu() {
   useEffect(() => {
     checkUser();
 
+    // 监听 Supabase auth 状态变化
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+        checkUser();
+      }
+    });
+
     // 点击外部关闭菜单
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -21,7 +28,11 @@ export function UserMenu() {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      subscription.unsubscribe();
+    };
   }, []);
 
   const checkUser = async () => {
