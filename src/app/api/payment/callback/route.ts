@@ -29,6 +29,8 @@ export async function POST(request: NextRequest) {
     const more = body.get("more") as string;
     const sign = body.get("sign") as string;
 
+    console.log("Payment callback received:", { order_id, aoid, pay_price, more });
+
     // 验证签名
     if (!verifySign({ aoid, order_id, pay_price, pay_time, sign })) {
       console.error("Invalid sign in payment callback");
@@ -43,21 +45,40 @@ export async function POST(request: NextRequest) {
         const moreData = JSON.parse(more);
         courseId = moreData.courseId || "";
         userEmail = moreData.userId || "";
+        console.log("Parsed more data:", { courseId, userEmail });
       } catch (e) {
         console.error("Failed to parse more:", e);
       }
     }
 
-    // 根据 email 查找用户 ID
+    // 根据 email 查找或创建用户
     let userId = null;
     if (userEmail && userEmail !== "guest") {
-      const { data: userData } = await supabase
+      // 先尝试查找
+      let { data: userData } = await supabase
         .from("users")
         .select("id")
         .eq("email", userEmail)
         .single();
+
+      // 如果不存在，则创建
+      if (!userData) {
+        const { data: newUser, error: createError } = await supabase
+          .from("users")
+          .insert({ email: userEmail })
+          .select("id")
+          .single();
+
+        if (createError) {
+          console.error("Failed to create user:", createError);
+        } else {
+          userData = newUser;
+        }
+      }
+
       if (userData) {
         userId = userData.id;
+        console.log("Found/created user:", userId);
       }
     }
 
@@ -71,7 +92,7 @@ export async function POST(request: NextRequest) {
         .single();
 
       if (!existing) {
-        await supabase.from("purchases").insert({
+        const { error: insertError } = await supabase.from("purchases").insert({
           user_id: userId,
           course_id: courseId,
           amount: parseFloat(pay_price),
@@ -80,7 +101,17 @@ export async function POST(request: NextRequest) {
           payment_status: "completed",
           paid_at: pay_time,
         });
+
+        if (insertError) {
+          console.error("Failed to insert purchase:", insertError);
+        } else {
+          console.log("Purchase record created successfully");
+        }
+      } else {
+        console.log("Purchase already exists");
       }
+    } else {
+      console.error("Missing userId or courseId:", { userId, courseId, userEmail });
     }
 
     return NextResponse.json("ok");
