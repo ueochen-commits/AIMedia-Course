@@ -19,28 +19,26 @@ function getSupabaseAdmin() {
 // 文档：https://cloud.tencent.com/document/product/266/42436
 function generatePsign(fileId: string): string {
   const currentTime = Math.floor(Date.now() / 1000);
-  const expireTime = currentTime + 3600; // 1小时有效期
+  const expireTime = currentTime + 86400; // 24小时有效期
 
-  const params: Record<string, string | number> = {
-    appId: parseInt(VOD_APP_ID),
-    fileId,
+  const params = {
+    appId: Number(VOD_APP_ID),
+    fileId: fileId,
     currentTimeStamp: currentTime,
     expireTimeStamp: expireTime,
   };
 
-  // 按 key 排序拼接
-  const original =
-    Object.keys(params)
-      .sort()
-      .map((k) => `${k}=${params[k]}`)
-      .join("&") + `&urlSignatureKey=${VOD_SECRET_KEY}`;
+  // payload: base64url 编码的 JSON
+  const payloadStr = JSON.stringify(params);
+  const payload = Buffer.from(payloadStr).toString("base64url");
 
+  // 签名原文 = payload + SecretKey
+  const signStr = payload + VOD_SECRET_KEY;
   const signature = crypto
     .createHmac("sha256", VOD_SECRET_KEY)
-    .update(original)
+    .update(signStr)
     .digest("base64url");
 
-  const payload = Buffer.from(JSON.stringify(params)).toString("base64url");
   return `${payload}.${signature}`;
 }
 
@@ -111,7 +109,7 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({
     file_id: lesson.tencent_file_id,
-    app_id: VOD_APP_ID,
+    app_id: Number(VOD_APP_ID),
     psign,
   });
 }
