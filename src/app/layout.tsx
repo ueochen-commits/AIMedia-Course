@@ -22,8 +22,23 @@ export default function RootLayout({
         {/* Navigation */}
         <nav className="sticky top-0 bg-white border-b border-[#E8E8E8] z-50">
           <div className="container h-16 flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold tracking-tight hover:opacity-80 transition">
-              一人公司
+            <Link href="/" style={{ textDecoration: "none" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "11px", cursor: "pointer" }}>
+                <div style={{ width: "36px", height: "36px", background: "#18181b", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="7" cy="6" r="2.2" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M3 15 Q5 10 7 11 Q9 12 10 15 Q11 18 14 16 Q17 14 17 10" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+                    <path d="M11 6 L17 6" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div style={{ fontSize: "15px", fontWeight: 500, color: "#18181b", letterSpacing: "-0.3px", lineHeight: 1, marginBottom: "3px" }}>一人公司训练营</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <span style={{ fontSize: "10px", color: "#a39e98", background: "#f0efed", padding: "1px 6px", borderRadius: "2px", fontWeight: 500, letterSpacing: "0.04em" }}>AI · 自媒体 · 变现</span>
+                    <span style={{ fontSize: "10px", color: "#c8c4be" }}>by Hello我是路人</span>
+                  </div>
+                </div>
+              </div>
             </Link>
             <div className="flex items-center gap-8">
               <Link href="/courses" className="text-[#666] hover:text-[#1A1A2E] transition">
