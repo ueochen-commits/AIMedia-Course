@@ -294,19 +294,30 @@ export default function CourseDetailPage() {
 
               {/* 课程 info card */}
               {"target" in course && (
-                <div className="bg-white rounded-2xl p-8 mb-8 shadow-sm border border-[#F0EDE8]" style={{ boxShadow: '0 4px 24px rgba(26, 26, 46, 0.06)' }}>
-                  <div className="grid md:grid-cols-3 gap-8">
-                    <div className="relative">
-                      <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">目标学员</div>
-                      <div className="text-[#1A1A2E] leading-relaxed">{course.target}</div>
+                <div style={{ background: "#fff", border: "0.5px solid rgba(0,0,0,0.08)", borderRadius: "10px", overflow: "hidden", marginBottom: "2rem" }}>
+                  {/* header */}
+                  <div style={{ background: "#18181b", padding: "1rem 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.5)", letterSpacing: "0.06em" }}>课程信息</span>
+                    <span style={{ background: "rgba(255,255,255,0.08)", borderRadius: "3px", padding: "2px 8px", fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{course.name}</span>
+                  </div>
+                  {/* 目标学员 */}
+                  <div style={{ display: "flex", borderBottom: "0.5px solid rgba(0,0,0,0.06)" }}>
+                    <div style={{ width: "100px", flexShrink: 0, padding: "1.1rem 1.5rem", fontSize: "11px", fontWeight: 500, color: "#a39e98", letterSpacing: "0.05em", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>目标学员</div>
+                    <div style={{ padding: "1.1rem 1.5rem", fontSize: "13px", color: "#18181b", lineHeight: 1.7 }}>{course.target}</div>
+                  </div>
+                  {/* 学习成果 */}
+                  <div style={{ display: "flex", borderBottom: "0.5px solid rgba(0,0,0,0.06)" }}>
+                    <div style={{ width: "100px", flexShrink: 0, padding: "1.1rem 1.5rem", fontSize: "11px", fontWeight: 500, color: "#a39e98", letterSpacing: "0.05em", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>学习成果</div>
+                    <div style={{ padding: "1.1rem 1.5rem", fontSize: "13px", color: "#18181b", lineHeight: 1.7 }}>
+                      <span style={{ fontWeight: 500 }}>{course.outcome}</span>
                     </div>
-                    <div className="relative">
-                      <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">学习成果</div>
-                      <div className="text-[#1A1A2E] leading-relaxed">{course.outcome}</div>
-                    </div>
-                    <div className="relative">
-                      <div className="text-xs text-[#999] uppercase tracking-wider mb-2 font-medium">总课时</div>
-                      <div className="text-[#1A1A2E]">{course.totalLessons}节 · 每节15-45分钟</div>
+                  </div>
+                  {/* 总课时 */}
+                  <div style={{ display: "flex" }}>
+                    <div style={{ width: "100px", flexShrink: 0, padding: "1.1rem 1.5rem", fontSize: "11px", fontWeight: 500, color: "#a39e98", letterSpacing: "0.05em", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>总课时</div>
+                    <div style={{ padding: "1.1rem 1.5rem", fontSize: "13px", color: "#18181b", lineHeight: 1.7 }}>
+                      <span style={{ fontWeight: 500 }}>{course.totalLessons} 节</span>
+                      <span style={{ fontSize: "12px", color: "#a39e98", marginLeft: "6px" }}>每节 15–45 分钟</span>
                     </div>
                   </div>
                 </div>
