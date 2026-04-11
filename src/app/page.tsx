@@ -504,6 +504,7 @@ export default function Home() {
             <div className="grid grid-cols-3">
               {/* 左列：AI 板块 */}
               <div className="p-6 border-r border-[rgba(0,0,0,0.1)]">
+                <div className="mb-2" style={{ height: "22px" }}></div>
                 <h3 className="text-base font-medium text-[#1a1a1a] mb-1">AI 板块</h3>
                 <p className="text-sm text-[#6b6b6b] mb-4">独立开发 AI 产品</p>
                 <div className="mb-4">
@@ -536,6 +537,7 @@ export default function Home() {
 
               {/* 右列：自媒体板块 */}
               <div className="p-6">
+                <div className="mb-2" style={{ height: "22px" }}></div>
                 <h3 className="text-base font-medium text-[#1a1a1a] mb-1">自媒体板块</h3>
                 <p className="text-sm text-[#6b6b6b] mb-4">自媒体变现体系</p>
                 <div className="mb-4">
