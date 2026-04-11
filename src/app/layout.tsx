@@ -34,8 +34,8 @@ export default function RootLayout({
                 <div>
                   <div style={{ fontSize: "15px", fontWeight: 500, color: "#18181b", letterSpacing: "-0.3px", lineHeight: 1, marginBottom: "3px" }}>一人公司训练营</div>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span style={{ fontSize: "10px", color: "#a39e98", background: "#f0efed", padding: "1px 6px", borderRadius: "2px", fontWeight: 500, letterSpacing: "0.04em" }}>AI · 自媒体 · 变现</span>
-                    <span style={{ fontSize: "10px", color: "#c8c4be" }}>by Hello我是路人</span>
+                    <span style={{ fontSize: "10px", color: "#615d59", background: "#e8e6e3", padding: "1px 6px", borderRadius: "2px", fontWeight: 500, letterSpacing: "0.04em" }}>AI · 自媒体 · 变现</span>
+                    <span style={{ fontSize: "10px", color: "#a39e98" }}>by Hello我是路人</span>
                   </div>
                 </div>
               </div>
