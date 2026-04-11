@@ -208,7 +208,7 @@ export default function LearnPage() {
 
     // 默认播放第一节可播放的课
     if (course) {
-      const firstLesson = course.modules[0].lessons[0];
+      const firstLesson = course.modules[0].lessons[0] as Lesson;
       if (firstLesson.free || purchased) {
         setCurrentLesson(firstLesson);
         setCurrentModuleIdx(0);
