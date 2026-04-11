@@ -147,6 +147,7 @@ function getCourseData(slug: string) {
     case "ai": return aiCourseData;
     case "media": return mediaCourseData;
     case "business": return businessCourseData;
+    case "full": return aiCourseData; // 全套从 AI 板块开始
     default: return null;
   }
 }

@@ -49,11 +49,13 @@ export default function UserPage() {
 
   // 用户已购买的课程ID列表
   const purchasedCourseIds = purchases.map(p => p.course_id);
+  const hasFullCourse = purchasedCourseIds.includes('full');
 
-  const courses = [
-    { id: "ai", name: "AI 板块", price: 0.01, lessons: 12, completed: 0, purchased: purchasedCourseIds.includes('ai') },
-    { id: "media", name: "自媒体板块", price: 0.01, lessons: 12, completed: 0, purchased: purchasedCourseIds.includes('media') },
-    { id: "full", name: "全套课程", price: 0.01, lessons: 24, completed: 0, purchased: purchasedCourseIds.includes('full') },
+  // 三个可学习的板块
+  const allCourses = [
+    { id: "ai", name: "AI 板块", price: 0.01, lessons: 20, purchased: purchasedCourseIds.includes('ai') || hasFullCourse },
+    { id: "media", name: "自媒体板块", price: 0.01, lessons: 18, purchased: purchasedCourseIds.includes('media') || hasFullCourse },
+    { id: "business", name: "商业思维板块", price: 0.01, lessons: 15, purchased: hasFullCourse },
   ];
 
   if (loading) {
@@ -78,8 +80,8 @@ export default function UserPage() {
     );
   }
 
-  const purchasedCourses = courses.filter(c => c.purchased);
-  const unpurchasedCourses = courses.filter(c => !c.purchased);
+  const purchasedCourses = allCourses.filter(c => c.purchased);
+  const unpurchasedCourses = allCourses.filter(c => !c.purchased);
 
   return (
     <div>
