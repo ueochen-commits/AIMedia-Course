@@ -270,6 +270,7 @@ export function PaymentModal({ isOpen, onClose, course, userEmail, onSuccess }: 
               }}
             >
               前往学习
+            </button>
           </div>
         )}
 
