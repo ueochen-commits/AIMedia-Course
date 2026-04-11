@@ -26,12 +26,8 @@ export default function RootLayout({
           <div className="container h-16 flex items-center justify-between">
             <Link href="/" style={{ textDecoration: "none" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "11px", cursor: "pointer" }}>
-                <div style={{ width: "36px", height: "36px", background: "#18181b", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <circle cx="7" cy="6" r="2.2" fill="rgba(255,255,255,0.9)"/>
-                    <path d="M3 15 Q5 10 7 11 Q9 12 10 15 Q11 18 14 16 Q17 14 17 10" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-                    <path d="M11 6 L17 6" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2" strokeLinecap="round"/>
-                  </svg>
+                <div style={{ width: "36px", height: "36px", borderRadius: "8px", overflow: "hidden", flexShrink: 0 }}>
+                  <img src="/logo.png" alt="logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
                 <div>
                   <div style={{ fontSize: "15px", fontWeight: 500, color: "#18181b", letterSpacing: "-0.3px", lineHeight: 1, marginBottom: "3px" }}>一人公司训练营</div>
