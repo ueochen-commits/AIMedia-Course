@@ -26,7 +26,6 @@ function generatePsign(fileId: string): string {
     fileId,
     currentTimeStamp: currentTime,
     expireTimeStamp: expireTime,
-    pcfg: "basicDrmPreset", // 防盗链配置名，在腾讯云控制台配置
   };
 
   // 按 key 排序拼接

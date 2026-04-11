@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { Play, Lock, ChevronDown, ChevronRight, Menu, X, CheckCircle } from "lucide-react";
+import { Play, Lock, ChevronDown, Menu } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-
-const TEST_VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
 
 const aiCourseData = {
   name: "AI 板块",
@@ -157,6 +155,7 @@ interface Lesson {
   name: string;
   duration: string;
   free: boolean;
+  lessonId?: string; // Supabase lessons 表的 UUID，有视频时才有
 }
 
 interface Module {
@@ -180,6 +179,9 @@ export default function LearnPage() {
   const [expandedModules, setExpandedModules] = useState<number[]>([0]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [videoLoading, setVideoLoading] = useState(true);
+  const [videoInfo, setVideoInfo] = useState<{ fileId: string; appId: string; psign: string } | null>(null);
+  const playerRef = useRef<any>(null);
+  const playerContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     checkAccess();
@@ -216,12 +218,68 @@ export default function LearnPage() {
 
   const canPlay = (lesson: Lesson) => lesson.free || hasPurchased;
 
+  // 获取腾讯云播放签名
+  const fetchVideoSign = async (lessonId: string) => {
+    setVideoLoading(true);
+    setVideoInfo(null);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+      if (!token) return;
+
+      const res = await fetch(`/api/video/sign?lesson_id=${lessonId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (data.file_id) {
+        setVideoInfo({ fileId: data.file_id, appId: data.app_id, psign: data.psign });
+      }
+    } catch (e) {
+      console.error("获取视频签名失败", e);
+    } finally {
+      setVideoLoading(false);
+    }
+  };
+
+  // 初始化/更新 TCPlayer
+  useEffect(() => {
+    if (!videoInfo || !playerContainerRef.current) return;
+
+    // 销毁旧播放器
+    if (playerRef.current) {
+      try { playerRef.current.dispose(); } catch {}
+      playerRef.current = null;
+    }
+
+    const win = window as any;
+    if (!win.TCPlayer) return;
+
+    // 用 DOM API 创建 video 元素，避免 innerHTML
+    playerContainerRef.current.replaceChildren();
+    const videoEl = document.createElement("video");
+    videoEl.id = "tcplayer-video";
+    videoEl.style.width = "100%";
+    videoEl.style.height = "100%";
+    playerContainerRef.current.appendChild(videoEl);
+
+    playerRef.current = win.TCPlayer("tcplayer-video", {
+      fileID: videoInfo.fileId,
+      appID: videoInfo.appId,
+      psign: videoInfo.psign,
+      autoplay: true,
+    });
+  }, [videoInfo]);
+
   const handleSelectLesson = (lesson: Lesson, moduleIdx: number) => {
     if (!canPlay(lesson)) return;
     setCurrentLesson(lesson);
     setCurrentModuleIdx(moduleIdx);
-    setVideoLoading(true);
     setSidebarOpen(false);
+    if (lesson.lessonId) {
+      fetchVideoSign(lesson.lessonId);
+    } else {
+      setVideoLoading(false);
+    }
   };
 
   const toggleModule = (idx: number) => {
@@ -422,27 +480,17 @@ export default function LearnPage() {
               <div style={{ background: "#000", position: "relative" }}>
                 <div style={{ aspectRatio: "16/9", maxHeight: "calc(100vh - 200px)", position: "relative" }}>
                   {videoLoading && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        background: "#000",
-                      }}
-                    >
+                    <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "#000", zIndex: 1 }}>
                       <div style={{ width: "32px", height: "32px", border: "2px solid rgba(255,255,255,0.2)", borderTopColor: "#fff", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
                     </div>
                   )}
-                  <video
-                    key={currentLesson.id}
-                    src={TEST_VIDEO_URL}
-                    controls
-                    autoPlay
-                    style={{ width: "100%", height: "100%", display: "block" }}
-                    onCanPlay={() => setVideoLoading(false)}
-                  />
+                  {videoInfo ? (
+                    <div ref={playerContainerRef} style={{ width: "100%", height: "100%" }} />
+                  ) : !videoLoading && (
+                    <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "#111" }}>
+                      <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px" }}>视频即将上线，敬请期待</p>
+                    </div>
+                  )}
                 </div>
               </div>
 
