@@ -60,7 +60,7 @@ export default function RootLayout({
         {/* Footer */}
         <footer className="bg-white border-t border-[#E8E8E8] py-12 mt-16">
           <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
                 <div className="font-semibold mb-4">AI自媒体课程</div>
                 <p className="text-[#666] text-sm">
@@ -77,9 +77,22 @@ export default function RootLayout({
               <div>
                 <div className="font-semibold mb-4">联系方式</div>
                 <p className="text-[#666] text-sm">
-                  微信：Timetravel_0<br />
+                  微信：RoadPro88<br />
                   公众号：Hello我是路人
                 </p>
+              </div>
+              <div>
+                <div className="font-semibold mb-4">扫码关注</div>
+                <div style={{ display: "flex", gap: "12px" }}>
+                  <div style={{ textAlign: "center" }}>
+                    <img src="/个人微信二维码.jpg" alt="个人微信" style={{ width: "72px", height: "72px", borderRadius: "6px", border: "0.5px solid rgba(0,0,0,0.08)", objectFit: "cover" }} />
+                    <div style={{ fontSize: "11px", color: "#999", marginTop: "5px" }}>个人微信</div>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <img src="/公众号二维码.png" alt="公众号" style={{ width: "72px", height: "72px", borderRadius: "6px", border: "0.5px solid rgba(0,0,0,0.08)", objectFit: "cover" }} />
+                    <div style={{ fontSize: "11px", color: "#999", marginTop: "5px" }}>公众号</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="border-t border-[#E8E8E8] mt-8 pt-8 text-center text-sm text-[#666]">
