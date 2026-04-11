@@ -297,8 +297,8 @@ export default function CourseDetailPage() {
                 <div style={{ background: "#fff", border: "0.5px solid rgba(0,0,0,0.08)", borderRadius: "10px", overflow: "hidden", marginBottom: "2rem" }}>
                   {/* header */}
                   <div style={{ background: "#18181b", padding: "1rem 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.5)", letterSpacing: "0.06em" }}>课程信息</span>
-                    <span style={{ background: "rgba(255,255,255,0.08)", borderRadius: "3px", padding: "2px 8px", fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{course.name}</span>
+                    <div style={{ fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.5)", letterSpacing: "0.06em", background: "transparent", border: "none", padding: 0, borderRadius: 0 }}>课程信息</div>
+                    <div style={{ background: "rgba(255,255,255,0.1)", border: "none", outline: "none", boxShadow: "none", borderRadius: "3px", padding: "3px 9px", fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{course.name}</div>
                   </div>
                   {/* 目标学员 */}
                   <div style={{ display: "flex", borderBottom: "0.5px solid rgba(0,0,0,0.06)" }}>
