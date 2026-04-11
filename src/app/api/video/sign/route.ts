@@ -16,29 +16,34 @@ function getSupabaseAdmin() {
 }
 
 // 生成腾讯云点播 psign 播放签名
-// 文档：https://cloud.tencent.com/document/product/266/42436
+// 官方文档：https://cloud.tencent.com/document/product/266/42436
 function generatePsign(fileId: string): string {
   const currentTime = Math.floor(Date.now() / 1000);
-  const expireTime = currentTime + 86400; // 24小时有效期
+  const expireTime = currentTime + 86400;
 
-  const params = {
+  const params: Record<string, string | number> = {
     appId: Number(VOD_APP_ID),
     fileId: fileId,
     currentTimeStamp: currentTime,
     expireTimeStamp: expireTime,
   };
 
-  // payload: base64url 编码的 JSON
-  const payloadStr = JSON.stringify(params);
-  const payload = Buffer.from(payloadStr).toString("base64url");
+  // 1. 按字母序排列参数，拼成 query string
+  const queryString = Object.keys(params)
+    .sort()
+    .map((k) => `${k}=${params[k]}`)
+    .join("&");
 
-  // 签名原文 = payload + SecretKey
-  const signStr = payload + VOD_SECRET_KEY;
-  const signature = crypto
-    .createHmac("sha256", VOD_SECRET_KEY)
-    .update(signStr)
-    .digest("base64url");
+  // 2. 签名原文 = queryString + SecretKey
+  const signStr = queryString + VOD_SECRET_KEY;
 
+  // 3. HMAC-SHA256，key 也是 SecretKey
+  const hmac = crypto.createHmac("sha256", VOD_SECRET_KEY);
+  hmac.update(signStr);
+  const signature = hmac.digest("hex");
+
+  // 4. payload = base64url(JSON)，psign = payload + . + signature
+  const payload = Buffer.from(JSON.stringify(params)).toString("base64url");
   return `${payload}.${signature}`;
 }
 
