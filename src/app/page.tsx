@@ -181,7 +181,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <a href="#pricing" className="btn btn-primary text-lg px-8 group">
+              <a href="#pricing" className="btn btn-primary text-lg px-8 group" style={{ color: "#ffffff" }}>
                 立即加入
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
