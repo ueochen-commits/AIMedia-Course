@@ -302,21 +302,21 @@ export default function CourseDetailPage() {
                   </div>
                   {/* 目标学员 */}
                   <div style={{ display: "flex", borderBottom: "0.5px solid rgba(0,0,0,0.06)" }}>
-                    <div style={{ width: "100px", flexShrink: 0, padding: "1.1rem 1.5rem", fontSize: "11px", fontWeight: 500, color: "#a39e98", letterSpacing: "0.05em", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>目标学员</div>
-                    <div style={{ padding: "1.1rem 1.5rem", fontSize: "13px", color: "#18181b", lineHeight: 1.7 }}>{course.target}</div>
+                    <div style={{ width: "100px", flexShrink: 0, padding: "1.25rem 1.5rem", fontSize: "12px", fontWeight: 500, color: "#615d59", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>目标学员</div>
+                    <div style={{ padding: "1.25rem 1.5rem", fontSize: "14px", color: "#18181b", lineHeight: 1.6 }}>{course.target}</div>
                   </div>
                   {/* 学习成果 */}
                   <div style={{ display: "flex", borderBottom: "0.5px solid rgba(0,0,0,0.06)" }}>
-                    <div style={{ width: "100px", flexShrink: 0, padding: "1.1rem 1.5rem", fontSize: "11px", fontWeight: 500, color: "#a39e98", letterSpacing: "0.05em", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>学习成果</div>
-                    <div style={{ padding: "1.1rem 1.5rem", fontSize: "13px", color: "#18181b", lineHeight: 1.7 }}>
+                    <div style={{ width: "100px", flexShrink: 0, padding: "1.25rem 1.5rem", fontSize: "12px", fontWeight: 500, color: "#615d59", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>学习成果</div>
+                    <div style={{ padding: "1.25rem 1.5rem", fontSize: "14px", color: "#18181b", lineHeight: 1.6 }}>
                       <span style={{ fontWeight: 500 }}>{course.outcome}</span>
                     </div>
                   </div>
                   {/* 总课时 */}
                   <div style={{ display: "flex" }}>
-                    <div style={{ width: "100px", flexShrink: 0, padding: "1.1rem 1.5rem", fontSize: "11px", fontWeight: 500, color: "#a39e98", letterSpacing: "0.05em", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>总课时</div>
-                    <div style={{ padding: "1.1rem 1.5rem", fontSize: "13px", color: "#18181b", lineHeight: 1.7 }}>
-                      <span style={{ fontWeight: 500 }}>{course.totalLessons} 节</span>
+                    <div style={{ width: "100px", flexShrink: 0, padding: "1.25rem 1.5rem", fontSize: "12px", fontWeight: 500, color: "#615d59", borderRight: "0.5px solid rgba(0,0,0,0.06)" }}>总课时</div>
+                    <div style={{ padding: "1.25rem 1.5rem", fontSize: "14px", color: "#18181b", lineHeight: 1.6 }}>
+                      <span style={{ fontSize: "15px", fontWeight: 500 }}>{course.totalLessons} 节</span>
                       <span style={{ fontSize: "12px", color: "#a39e98", marginLeft: "6px" }}>每节 15–45 分钟</span>
                     </div>
                   </div>
