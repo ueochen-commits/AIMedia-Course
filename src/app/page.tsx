@@ -323,7 +323,7 @@ export default function Home() {
             <div className="p-6 bg-[#18181b] flex items-center justify-between border-b border-[rgba(255,255,255,0.08)]">
               <div>
                 <h3 className="text-[18px] font-medium text-white">课程大纲</h3>
-                <p className="text-[12px] text-white/45 mt-1">两个板块 · 共 38 节课程</p>
+                <p className="text-[12px] text-white/45 mt-1">两个板块 · 共约 60 节课程</p>
               </div>
               <span className="px-3 py-1 text-[11px] bg-white/10 text-white/60 rounded">每个板块学完即有成果</span>
             </div>
@@ -341,34 +341,42 @@ export default function Home() {
                     </span>
                     <h3 className="text-base font-medium text-[#1a1a1a]">AI 板块</h3>
                   </div>
-                  <p className="text-sm text-[#6b6b6b]">4模块 · 20节课程</p>
+                  <p className="text-sm text-[#6b6b6b]">5模块 · 约32节课程</p>
                 </div>
 
                 {/* 简介 */}
-                <p className="text-sm text-[#1a1a1a] opacity-75 mb-6">从零基础到用AI开发产品，掌握主流AI工具，具备Vibe Coding能力</p>
+                <p className="text-sm text-[#1a1a1a] opacity-75 mb-6">从零基础到用Claude Code开发产品，掌握完整一人公司技术栈</p>
 
                 {/* 模块列表 - 用横线分隔 */}
                 <div className="divide-y divide-[rgba(0,0,0,0.08)]">
+                  {/* 课前引导 */}
+                  <div className="py-[1.1rem]">
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">00 课前引导（免费）</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">一人公司概念</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">课程使用指南</span>
+                    </div>
+                  </div>
+
                   {/* 模块 01 */}
                   <div className="py-[1.1rem]">
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 入门准备</div>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">科学上网</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">谷歌账号</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Gmail注册</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">ChatGPT</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Claude注册</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Claude</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Gemini</span>
                     </div>
                   </div>
 
                   {/* 模块 02 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 AI工具基础</div>
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 AI工具实战</div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">主流模型对比</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">提示词工程</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI写作</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI图片</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI视频</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">即梦图片/视频</span>
                     </div>
                   </div>
 
@@ -378,18 +386,19 @@ export default function Home() {
                     <div className="flex flex-wrap gap-2">
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Obsidian知识库</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">NotebookLM</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">AI辅助决策</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">每日工作流</span>
                     </div>
                   </div>
 
                   {/* 模块 04 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 Vibe Coding</div>
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 一人公司技术栈</div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">GitHub</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Claude Code</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">实战网页开发</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Vercel部署</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">GitHub</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Supabase</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Vercel</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">实战项目</span>
                     </div>
                   </div>
                 </div>
@@ -414,54 +423,73 @@ export default function Home() {
                     </span>
                     <h3 className="text-base font-medium text-[#1a1a1a]">自媒体板块</h3>
                   </div>
-                  <p className="text-sm text-[#6b6b6b]">4模块 · 18节课程</p>
+                  <p className="text-sm text-[#6b6b6b]">6模块 · 约28节课程</p>
                 </div>
 
                 {/* 简介 */}
-                <p className="text-sm text-[#1a1a1a] opacity-75 mb-6">从自媒体认知到变现体系搭建，掌握内容创作方法论并建立变现体系</p>
+                <p className="text-sm text-[#1a1a1a] opacity-75 mb-6">从心态建设到拍摄剪辑到运营变现，学完能持续出内容并变现</p>
 
                 {/* 模块列表 */}
                 <div className="divide-y divide-[rgba(0,0,0,0.08)]">
+                  {/* 课前引导 */}
+                  <div className="py-[1.1rem]">
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">00 课前引导（免费）</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">心态建设</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">课程使用指南</span>
+                    </div>
+                  </div>
+
                   {/* 模块 01 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 认知与定位</div>
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">01 视频制作基础</div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">一人公司认知</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">差异化定位</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Build in Public</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">手机拍摄</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">剪映剪辑</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Canva封面</span>
                     </div>
                   </div>
 
                   {/* 模块 02 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 内容创作</div>
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">02 认知与定位</div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">爆款结构</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">选题方法</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">脚本写作</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">封面设计</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">一人公司认知</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">差异化定位</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">平台算法</span>
                     </div>
                   </div>
 
                   {/* 模块 03 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">03 运营增长</div>
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">03 爆款内容创作</div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">多平台分发</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">评论区运营</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">私域引流</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">数据复盘</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">爆款结构</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">选题方法</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">脚本写作</span>
                     </div>
                   </div>
 
                   {/* 模块 04 */}
                   <div className="py-[1.1rem]">
-                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 变现实战</div>
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 平台运营策略</div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">广告分成</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">多平台分发</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">私域引流</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">数据复盘</span>
+                    </div>
+                  </div>
+
+                  {/* 模块 05 */}
+                  <div className="py-[1.1rem]">
+                    <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">05 变现体系搭建</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">接广告</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">知识付费</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">带货分销</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">商业合作</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">产品矩阵</span>
+                    </div>
+                  </div>
+                </div>
                     </div>
                   </div>
                 </div>
@@ -511,7 +539,7 @@ export default function Home() {
                   <span className="text-[16px] text-[#1a1a1a] font-normal">¥</span>
                   <span className="text-[36px] font-normal text-[#1a1a1a]" style={{ letterSpacing: '-1px' }}>499</span>
                 </div>
-                <p className="text-sm text-[#6b6b6b] mb-6">20节课程</p>
+                <p className="text-sm text-[#6b6b6b] mb-6">约32节课程</p>
                 <Link href="/courses/ai" className="inline-block w-full py-3 text-center border border-[rgba(0,0,0,0.15)] text-[#1a1a1a] text-sm hover:bg-[#f5f5f5] transition-colors rounded-sm">
                   单独购买
                 </Link>
@@ -529,7 +557,7 @@ export default function Home() {
                   <span className="text-[36px] font-normal text-white" style={{ letterSpacing: '-1px' }}>799</span>
                   <span className="text-[10px] text-[#22c55e] bg-[#22c55e]/20 px-2 py-0.5 ml-2 rounded-sm">省¥199</span>
                 </div>
-                <p className="text-sm text-white/45 mb-6">55节课程</p>
+                <p className="text-sm text-white/45 mb-6">约75节课程</p>
                 <Link href="/courses/full" className="inline-block w-full py-3 text-center bg-white text-black text-sm hover:bg-gray-200 transition-colors rounded-sm">
                   立即购买
                 </Link>
@@ -544,7 +572,7 @@ export default function Home() {
                   <span className="text-[16px] text-[#1a1a1a] font-normal">¥</span>
                   <span className="text-[36px] font-normal text-[#1a1a1a]" style={{ letterSpacing: '-1px' }}>499</span>
                 </div>
-                <p className="text-sm text-[#6b6b6b] mb-6">18节课程</p>
+                <p className="text-sm text-[#6b6b6b] mb-6">约28节课程</p>
                 <Link href="/courses/media" className="inline-block w-full py-3 text-center border border-[rgba(0,0,0,0.15)] text-[#1a1a1a] text-sm hover:bg-[#f5f5f5] transition-colors rounded-sm">
                   单独购买
                 </Link>
