@@ -14,54 +14,72 @@ const TEST_VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
 // AI板块课程数据
 const aiCourseData = {
   name: "AI 板块",
-  description: "从零基础到用AI开发产品，独立掌握AI工具并具备产品开发能力",
+  description: "从零基础到用AI开发产品，掌握完整一人公司技术栈，能用Claude Code做出真实可上线的网站",
   price: 0.01,
-  target: "完全零基础，从未接触过AI工具",
-  outcome: "能独立使用主流AI工具，能用Vibe Coding做出简单网站",
-  totalLessons: 20,
+  target: "完全零基础，从未接触过AI工具，甚至不会翻墙",
+  outcome: "掌握完整一人公司技术栈，能用Claude Code做出真实可上线的完整网站产品",
+  totalLessons: 32,
   modules: [
     {
-      name: "模块一：入门准备",
-      description: "解决入门门槛，开启AI之旅",
+      name: "课前引导（免费）",
+      description: "理解一人公司框架，知道学完能做什么",
       lessons: [
-        { id: 1, name: "科学上网：翻墙工具安装与配置", outcome: "能访问Google、ChatGPT等境外网站", duration: "约20分钟", free: true },
-        { id: 2, name: "注册谷歌账号（手把手）", outcome: "拥有谷歌账号，能使用所有谷歌服务", duration: "约15分钟", free: true },
-        { id: 3, name: "注册ChatGPT账号与基础使用", outcome: "能打开ChatGPT并开始对话", duration: "约15分钟", free: false },
-        { id: 4, name: "注册Claude账号与基础使用", outcome: "了解Claude与ChatGPT的区别和适用场景", duration: "约15分钟", free: false },
-        { id: 5, name: "虚拟Visa卡申请与AI会员购买", outcome: "成功购买ChatGPT Plus或Claude Pro", duration: "约20分钟", free: false },
+        { id: 1, name: "什么是一人公司：概念、流程和整体思路", outcome: "理解一人公司的完整框架，知道学完这门课能做什么", duration: "约20分钟", free: true },
+        { id: 2, name: "如何使用这门课程", outcome: "知道网站怎么登录、视频怎么播放、学员群在哪里", duration: "约10分钟", free: true },
       ]
     },
     {
-      name: "模块二：AI工具基础使用",
+      name: "模块一：入门准备",
+      description: "解决入门门槛，手把手完成所有注册",
+      lessons: [
+        { id: 3, name: "科学上网：翻墙工具下载安装与使用", outcome: "能访问Google、ChatGPT等境外网站（手机+电脑）", duration: "约25分钟", free: false },
+        { id: 4, name: "Chrome浏览器安装与基础使用", outcome: "安装Chrome，设置中文界面，解释每个常用按钮", duration: "约15分钟", free: false },
+        { id: 5, name: "注册Gmail邮箱（手把手）", outcome: "拥有Gmail，遇到英文界面逐个翻译，手把手完成注册", duration: "约20分钟", free: false },
+        { id: 6, name: "注册ChatGPT账号与基础使用", outcome: "能打开ChatGPT，发出第一条消息，了解基础界面", duration: "约20分钟", free: false },
+        { id: 7, name: "注册Claude账号与基础使用", outcome: "能使用Claude，了解和ChatGPT的区别和适用场景", duration: "约20分钟", free: false },
+        { id: 8, name: "注册Gemini账号与基础使用", outcome: "能使用Gemini，了解三大模型各自特点", duration: "约15分钟", free: false },
+        { id: 9, name: "虚拟Visa卡申请与AI会员购买", outcome: "成功购买ChatGPT Plus或Claude Pro，解锁完整功能", duration: "约25分钟", free: false },
+      ]
+    },
+    {
+      name: "模块二：AI工具实战",
       description: "掌握主流AI工具，高效完成工作",
       lessons: [
-        { id: 6, name: "主流大模型对比：Claude vs ChatGPT vs Gemini", outcome: "知道不同任务用哪个AI效率最高", duration: "约25分钟", free: false },
-        { id: 7, name: "提示词工程实战：如何让AI听懂你的话", outcome: "掌握5个核心提示词技巧", duration: "约30分钟", free: false },
-        { id: 8, name: "AI写作实战：用AI写文案、邮件、报告", outcome: "10分钟完成1小时的写作任务", duration: "约25分钟", free: false },
-        { id: 9, name: "AI图片生成：Midjourney和Flux入门", outcome: "能生成符合需求的图片", duration: "约25分钟", free: false },
-        { id: 10, name: "AI视频生成：Google Veo 2.0实战", outcome: "能生成15-30秒的AI视频", duration: "约25分钟", free: false },
-        { id: 11, name: "Markdown和JSON：看懂AI输出的格式", outcome: "能读懂和使用AI输出的结构化内容", duration: "约15分钟", free: false },
+        { id: 10, name: "三大模型怎么选：ChatGPT vs Claude vs Gemini", outcome: "知道写作用哪个、编程用哪个、搜索用哪个", duration: "约25分钟", free: false },
+        { id: 11, name: "提示词工程实战：如何让AI真正听懂你的话", outcome: "掌握5个核心技巧，AI回复质量明显提升", duration: "约30分钟", free: false },
+        { id: 12, name: "AI写作实战：文案、方案、邮件全覆盖", outcome: "10分钟完成以前需要1小时的写作任务", duration: "约25分钟", free: false },
+        { id: 13, name: "AI图片生成：国内用即梦，国外用Midjourney", outcome: "能生成符合需求的图片，优先教国内免翻墙的即梦", duration: "约30分钟", free: false },
+        { id: 14, name: "AI视频生成：国内用即梦/可灵，国外用Veo 2.0", outcome: "能生成15-30秒短视频，重点教国内工具", duration: "约30分钟", free: false },
+        { id: 15, name: "Markdown和JSON：看懂AI输出的格式", outcome: "能读懂AI输出的结构化内容，不再觉得看不懂", duration: "约15分钟", free: false },
       ]
     },
     {
       name: "模块三：AI效率工具",
       description: "构建个人AI工作流，提升效率",
       lessons: [
-        { id: 12, name: "用Obsidian搭建AI知识库", outcome: "建立个人第二大脑，知识不再流失", duration: "约30分钟", free: false },
-        { id: 13, name: "NotebookLM实战：让AI读懂你的文档", outcome: "能上传资料让AI总结和回答问题", duration: "约20分钟", free: false },
-        { id: 14, name: "AI辅助决策：用Claude做分析和规划", outcome: "掌握用AI做复杂决策的完整框架", duration: "约25分钟", free: false },
+        { id: 16, name: "用Obsidian搭建AI个人知识库", outcome: "建立个人第二大脑，学到的东西不再丢失", duration: "约35分钟", free: false },
+        { id: 17, name: "NotebookLM实战：让AI读懂你的文档", outcome: "上传任何资料，让AI帮你总结和回答问题", duration: "约25分钟", free: false },
+        { id: 18, name: "AI辅助决策：用Claude做分析和规划", outcome: "掌握用AI做复杂决策的完整框架", duration: "约25分钟", free: false },
+        { id: 19, name: "用AI搭建每日工作流", outcome: "把AI融入日常工作，每天节省1-2小时", duration: "约25分钟", free: false },
       ]
     },
     {
-      name: "模块四：Vibe Coding入门",
-      description: "不教编程语法，教用自然语言让AI写代码",
+      name: "模块四：一人公司完整技术栈",
+      description: "用Claude Code把所有工具串联成完整产品开发体系",
       lessons: [
-        { id: 15, name: "GitHub注册与基础配置", outcome: "拥有GitHub账号，能上传和管理代码", duration: "约20分钟", free: false },
-        { id: 16, name: "Cursor安装与基础使用", outcome: "能打开Cursor，创建第一个项目", duration: "约15分钟", free: false },
-        { id: 17, name: "实战：用AI做一个个人简介网页", outcome: "完成并上线一个真实可访问的个人主页", duration: "约40分钟", free: false },
-        { id: 18, name: "实战：用AI做一个AI工具导航网站", outcome: "完成一个有实际功能的导航类网站", duration: "约45分钟", free: false },
-        { id: 19, name: "用Vercel部署网站（让全球都能访问）", outcome: "网站上线，拥有真实域名可以分享", duration: "约20分钟", free: false },
-        { id: 20, name: "案例复盘：我是怎么用AI做出TradeGrail", outcome: "了解完整AI产品开发流程，建立信心", duration: "约30分钟", free: false },
+        { id: 20, name: "用AI做产品前的需求分析", outcome: "学会在动手前把想做的东西说清楚，避免做一半卡住", duration: "约25分钟", free: false },
+        { id: 21, name: "GitHub：代码托管与版本管理入门", outcome: "注册GitHub，建立第一个仓库，理解代码托管的意义", duration: "约20分钟", free: false },
+        { id: 22, name: "Claude Code：用自然语言写代码", outcome: "安装Claude Code，完成第一个编程任务，零基础也能用", duration: "约25分钟", free: false },
+        { id: 23, name: "Supabase：搭建后端和数据库", outcome: "注册Supabase，建立第一张数据表，理解数据库是什么", duration: "约30分钟", free: false },
+        { id: 24, name: "Clerk：5分钟搭建用户注册登录系统", outcome: "接入Clerk，网站拥有完整的用户注册登录功能", duration: "约25分钟", free: false },
+        { id: 25, name: "Resend：给用户发邮件通知", outcome: "接入Resend，网站能自动发送注册验证邮件和通知", duration: "约20分钟", free: false },
+        { id: 26, name: "Vercel：一键部署网站上线", outcome: "把代码部署到Vercel，网站正式上线，全球可访问", duration: "约20分钟", free: false },
+        { id: 27, name: "Namecheap + Cloudflare：域名购买与网络加速", outcome: "买域名绑定网站，配置Cloudflare让国内用户访问更顺畅", duration: "约25分钟", free: false },
+        { id: 28, name: "Sentry：实时监控网站错误", outcome: "接入Sentry，用户遇到问题第一时间收到报警通知", duration: "约20分钟", free: false },
+        { id: 29, name: "Tally：免费搭建用户反馈表单", outcome: "用Tally建表单，嵌入网站，收集用户反馈和报名信息", duration: "约15分钟", free: false },
+        { id: 30, name: "PostHog：分析用户行为数据", outcome: "接入PostHog，知道用户在网站上做了什么，优化产品", duration: "约20分钟", free: false },
+        { id: 31, name: "实战：用完整技术栈做一个个人落地页", outcome: "串联所有工具，完成一个有用户系统的真实落地页", duration: "约50分钟", free: false },
+        { id: 32, name: "案例复盘：我是怎么用AI做出TradeGrail的", outcome: "了解完整AI产品开发流程，看到真实案例，建立信心", duration: "约40分钟", free: false },
       ]
     },
   ],
@@ -70,52 +88,70 @@ const aiCourseData = {
 // 自媒体板块课程数据
 const mediaCourseData = {
   name: "自媒体板块",
-  description: "从自媒体认知到变现体系搭建，掌握内容创作方法论并建立变现体系",
+  description: "从心态建设到拍摄剪辑到运营变现，学完能持续出内容并变现",
   price: 0.01,
-  target: "想做自媒体但不知道从哪开始，或已有账号但增长缓慢",
+  target: "想做自媒体但不知道从哪开始，或已有账号但粉丝不涨、内容没人看",
   outcome: "掌握内容创作方法论，能持续产出内容并建立变现体系",
-  totalLessons: 18,
+  totalLessons: 28,
   modules: [
     {
-      name: "模块一：自媒体认知与定位",
+      name: "课前引导（免费）",
+      description: "心态建设是做自媒体最重要也最容易被忽视的一关",
+      lessons: [
+        { id: 1, name: "开始之前：做自媒体最重要的心态建设", outcome: "突破心理障碍，明白自己一定有东西可以拍，敢于迈出第一步", duration: "约25分钟", free: true },
+        { id: 2, name: "如何使用这门课程", outcome: "知道学习顺序、适合什么人学、学完能做什么", duration: "约10分钟", free: true },
+      ]
+    },
+    {
+      name: "模块一：视频制作基础",
+      description: "用普通手机拍出好看的视频，掌握基础剪辑",
+      lessons: [
+        { id: 3, name: "手机拍摄技巧：构图、补光、稳定", outcome: "用普通手机拍出好看的视频，不需要买设备", duration: "约25分钟", free: false },
+        { id: 4, name: "剪映入门：基础剪辑、加字幕、加背景音乐", outcome: "完成一条视频的基础剪辑，加上字幕和配乐", duration: "约30分钟", free: false },
+        { id: 5, name: "剪映实战：完整剪出一条60秒短视频", outcome: "从原始素材到成品全流程，跟着做出一条完整视频", duration: "约40分钟", free: false },
+        { id: 6, name: "封面制作：用Canva做出高点击率封面", outcome: "掌握封面设计原则，做出让人想点的封面，不需要PS", duration: "约25分钟", free: false },
+      ]
+    },
+    {
+      name: "模块二：自媒体认知与定位",
       description: "建立正确认知，找到差异化定位",
       lessons: [
-        { id: 1, name: "什么是真正的一人公司（vs 打工人）", outcome: "建立正确创业认知，明白自己为什么做", duration: "约20分钟", free: true },
-        { id: 2, name: "如何找到你的差异化定位", outcome: "完成个人定位分析，确定账号方向", duration: "约25分钟", free: true },
-        { id: 3, name: "Build in Public：用真实记录建立信任", outcome: "理解为什么真实比精致更有效并开始实践", duration: "约20分钟", free: false },
-        { id: 4, name: "各平台算法逻辑对比：抖音vs快手vs视频号", outcome: "知道每个平台的推流逻辑，针对性投入", duration: "约25分钟", free: false },
+        { id: 7, name: "什么是真正的一人公司（vs 打工人）", outcome: "建立正确创业认知，明白为什么要做自媒体", duration: "约20分钟", free: false },
+        { id: 8, name: "如何找到你的差异化定位", outcome: "完成个人定位分析，确定账号方向，避免同质化", duration: "约25分钟", free: false },
+        { id: 9, name: "Build in Public：用真实记录建立信任", outcome: "理解为什么真实比精致更有效，开始实践", duration: "约20分钟", free: false },
+        { id: 10, name: "各平台算法逻辑对比：抖音、快手、视频号", outcome: "知道每个平台的推流逻辑，针对性投入，不再乱发", duration: "约25分钟", free: false },
       ]
     },
     {
-      name: "模块二：爆款内容创作方法论",
+      name: "模块三：爆款内容创作",
       description: "掌握万能内容公式，持续产出爆款",
       lessons: [
-        { id: 5, name: "爆款视频结构拆解：钩子+内容+悬念", outcome: "掌握万能视频结构，套用任何选题", duration: "约25分钟", free: false },
-        { id: 6, name: "选题方法论：如何找到有人看的话题", outcome: "建立选题库，每周不再为拍什么发愁", duration: "约25分钟", free: false },
-        { id: 7, name: "脚本写作：从想法到完整文案的流程", outcome: "能在1小时内写完一条视频完整脚本", duration: "约30分钟", free: false },
-        { id: 8, name: "用AI辅助创作：让AI帮你写脚本和文案", outcome: "AI辅助后内容产出速度提升3倍", duration: "约25分钟", free: false },
-        { id: 9, name: "封面设计：5秒内抓住用户的封面法则", outcome: "掌握高点击率封面的设计原则和工具", duration: "约20分钟", free: false },
-        { id: 10, name: "剪辑节奏：让观众看完的剪辑技巧", outcome: "掌握完播率提升的关键剪辑节奏", duration: "约25分钟", free: false },
+        { id: 11, name: "爆款视频结构拆解：钩子+内容+悬念", outcome: "掌握万能视频结构，套用到任何选题", duration: "约25分钟", free: false },
+        { id: 12, name: "选题方法论：如何找到有人看的话题", outcome: "建立选题库，每周不再为拍什么发愁", duration: "约25分钟", free: false },
+        { id: 13, name: "脚本写作：从想法到完整文案的流程", outcome: "能在1小时内写完一条视频的完整脚本", duration: "约30分钟", free: false },
+        { id: 14, name: "用AI辅助写文案：AI打草稿，自己打磨", outcome: "AI帮你写初稿节省时间，最终靠自己调整", duration: "约15分钟", free: false },
+        { id: 15, name: "封面设计法则：5秒内抓住用户", outcome: "掌握高点击率封面的核心原则", duration: "约20分钟", free: false },
+        { id: 16, name: "剪辑节奏：让观众看完的关键技巧", outcome: "掌握提升完播率的剪辑节奏，减少用户划走", duration: "约25分钟", free: false },
       ]
     },
     {
-      name: "模块三：运营增长策略",
+      name: "模块四：平台运营策略",
       description: "获取流量，建立私域，持续增长",
       lessons: [
-        { id: 11, name: "多平台同步发布：一条内容最大化曝光", outcome: "5分钟完成多平台投放，流量翻倍", duration: "约20分钟", free: false },
-        { id: 12, name: "评论区运营：让算法持续推流的秘诀", outcome: "掌握互动技巧，让算法判定你的内容有价值", duration: "约20分钟", free: false },
-        { id: 13, name: "私域流量：从粉丝到真实用户的转化", outcome: "建立公众号和社群，沉淀最忠实受众", duration: "约25分钟", free: false },
-        { id: 14, name: "数据复盘：用数据指导内容迭代", outcome: "掌握关键数据指标，判断什么内容值得继续做", duration: "约20分钟", free: false },
+        { id: 17, name: "多平台同步发布：一条内容最大化曝光", outcome: "搭建同步发布流程，5分钟完成多平台投放", duration: "约20分钟", free: false },
+        { id: 18, name: "评论区运营：让算法持续推流的秘诀", outcome: "掌握互动技巧，让算法判定你的内容有价值", duration: "约20分钟", free: false },
+        { id: 19, name: "私域流量：从粉丝到真实用户的转化", outcome: "建立公众号和社群，沉淀最忠实的受众", duration: "约25分钟", free: false },
+        { id: 20, name: "数据复盘：用数据指导内容迭代", outcome: "掌握关键数据指标，判断什么内容值得继续做", duration: "约20分钟", free: false },
       ]
     },
     {
-      name: "模块四：变现实战",
+      name: "模块五：变现体系搭建",
       description: "将流量转化为收入",
       lessons: [
-        { id: 15, name: "广告分成：平台收益的最基础形式", outcome: "了解广告收益规则，最大化内容收益", duration: "约20分钟", free: false },
-        { id: 16, name: "知识付费：把经验变成产品", outcome: "设计并上线自己的知识付费产品", duration: "约25分钟", free: false },
-        { id: 17, name: "带货分销：推荐好物获得佣金", outcome: "掌握带货技巧，通过推荐获得收入", duration: "约20分钟", free: false },
-        { id: 18, name: "商业合作：品牌方的合作机会", outcome: "掌握商务合作谈判技巧，获得品牌合作", duration: "约25分钟", free: false },
+        { id: 21, name: "如何接到第一个广告：主动找品牌而不是等", outcome: "掌握主动联系品牌的方法，5万粉丝以下也能接到单", duration: "约25分钟", free: false },
+        { id: 22, name: "知识付费产品设计与定价策略", outcome: "设计出自己的第一个知识产品，学会合理定价", duration: "约30分钟", free: false },
+        { id: 23, name: "产品矩阵搭建：从体验课到终身会员", outcome: "建立完整的产品梯级，引导用户持续升级", duration: "约25分钟", free: false },
+        { id: 24, name: "案例复盘：我是如何从零做自媒体的", outcome: "路人从2018年到现在的真实经历，快手一周涨粉30万背后的方法", duration: "约35分钟", free: false },
       ]
     },
   ],
@@ -175,7 +211,7 @@ const fullCourseData = {
   name: "全套课程",
   description: "AI板块 + 自媒体板块 + 商业思维板块，一次购买，完整体系",
   price: 0.01,
-  includes: ["AI板块（20节课）", "自媒体板块（18节课）", "商业思维板块（15节课，仅全套专享）"],
+  includes: ["AI板块（约32节课）", "自媒体板块（约28节课）", "商业思维板块（15节课，仅全套专享）"],
 };
 
 export default function CourseDetailPage() {
