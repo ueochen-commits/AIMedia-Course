@@ -387,7 +387,7 @@ export default function Home() {
                     <div className="text-[12px] text-[#6b6b6b] mb-2 font-medium">04 Vibe Coding</div>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">GitHub</span>
-                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Cursor</span>
+                      <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Claude Code</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">实战网页开发</span>
                       <span className="px-[10px] py-1 text-[12px] bg-[#f0efed] text-[#4a4845] rounded-[4px]">Vercel部署</span>
                     </div>

@@ -46,7 +46,7 @@ const timeline = [
 ];
 
 const skills = [
-  { title: "AI 产品开发", desc: "Cursor · Vibe Coding · 已有上线产品" },
+  { title: "AI 产品开发", desc: "Claude Code · Vibe Coding · 已有上线产品" },
   { title: "自媒体运营", desc: "多平台60万粉 · 爆款方法论" },
   { title: "金融与商业", desc: "CFA一级 · 美股外汇 · 创业经历" },
   { title: "工程动手能力", desc: "机械工程背景 · 强执行力" },
