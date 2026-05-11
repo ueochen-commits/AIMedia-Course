@@ -63,11 +63,10 @@ export async function POST(request: NextRequest) {
     let userId: string | null = null;
     if (userEmail && userEmail !== "guest") {
       // 用 Admin API 按 email 查找 Supabase Auth 用户，获取真实 auth.uid()
-      const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers({ perPage: 1000 });
+      const { data: { user: authUser }, error: listError } = await supabaseAdmin.auth.admin.getUserByEmail(userEmail);
       if (listError) {
-        console.error("Failed to list auth users:", listError);
+        console.error("Failed to find auth user:", listError);
       } else {
-        const authUser = users.find((u) => u.email === userEmail);
         if (authUser) {
           userId = authUser.id;
           console.log("Found auth user:", userId);
