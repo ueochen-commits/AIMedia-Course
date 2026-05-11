@@ -28,6 +28,20 @@ CREATE TABLE purchases (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- 课时表
+CREATE TABLE lessons (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  course_id TEXT NOT NULL REFERENCES courses(id),
+  module_name TEXT NOT NULL,
+  module_order INTEGER NOT NULL,
+  title TEXT NOT NULL,
+  lesson_order INTEGER NOT NULL,
+  tencent_file_id TEXT,
+  duration TEXT,
+  is_free BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
 -- 启用 RLS
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
