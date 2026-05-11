@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabase";
 
 const aiCourseData = {
   name: "AI 板块",
-  price: 0.01,
+  price: 499,
   modules: [
     {
       name: "课前引导（免费）",
@@ -72,7 +72,7 @@ const aiCourseData = {
 
 const mediaCourseData = {
   name: "自媒体板块",
-  price: 0.01,
+  price: 499,
   modules: [
     {
       name: "课前引导（免费）",
@@ -133,7 +133,7 @@ const mediaCourseData = {
 
 const businessCourseData = {
   name: "商业思维板块",
-  price: 0.01,
+  price: 499,
   modules: [
     {
       name: "模块一：商业认知基础",

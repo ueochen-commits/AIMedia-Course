@@ -15,7 +15,7 @@ const TEST_VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
 const aiCourseData = {
   name: "AI 板块",
   description: "从零基础到用AI开发产品，掌握完整一人公司技术栈，能用Claude Code做出真实可上线的网站",
-  price: 0.01,
+  price: 499,
   target: "完全零基础，从未接触过AI工具，甚至不会翻墙",
   outcome: "掌握完整一人公司技术栈，能用Claude Code做出真实可上线的完整网站产品",
   totalLessons: 32,
@@ -89,7 +89,7 @@ const aiCourseData = {
 const mediaCourseData = {
   name: "自媒体板块",
   description: "从心态建设到拍摄剪辑到运营变现，学完能持续出内容并变现",
-  price: 0.01,
+  price: 499,
   target: "想做自媒体但不知道从哪开始，或已有账号但粉丝不涨、内容没人看",
   outcome: "掌握内容创作方法论，能持续产出内容并建立变现体系",
   totalLessons: 28,
@@ -161,7 +161,7 @@ const mediaCourseData = {
 const businessCourseData = {
   name: "商业思维板块",
   description: "建立商业思维，看懂变现逻辑，这是全套独有的核心差异化内容",
-  price: 0.01,
+  price: 499,
   exclusive: true,
   totalLessons: 15,
   modules: [
@@ -210,7 +210,7 @@ const businessCourseData = {
 const fullCourseData = {
   name: "全套课程",
   description: "AI板块 + 自媒体板块 + 商业思维板块，一次购买，完整体系",
-  price: 0.01,
+  price: 799,
   includes: ["AI板块（约32节课）", "自媒体板块（约28节课）", "商业思维板块（15节课，仅全套专享）"],
 };
 
