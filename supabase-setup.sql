@@ -20,8 +20,12 @@ CREATE TABLE purchases (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id),
   course_id TEXT REFERENCES courses(id),
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  payment_status TEXT DEFAULT 'pending'
+  order_id TEXT UNIQUE,
+  aoid TEXT,
+  amount NUMERIC(10, 2),
+  payment_status TEXT DEFAULT 'pending',
+  paid_at TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- 启用 RLS
