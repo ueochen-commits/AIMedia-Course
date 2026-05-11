@@ -16,7 +16,7 @@ function getSupabaseAdmin() {
 }
 
 // 播放密钥（来自腾讯云点播控制台 → 分发播放设置 → 默认分发配置）
-const VOD_PLAY_KEY = process.env.TENCENT_VOD_PLAY_KEY || "Slz2ha4ehmXPCmjd0VrB";
+const VOD_PLAY_KEY = process.env.TENCENT_VOD_PLAY_KEY!;
 
 // 生成腾讯云点播 psign 播放签名（标准 JWT 格式）
 // 文档：https://cloud.tencent.com/document/product/266/42436

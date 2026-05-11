@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import md5 from "md5";
 
 // XorPay 配置
-const AID = "703723";
-const APP_SECRET = "10b1cec33b32449288251576760ce52c";
-const NOTIFY_URL = "https://lurenclass.com/api/payment/callback";
+const AID = process.env.XORPAY_AID!;
+const APP_SECRET = process.env.XORPAY_APP_SECRET!;
+const NOTIFY_URL = process.env.XORPAY_NOTIFY_URL!;
 
 // 生成签名
 function generateSign(params: {

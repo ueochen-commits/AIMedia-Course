@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import md5 from "md5";
 import { createClient } from "@supabase/supabase-js";
 
-const APP_SECRET = "10b1cec33b32449288251576760ce52c";
+const APP_SECRET = process.env.XORPAY_APP_SECRET!;
 
 // 使用 service role key 的服务端 client，绕过 RLS（懒初始化，避免构建时报错）
 function getSupabaseAdmin() {
