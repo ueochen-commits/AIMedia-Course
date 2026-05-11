@@ -62,29 +62,18 @@ export async function POST(request: NextRequest) {
     // 通过 Auth Admin API 查找用户真实的 auth.uid()
     let userId: string | null = null;
     if (userEmail && userEmail !== "guest") {
-      // 用 Admin API 按 email 查找 Supabase Auth 用户，获取真实 auth.uid()
-      const { data: { user: authUser }, error: listError } = await supabaseAdmin.auth.admin.getUserByEmail(userEmail);
-      if (listError) {
-        console.error("Failed to find auth user:", listError);
+      // 直接查 users 表（service role 可绕过 RLS），按 email 获取 auth.uid()
+      const { data: existingUser, error: lookupError } = await supabaseAdmin
+        .from("users")
+        .select("id")
+        .eq("email", userEmail)
+        .single();
+
+      if (lookupError || !existingUser) {
+        console.error("No user found for email:", userEmail, lookupError);
       } else {
-        if (authUser) {
-          userId = authUser.id;
-          console.log("Found auth user:", userId);
-
-          // 确保 users 表中有对应记录（用 auth.uid() 作为 id）
-          const { data: existingUser } = await supabaseAdmin
-            .from("users")
-            .select("id")
-            .eq("id", userId)
-            .single();
-
-          if (!existingUser) {
-            await supabaseAdmin.from("users").insert({ id: userId, email: userEmail });
-            console.log("Created users table record for:", userId);
-          }
-        } else {
-          console.error("No auth user found for email:", userEmail);
-        }
+        userId = existingUser.id;
+        console.log("Found user:", userId);
       }
     }
 
